@@ -1,4 +1,4 @@
 interface Menu {
-    public void item();
-    public void price();
+    void item();
+    void price();
 }
