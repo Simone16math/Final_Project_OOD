@@ -1,7 +1,7 @@
 public class Drinks implements Menu{
     @Override
     public void item() {
-        String name = "Drink";
+        String name = "Drinks";
     }
 
     @Override
