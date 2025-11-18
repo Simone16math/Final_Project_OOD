@@ -5,7 +5,7 @@ public class MenuFactory {
         }else if(type.equalsIgnoreCase("Cookie")){
             return new Cookie();
         }else if(type.equalsIgnoreCase("Drinks")){
-            return new Drink();
+            return new Drinks();
         }
     }
 
