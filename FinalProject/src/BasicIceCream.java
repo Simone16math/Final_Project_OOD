@@ -1,4 +1,5 @@
-public class BasicIceCream extends IceCream implements Menu{
+public class BasicIceCream extends IceCream {
+    // remember to implement menu back after testing
     @Override
     public void item() {
         String name = "IceCream";
