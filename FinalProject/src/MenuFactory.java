@@ -1,7 +1,7 @@
 public class MenuFactory {
     public Menu createItem(String type) {
         if (type.equalsIgnoreCase("IceCream")) {
-            return new IceCream();
+            return new BasicIceCream();
         } else if (type.equalsIgnoreCase("Cookie")) {
             return new Cookie();
         } else if (type.equalsIgnoreCase("Drinks")) {

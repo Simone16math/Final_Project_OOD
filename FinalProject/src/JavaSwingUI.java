@@ -4,7 +4,7 @@ import java.awt.*;
 public class JavaSwingUI extends JFrame{
     private JTextArea outputArea;
 
-    public JavaSwingUI() {
+    public JavaSwingUI(JavaSwingUI javaSwingUI) {
         setTitle("Café:");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 800);
@@ -32,7 +32,7 @@ public class JavaSwingUI extends JFrame{
                 e.printStackTrace();
             }
 
-            JavaSwingUI cafe = new JavaSwingUI();
+            JavaSwingUI cafe = new JavaSwingUI(this);
             cafe.setVisible(true);
 
         });
