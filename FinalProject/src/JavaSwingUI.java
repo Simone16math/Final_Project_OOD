@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class JavaSwingUI extends JPanel{
+public class JavaSwingUI extends JFrame{
     private JTextArea outputArea;
     private JPanel parent;
 
