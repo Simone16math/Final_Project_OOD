@@ -4,21 +4,32 @@ import java.awt.*;
 public class JavaSwingUI extends JFrame{
     private JTextArea outputArea;
 
-    public JavaSwingUI(JavaSwingUI javaSwingUI) {
-        setTitle("Café:");
+    public JavaSwingUI() {
+        setTitle("Café");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 800);
         setLocationRelativeTo(null);
 
 
         // Main panel with tabs
-        JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.addTab("Café", new JavaSwingUI(this));
+        /*JTabbedPane tabbedPane = new JTabbedPane();
+        tabbedPane.addTab("Café", new JavaSwingUI(this));*/
 
 
         // Layout
         setLayout(new BorderLayout());
-        add(tabbedPane, BorderLayout.CENTER);
+        //add(tabbedPane, BorderLayout.CENTER);
+
+        //Output box
+        outputArea = new JTextArea(5,50);
+        outputArea.setEditable(false);
+        add(outputArea, BorderLayout.SOUTH);
+
+        //Menu
+
+
+        //add(new JScrollPane(outputArea), BorderLayout.CENTER);
+
     }
     public void log(String message) {
         outputArea.append(message + "\n");
@@ -32,7 +43,7 @@ public class JavaSwingUI extends JFrame{
                 e.printStackTrace();
             }
 
-            JavaSwingUI cafe = new JavaSwingUI(this);
+            JavaSwingUI cafe = new JavaSwingUI();
             cafe.setVisible(true);
 
         });
