@@ -1,6 +1,6 @@
-public class Sprinkles extends ToppingDecorator{
+public class SprinklesDecorator extends ToppingDecorator{
 
-    public Sprinkles(IceCream1 iceCream1){
+    public SprinklesDecorator(IceCream1 iceCream1){
         super(iceCream1);
     }
 

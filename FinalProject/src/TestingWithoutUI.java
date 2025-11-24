@@ -5,10 +5,10 @@ public class TestingWithoutUI {
 
         System.out.println(icecream1.getDescription() + " $" + icecream1.getPrice());
 
-        icecream1 = new Sprinkles(icecream1);
+        icecream1 = new SprinklesDecorator(icecream1);
         System.out.println(icecream1.getDescription() + " $" + icecream1.getPrice());
 
-        icecream1 = new ChocolateChips(icecream1);
+        icecream1 = new ChocolateChipsDecorator(icecream1);
         System.out.println(icecream1.getDescription() + " $" + icecream1.getPrice());
 
     }
