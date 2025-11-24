@@ -1,11 +1,13 @@
 public class Drinks implements Menu{
     @Override
-    public void item() {
+    public String item() {
         String name = "Drinks";
+        return name;
     }
 
     @Override
-    public void price() {
+    public double price() {
         double price = 5.0;
+        return price;
     }
 }

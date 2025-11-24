@@ -1,11 +1,13 @@
 public class BasicIceCream extends IceCream implements Menu{
     @Override
-    public void item() {
+    public String item() {
         String name = "IceCream";
+        return name;
     }
 
     @Override
-    public void price() {
+    public double price() {
         double price = 2.0;
+        return price;
     }
 }

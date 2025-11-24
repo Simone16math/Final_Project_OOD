@@ -1,12 +1,13 @@
 public class Cookie implements Menu{
     @Override
-    public void item() {
+    public String item() {
         String name = "Cookie";
+        return name;
     }
 
     @Override
-    public void price() {
+    public double price() {
         double price = 2.0;
-
+        return price;
     }
 }
