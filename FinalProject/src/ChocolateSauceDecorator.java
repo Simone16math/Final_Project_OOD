@@ -1,12 +1,12 @@
-public class ChocolateChipsDecorator extends ToppingDecorator{
+public class ChocolateSauceDecorator extends ToppingDecorator{
 
-    public ChocolateChipsDecorator(IceCream1 iceCream1){
+    public ChocolateSauceDecorator(IceCream1 iceCream1){
         super(iceCream1);
     }
 
     @Override
     public String getDescription(){
-        return super.getDescription() + ", Chocolate Chips";
+        return super.getDescription() + ", Chocolate Sauce";
     }
 
     @Override

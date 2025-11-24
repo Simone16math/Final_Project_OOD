@@ -8,7 +8,7 @@ public class TestingWithoutUI {
         icecream1 = new SprinklesDecorator(icecream1);
         System.out.println(icecream1.getDescription() + " $" + icecream1.getPrice());
 
-        icecream1 = new ChocolateChipsDecorator(icecream1);
+        icecream1 = new ChocolateSauceDecorator(icecream1);
         System.out.println(icecream1.getDescription() + " $" + icecream1.getPrice());
 
     }
