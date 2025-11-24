@@ -1,4 +1,4 @@
-abstract class ToppingDecorator  implements IceCream{
+abstract class ToppingDecorator extends IceCream {
     protected IceCream iceCream;
 
     public ToppingDecorator(IceCream iceCream){
