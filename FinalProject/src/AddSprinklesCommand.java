@@ -1,4 +1,4 @@
-public class AddSprinklesCommand {
+public class AddSprinklesCommand implements Command {
     private BasicIceCream1 basicIceCream1;
 
     public AddSprinklesCommand(BasicIceCream1 basicIceCream1){
