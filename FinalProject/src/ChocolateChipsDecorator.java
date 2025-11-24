@@ -1,6 +1,6 @@
-public class ChocolateChips extends ToppingDecorator{
+public class ChocolateChipsDecorator extends ToppingDecorator{
 
-    public ChocolateChips(IceCream1 iceCream1){
+    public ChocolateChipsDecorator(IceCream1 iceCream1){
         super(iceCream1);
     }
 
