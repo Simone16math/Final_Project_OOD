@@ -26,15 +26,18 @@ public class JavaSwingUI1 extends JFrame{
             String input = JOptionPane.showInputDialog( "Enter your name:");
             if (input != null) log("Input: " + input);
         });
+        add(inputButton);
 
         // Option Dialog
         JButton iceCream = new JButton("IceCream");
         iceCream.addActionListener(e -> {
-            Object[] options = {"Sprinkles", "Chocolate sauce", "plain"};
+            Object[] options = {"Sprinkles", "Chocolate sauce", "Plain"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a topping:", "Toppings",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) log("Option selected: " + options[choice]);
         });
+        add(iceCream);
+
         // Option Dialog
         JButton Cookie = new JButton("Cookie");
         Cookie.addActionListener(e -> {
@@ -43,6 +46,8 @@ public class JavaSwingUI1 extends JFrame{
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) log("Option selected: " + options[choice]);
         });
+        add(Cookie);
+
         // Option Dialog
         JButton Drinks = new JButton("Drinks Dialog");
         Drinks.addActionListener(e -> {
@@ -51,6 +56,7 @@ public class JavaSwingUI1 extends JFrame{
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) log("Option selected: " + options[choice]);
         });
+        add(Drinks);
 
         // Confirm Dialog
         JButton confirmButton = new JButton("Confirm Dialog");
@@ -59,6 +65,7 @@ public class JavaSwingUI1 extends JFrame{
                     "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
             log("Confirm result: " + result);
         });
+        add(confirmButton);
 
 
         //Output box
