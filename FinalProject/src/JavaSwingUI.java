@@ -24,8 +24,9 @@ public class JavaSwingUI extends JFrame{
         JButton inputButton = new JButton("Input Dialog");
         inputButton.addActionListener(e -> {
             String input = JOptionPane.showInputDialog(parent, "Enter your name:");
-            if (input != null) parent.log("Input: " + input);
+            if (input != null) log("Input: " + input);
         });
+        add(inputButton);
 
         // Option Dialog
         JButton iceCream = new JButton("IceCream");
@@ -33,15 +34,17 @@ public class JavaSwingUI extends JFrame{
             Object[] options = {"Sprinkles", "Chocolate sauce", "plain"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a topping:", "Toppings",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-            if (choice >= 0) parent.log("Option selected: " + options[choice]);
+            if (choice >= 0) log("Option selected: " + options[choice]);
         });
+        add(iceCream);
+
         // Option Dialog
         JButton Cookie = new JButton("Cookie");
         Cookie.addActionListener(e -> {
             Object[] options = {"Large", "Small"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a size:", "Options",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-            if (choice >= 0) parent.log("Option selected: " + options[choice]);
+            if (choice >= 0) log("Option selected: " + options[choice]);
         });
         // Option Dialog
         JButton Drinks = new JButton("Drinks Dialog");
@@ -49,16 +52,18 @@ public class JavaSwingUI extends JFrame{
             Object[] options = {"Vanilla Shake", "Strawberry-Banana Smoothie", "Chocolate Shake"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose an option:", "Options",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-            if (choice >= 0) parent.log("Option selected: " + options[choice]);
+            if (choice >= 0) log("Option selected: " + options[choice]);
         });
+        add(Drinks);
 
         // Confirm Dialog
         JButton confirmButton = new JButton("Confirm Dialog");
         confirmButton.addActionListener(e -> {
             int result = JOptionPane.showConfirmDialog(parent, "Do you want to continue?",
                     "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
-            parent.log("Confirm result: " + result);
+            log("Confirm result: " + result);
         });
+        add(confirmButton);
 
 
         //Output box
@@ -72,10 +77,12 @@ public class JavaSwingUI extends JFrame{
         //add(new JScrollPane(outputArea), BorderLayout.CENTER);
 
     }
+
     public void log(String message) {
         outputArea.append(message + "\n");
         outputArea.setCaretPosition(outputArea.getDocument().getLength());
     }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {
