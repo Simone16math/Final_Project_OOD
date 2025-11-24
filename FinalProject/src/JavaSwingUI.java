@@ -17,8 +17,10 @@ public class JavaSwingUI extends JFrame{
 
 
         // Layout
-        setLayout(new BorderLayout());
+        //setLayout(new BorderLayout());
         //add(tabbedPane, BorderLayout.CENTER);
+
+        setLayout(new GridLayout(5, 2, 10, 10));
 
         //Output box
         outputArea = new JTextArea(5,50);
@@ -26,15 +28,27 @@ public class JavaSwingUI extends JFrame{
         add(outputArea, BorderLayout.SOUTH);
 
         //Menu
-
-
         //add(new JScrollPane(outputArea), BorderLayout.CENTER);
+
+
+        // Input Dialog
+
+        JButton inputButton = new JButton("InoutDialog");
+        inputButton.addActionListener(e ->{
+            String input = JOptionPane.showInputDialog("Enter your name");
+            if (input != null){
+                log("Input: " + input);
+            }
+        });
+        add(inputButton);
 
     }
     public void log(String message) {
         outputArea.append(message + "\n");
         outputArea.setCaretPosition(outputArea.getDocument().getLength());
     }
+
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {
