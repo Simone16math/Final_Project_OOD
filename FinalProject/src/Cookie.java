@@ -1,6 +1,6 @@
 public class Cookie implements Menu{
     @Override
-    public void item() {
+    public String getItemDescription() {
         String name = "Cookie";
     }
 
