@@ -1,4 +1,4 @@
 public interface Menu1 {
-    String getItem();
+    String getDescription();
     double getPrice();
 }
