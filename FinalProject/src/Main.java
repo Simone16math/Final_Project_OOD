@@ -11,6 +11,7 @@ public class Main {
 
 //            JavaSwingUI1 cafe = new JavaSwingUI1();
 //            cafe.setVisible(true);
+            // testing using a new UI
             ParlorUITest test = new ParlorUITest();
             test.setVisible(true);
 

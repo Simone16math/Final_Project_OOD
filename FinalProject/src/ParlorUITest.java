@@ -29,6 +29,9 @@ public class ParlorUITest extends JFrame{
         JScrollPane scrollPane = new JScrollPane(menuItems);
         add(scrollPane);
 
+        JButton drinks = new JButton("Drinks Options");
+        add(drinks);
+
     }
 
 }
