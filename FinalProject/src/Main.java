@@ -9,8 +9,10 @@ public class Main {
                 e.printStackTrace();
             }
 
-            JavaSwingUI1 cafe = new JavaSwingUI1();
-            cafe.setVisible(true);
+//            JavaSwingUI1 cafe = new JavaSwingUI1();
+//            cafe.setVisible(true);
+            ParlorUITest test = new ParlorUITest();
+            test.setVisible(true);
 
         });
     }
