@@ -1,2 +1,6 @@
 Okay so trying to figure out a good layout for the UI but it is kind of confusing
 
+It is kind of hard trying to implement command without the files that concrete classes so I am just going to work on
+the UI
+
+perhaps create a command in which we display certain menu items so that we tie the UI into the design patterns
