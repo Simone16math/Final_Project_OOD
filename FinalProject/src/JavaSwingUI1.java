@@ -31,7 +31,7 @@ public class JavaSwingUI1 extends JFrame{
         // Option Dialog
         JButton iceCream = new JButton("IceCream");
         iceCream.addActionListener(e -> {
-            Object[] options = {"Sprinkles", "Chocolate sauce", "Plain"};
+            Object[] options = {"Sprinkles", "Chocolate Sauce", "Plain"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a topping:", "Toppings",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) log("Option selected: " + options[choice]);
@@ -85,18 +85,6 @@ public class JavaSwingUI1 extends JFrame{
         outputArea.setCaretPosition(outputArea.getDocument().getLength());
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
 
-            JavaSwingUI1 cafe = new JavaSwingUI1();
-            cafe.setVisible(true);
-
-        });
-    }
 }
 
