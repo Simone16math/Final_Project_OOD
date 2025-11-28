@@ -1,13 +1,16 @@
 public class IceCream implements Menu{
     @Override
-    public String item() {
-        String name = "IceCream";
-        return name;
+    public String item() {;
+        return "Ice Cream";
     }
 
     @Override
     public double price() {
-        double price = 2.0;
-        return price;
+        return 2.0;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Item:" + item() + price();
     }
 }
