@@ -40,9 +40,10 @@ public class JavaSwingUI extends JFrame{
                 IceCream orderedIceCream = iceCream1;
 
                 if(options[0].equals("Sprinkles")) {
-                    orderedIceCream = new Sprinkles(orderedIceCream);
+                    orderedIceCream = new SprinklesDecoratorIceCream(orderedIceCream);
                     log(orderedIceCream.getDescription());
                 }
+
                 log("Option selected: " + options[choice]);}
         });
         add(iceCream);
@@ -93,18 +94,6 @@ public class JavaSwingUI extends JFrame{
         outputArea.setCaretPosition(outputArea.getDocument().getLength());
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
 
-            JavaSwingUI cafe = new JavaSwingUI();
-            cafe.setVisible(true);
-
-        });
-    }
 }
 
