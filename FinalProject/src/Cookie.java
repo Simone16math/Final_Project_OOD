@@ -8,4 +8,9 @@ public class Cookie implements Menu{
     public double price() {
         return 2.0;
     }
+
+    @Override
+    public String getDescription(){
+        return "Item" + item() + price();
+    }
 }
