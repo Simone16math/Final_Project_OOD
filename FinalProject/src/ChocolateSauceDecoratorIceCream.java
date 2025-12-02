@@ -1,6 +1,6 @@
-public class ChocolateSauceDecorator extends ToppingDecorator{
+public class ChocolateSauceDecoratorIceCream extends IceCreamToppingDecorator {
 
-    public ChocolateSauceDecorator(IceCream iceCream){
+    public ChocolateSauceDecoratorIceCream(IceCream iceCream){
         super(iceCream);
     }
 

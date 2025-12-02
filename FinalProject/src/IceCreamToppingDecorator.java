@@ -1,7 +1,7 @@
-abstract class ToppingDecorator extends IceCream {
+abstract class IceCreamToppingDecorator extends IceCream {
     protected IceCream iceCream;
 
-    public ToppingDecorator(IceCream iceCream){
+    public IceCreamToppingDecorator(IceCream iceCream){
         this.iceCream = iceCream;
     }
 
