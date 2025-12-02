@@ -8,4 +8,9 @@ public class Drinks implements Menu{
     public double getPrice() {
         return 5.0;
     }
+
+    @Override
+    public String getDescription (){
+        return "Item" + item() + getPrice();
+    }
 }
