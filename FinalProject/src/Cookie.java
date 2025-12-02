@@ -5,12 +5,12 @@ public class Cookie implements Menu{
     }
 
     @Override
-    public double price() {
+    public double getPrice() {
         return 2.0;
     }
 
     @Override
     public String getDescription(){
-        return "Item" + item() + price();
+        return "Item" + item() + getPrice();
     }
 }

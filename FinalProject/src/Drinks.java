@@ -5,7 +5,7 @@ public class Drinks implements Menu{
     }
 
     @Override
-    public double price() {
+    public double getPrice() {
         return 5.0;
     }
 }

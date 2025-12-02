@@ -8,8 +8,8 @@ public class SprinklesDecoratorIceCream extends IceCreamToppingDecorator {
         return super.getDescription() + ", Sprinkles";
     }
 
-    public double price(){
+    public double getPrice(){
         // need to change the price so that it updates or add price as an attribute to icecream
-        return super.iceCream.price() + 0.25;
+        return super.iceCream.getPrice() + 0.25;
     }
 }

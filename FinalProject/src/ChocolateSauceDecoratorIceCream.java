@@ -10,7 +10,7 @@ public class ChocolateSauceDecoratorIceCream extends IceCreamToppingDecorator {
     }
 
     @Override
-    public double price(){
-        return super.iceCream.price() + 0.50;
+    public double getPrice(){
+        return super.iceCream.getPrice() + 0.50;
     }
 }

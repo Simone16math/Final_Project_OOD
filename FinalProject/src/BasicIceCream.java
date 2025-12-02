@@ -6,7 +6,7 @@ public class BasicIceCream extends IceCream implements Menu{
     }
 
     @Override
-    public double price() {
+    public double getPrice() {
         double price = 2.0;
         return price;
     }

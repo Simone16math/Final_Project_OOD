@@ -1,5 +1,5 @@
 interface Menu {
     String item();
-    double price();
+    double getPrice();
     String getDescription();
 }
