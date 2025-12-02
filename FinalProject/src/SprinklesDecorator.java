@@ -1,15 +1,15 @@
-public class Sprinkles extends ToppingDecorator{
+public class SprinklesDecorator extends ToppingDecorator{
 
-    public Sprinkles(IceCream iceCream){
+    public SprinklesDecorator(IceCream iceCream){
         super(iceCream);
     }
 
-    public String getDescription(){
+    public String getIceCreamDescription(){
         return super.getDescription() + ", Sprinkles";
     }
 
     public double price(){
         // need to change the price so that it updates or add price as an attribute to icecream
-        return iceCream.price() + 0.25;
+        return super.iceCream.price() + 0.25;
     }
 }
