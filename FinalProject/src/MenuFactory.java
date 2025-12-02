@@ -1,4 +1,4 @@
-public class MenuFactory {
+/*public class MenuFactory {
     public static Menu createItem(String type) {
         if (type.equalsIgnoreCase("IceCream")) {
             return new BasicIceCream();
@@ -10,4 +10,4 @@ public class MenuFactory {
             return null;
         }
 
-    }}
+    }}*/ //Switched to abstract factory so this is shut down
