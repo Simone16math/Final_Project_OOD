@@ -1,6 +1,6 @@
 public class SprinklesDecoratorIceCream extends IceCreamToppingDecorator {
 
-    public SprinklesDecoratorIceCream(IceCream iceCream){
+    public SprinklesDecoratorIceCream(IceCream iceCream) {
         super(iceCream);
     }
 

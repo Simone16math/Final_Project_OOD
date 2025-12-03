@@ -1,4 +1,4 @@
-public class IceCream implements Menu{
+public abstract class IceCream implements Menu{
     @Override
     public String item() {;
         return "Ice Cream";

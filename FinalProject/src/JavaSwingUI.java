@@ -6,6 +6,7 @@ public class JavaSwingUI extends JFrame implements Observer{
     private JTextArea outputArea;
     private JPanel parent;
     private int startTime = -1;
+    Customer order = new Customer();
 
 
     @Override
@@ -117,7 +118,7 @@ public class JavaSwingUI extends JFrame implements Observer{
                     "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
             log("Confirm order: " + result);
             if (result == JOptionPane.YES_OPTION) {
-                update("Order Confirmed");
+                order.orderStatus("Order Placed");
                 simulateProgress();
                 }
         });
@@ -130,10 +131,6 @@ public class JavaSwingUI extends JFrame implements Observer{
         JScrollPane scrollPane = new JScrollPane(outputArea);
         add(scrollPane);
 
-        //Menu
-
-
-        //add(new JScrollPane(outputArea), BorderLayout.CENTER);
 
     }
     private void simulateProgress() {
@@ -145,8 +142,7 @@ public class JavaSwingUI extends JFrame implements Observer{
             count.set(0,count.get(0)-50);
             if (count.get(0)<=0) {
                 timer.stop();
-                log("---Order Update---");
-                log("Order ready for pick up!");
+                order.orderStatus("Order ready for Pickup!");
             }
         });
         timer.start();
