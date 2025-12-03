@@ -7,6 +7,7 @@ public class JavaSwingUI extends JFrame implements Observer{
     private JPanel parent;
     private int startTime = -1;
     Customer order = new Customer();
+    private java.util.List<Menu>  orderList = new ArrayList();
 
 
     @Override
@@ -52,17 +53,18 @@ public class JavaSwingUI extends JFrame implements Observer{
                 Menu orderedIceCream = iceCream1;
 
                 if(options[choice].equals("Sprinkles")) {
-                    orderedIceCream = new SprinklesDecoratorIceCream(orderedIceCream);
+                    orderedIceCream = new SprinklesDecoratorIceCream((IceCream) orderedIceCream);
                     log(orderedIceCream.getDescription());
                 }else if(options[choice].equals("Chocolate sauce")) {
-                    orderedIceCream = new ChocolateSauceDecoratorIceCream(orderedIceCream);
+                    orderedIceCream = new ChocolateSauceDecoratorIceCream((IceCream) orderedIceCream);
                     log(orderedIceCream.getDescription());
                 } else if(options[choice].equals("plain")) {
                     orderedIceCream = new BasicIceCream();
                     log(orderedIceCream.getDescription());
                 }
 
-                log("Topping selected: " + options[choice]);}
+                log("Topping selected: " + options[choice]);
+                orderList.add(orderedIceCream);}
         });
         add(iceCream);
 
@@ -83,6 +85,7 @@ public class JavaSwingUI extends JFrame implements Observer{
                     log(orderedCookie.getDescription());
                 }
                 log("Size selected: " + options[choice]);
+                orderList.add(orderedCookie);
             }
 
         });
@@ -107,6 +110,7 @@ public class JavaSwingUI extends JFrame implements Observer{
                     log(orderedDrinks.getDescription());
                 }
                 log("Flavor selected: " + options[choice]);
+                orderList.add(orderedDrinks);
             }
         });
         add(Drinks);
@@ -120,6 +124,11 @@ public class JavaSwingUI extends JFrame implements Observer{
             if (result == JOptionPane.YES_OPTION) {
                 order.orderStatus("Order Placed");
                 simulateProgress();
+                double total= 0;
+                for (Menu orderedfood: orderList) {
+                    total += orderedfood.getPrice();
+                }
+                log("Total price: " + total);
                 }
         });
         add(confirmButton);
