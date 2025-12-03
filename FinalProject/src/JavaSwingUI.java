@@ -49,9 +49,15 @@ public class JavaSwingUI extends JFrame implements Observer{
                 if(options[0].equals("Sprinkles")) {
                     orderedIceCream = new SprinklesDecoratorIceCream(orderedIceCream);
                     log(orderedIceCream.getDescription());
+                }else if(options[0].equals("Chocolate sauce")) {
+                    orderedIceCream = new ChocolateSauceDecoratorIceCream(orderedIceCream);
+                    log(orderedIceCream.getDescription());
+                } else if(options[0].equals("plain")) {
+                    orderedIceCream = new BasicIceCream();
+                    log(orderedIceCream.getDescription());
                 }
 
-                log("Option selected: " + options[choice]);}
+                log("Topping selected: " + options[choice]);}
         });
         add(iceCream);
 
@@ -62,16 +68,41 @@ public class JavaSwingUI extends JFrame implements Observer{
             Object[] options = {"Large", "Small"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a size:", "Options",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-            if (choice >= 0) log("Option selected: " + options[choice]);
+            if (choice >= 0) {
+                Cookie orderedCookie = cookie;
+                if(options[0].equals("Large")) {
+                    orderedCookie = new Cookie();
+                    log(orderedCookie.getDescription());
+                } else if(options[0].equals("Small")) {
+                    orderedCookie = new Cookie();
+                    log(orderedCookie.getDescription());
+                }
+                log("Size selected: " + options[choice]);
+            }
+
         });
         add(Cookie);
         // Option Dialog
         JButton Drinks = new JButton("Drinks Dialog");
         Drinks.addActionListener(e -> {
+            Drinks drinks = (Drinks) menuFactory.createDrink();
             Object[] options = {"Vanilla Shake", "Strawberry-Banana Smoothie", "Chocolate Shake"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose an option:", "Options",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-            if (choice >= 0) log("Option selected: " + options[choice]);
+            if (choice >= 0){
+                Drinks orderedDrinks = drinks;
+                if(options[0].equals("Vanilla Shake")) {
+                    orderedDrinks = new Drinks();
+                    log(orderedDrinks.getDescription());
+                }else if(options[0].equals("Strawberry-Banana")) {
+                    orderedDrinks = new Drinks();
+                    log(orderedDrinks.getDescription());
+                }else if(options[0].equals("Chocolate Shake")) {
+                    orderedDrinks = new Drinks();
+                    log(orderedDrinks.getDescription());
+                }
+                log("Flavor selected: " + options[choice]);
+            }
         });
         add(Drinks);
 
