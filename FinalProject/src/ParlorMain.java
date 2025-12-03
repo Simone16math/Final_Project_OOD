@@ -8,9 +8,10 @@ public class ParlorMain {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            JavaSwingUI cafe = new JavaSwingUI();
-            cafe.setVisible(true);
+            CafeMenuUI cafeMenuUI = new CafeMenuUI();
+            cafeMenuUI.setVisible(true);
+            //JavaSwingUI cafe = new JavaSwingUI();
+            //cafe.setVisible(true);
 
         });
     }

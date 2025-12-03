@@ -8,6 +8,9 @@ public class JavaSwingUI extends JFrame implements Observer{
     private int startTime = -1;
     Customer order = new Customer();
     private java.util.List<Menu>  orderList = new ArrayList();
+    BasicIceCream basicIceCream = new BasicIceCream();
+    Cookie basicCookie = new Cookie();
+    Drinks drinks = new Drinks();
 
 
     @Override
@@ -42,7 +45,7 @@ public class JavaSwingUI extends JFrame implements Observer{
         add(inputButton);
 
         // Option Dialog
-        JButton iceCream = new JButton("IceCream");
+        JButton iceCream = new JButton("IceCream "+ "$" + basicIceCream.getPrice());
         MenuAbstractFactory menuFactory = new BasicMenuFactory();
         iceCream.addActionListener(e -> {
             // add factory ice cream
@@ -69,7 +72,7 @@ public class JavaSwingUI extends JFrame implements Observer{
         add(iceCream);
 
         // Option Dialog
-        JButton Cookie = new JButton("Cookie");
+        JButton Cookie = new JButton("Cookie" + "$" +  basicCookie.getPrice());
         Cookie.addActionListener(e -> {
             Menu cookie = menuFactory.createCookie();
             Object[] options = {"Large", "Small"};
@@ -91,7 +94,7 @@ public class JavaSwingUI extends JFrame implements Observer{
         });
         add(Cookie);
         // Option Dialog
-        JButton Drinks = new JButton("Drinks Dialog");
+        JButton Drinks = new JButton("Drinks Dialog" + "$" +   drinks.getPrice());
         Drinks.addActionListener(e -> {
             Menu drinks = menuFactory.createDrink();
             Object[] options = {"Vanilla Shake", "Strawberry-Banana Smoothie", "Chocolate Shake"};
@@ -161,8 +164,5 @@ public class JavaSwingUI extends JFrame implements Observer{
         outputArea.append(message + "\n");
         outputArea.setCaretPosition(outputArea.getDocument().getLength());
     }
-
-
-
 }
 
