@@ -19,8 +19,8 @@ public class JavaSwingUI extends JFrame implements Observer{
         setSize(800, 800);
         setLocationRelativeTo(null);
 
-        Customer customer= new Customer();
-        customer.registerObserver(this); //register user as customer
+        Customer order= new Customer();
+        order.registerObserver(this); //register user as customer
 
 
         // Layout
@@ -31,6 +31,10 @@ public class JavaSwingUI extends JFrame implements Observer{
         inputButton.addActionListener(e -> {
             String input = JOptionPane.showInputDialog(parent, "Enter your name:");
             if (input != null) log("Customer: " + input);
+            order.setName(input);
+
+            order.notifyObservers("New Customer registered: "+ input);
+            log("Customer: " + order.getName());
             log("----Order----");
         });
         add(inputButton);
@@ -40,19 +44,19 @@ public class JavaSwingUI extends JFrame implements Observer{
         MenuAbstractFactory menuFactory = new BasicMenuFactory();
         iceCream.addActionListener(e -> {
             // add factory ice cream
-            IceCream iceCream1 = (IceCream) menuFactory.createIceCream();
+            Menu iceCream1 = menuFactory.createIceCream();
             String[] options = {"Sprinkles", "Chocolate sauce", "plain"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a topping:", "Toppings",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
-                IceCream orderedIceCream = iceCream1;
+                Menu orderedIceCream = iceCream1;
 
-                if(options[0].equals("Sprinkles")) {
+                if(options[choice].equals("Sprinkles")) {
                     orderedIceCream = new SprinklesDecoratorIceCream(orderedIceCream);
                     log(orderedIceCream.getDescription());
-                }else if(options[0].equals("Chocolate sauce")) {
+                }else if(options[choice].equals("Chocolate sauce")) {
                     orderedIceCream = new ChocolateSauceDecoratorIceCream(orderedIceCream);
                     log(orderedIceCream.getDescription());
-                } else if(options[0].equals("plain")) {
+                } else if(options[choice].equals("plain")) {
                     orderedIceCream = new BasicIceCream();
                     log(orderedIceCream.getDescription());
                 }
@@ -64,16 +68,16 @@ public class JavaSwingUI extends JFrame implements Observer{
         // Option Dialog
         JButton Cookie = new JButton("Cookie");
         Cookie.addActionListener(e -> {
-            Cookie cookie = (Cookie) menuFactory.createCookie();
+            Menu cookie = menuFactory.createCookie();
             Object[] options = {"Large", "Small"};
-            int choice = JOptionPane.showOptionDialog(parent, "Choose a size:", "Options",
+            int choice = JOptionPane.showOptionDialog(parent, "Choose a size:", "Available Sizes",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
-                Cookie orderedCookie = cookie;
-                if(options[0].equals("Large")) {
+                Menu orderedCookie = cookie;
+                if(options[choice].equals("Large")) {
                     orderedCookie = new Cookie();
                     log(orderedCookie.getDescription());
-                } else if(options[0].equals("Small")) {
+                } else if(options[choice].equals("Small")) {
                     orderedCookie = new Cookie();
                     log(orderedCookie.getDescription());
                 }
@@ -85,19 +89,19 @@ public class JavaSwingUI extends JFrame implements Observer{
         // Option Dialog
         JButton Drinks = new JButton("Drinks Dialog");
         Drinks.addActionListener(e -> {
-            Drinks drinks = (Drinks) menuFactory.createDrink();
+            Menu drinks = menuFactory.createDrink();
             Object[] options = {"Vanilla Shake", "Strawberry-Banana Smoothie", "Chocolate Shake"};
-            int choice = JOptionPane.showOptionDialog(parent, "Choose an option:", "Options",
+            int choice = JOptionPane.showOptionDialog(parent, "Choose a flavor:", "Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0){
-                Drinks orderedDrinks = drinks;
-                if(options[0].equals("Vanilla Shake")) {
+                Menu orderedDrinks = drinks;
+                if(options[choice].equals("Vanilla Shake")) {
                     orderedDrinks = new Drinks();
                     log(orderedDrinks.getDescription());
-                }else if(options[0].equals("Strawberry-Banana")) {
+                }else if(options[choice].equals("Strawberry-Banana")) {
                     orderedDrinks = new Drinks();
                     log(orderedDrinks.getDescription());
-                }else if(options[0].equals("Chocolate Shake")) {
+                }else if(options[choice].equals("Chocolate Shake")) {
                     orderedDrinks = new Drinks();
                     log(orderedDrinks.getDescription());
                 }
@@ -141,6 +145,7 @@ public class JavaSwingUI extends JFrame implements Observer{
             count.set(0,count.get(0)-50);
             if (count.get(0)<=0) {
                 timer.stop();
+                log("---Order Update---");
                 log("Order ready for pick up!");
             }
         });

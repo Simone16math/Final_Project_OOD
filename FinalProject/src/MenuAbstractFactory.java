@@ -1,5 +1,5 @@
 public interface MenuAbstractFactory {
-    Menu createIceCream();
-    Menu createCookie();
-    Menu createDrink();
+    IceCream createIceCream();
+    Cookie createCookie();
+    Drinks createDrink();
 }

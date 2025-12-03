@@ -1,16 +1,16 @@
 public class BasicMenuFactory implements MenuAbstractFactory{
     @Override
-    public Menu createIceCream() {
+    public IceCream createIceCream() {
         return new BasicIceCream();
     }
 
     @Override
-    public Menu createCookie() {
+    public Cookie createCookie() {
         return new Cookie();
     }
 
     @Override
-    public Menu createDrink() {
+    public Drinks createDrink() {
         return new Drinks();
     }
 }

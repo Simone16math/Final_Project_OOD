@@ -5,9 +5,17 @@ public class Customer implements Subject {
     //List to register customer
     public ArrayList<Observer> observers = new ArrayList<Observer>();
 
+    public String name;
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Customer() {
         //constructor
-        observers = new ArrayList<>();
     }
     // Method to add an observer
     @Override
