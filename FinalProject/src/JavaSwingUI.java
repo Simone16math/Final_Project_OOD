@@ -1,24 +1,30 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
-public class JavaSwingUI extends JFrame{
+public class JavaSwingUI extends JFrame implements Observer{
     private JTextArea outputArea;
     private JPanel parent;
+    private int startTime = -1;
 
+
+    @Override
+    public void update(String Order) {
+        log("---Order Update---");
+        log(Order);
+    }
     public JavaSwingUI() {
         setTitle("Café");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 800);
         setLocationRelativeTo(null);
 
-
-        // Main panel with tabs
-        /*JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.addTab("Café", new JavaSwingUI(this));*/
+        Customer customer= new Customer();
+        customer.registerObserver(this); //register user as customer
 
 
         // Layout
-        setLayout(new GridLayout(5, 2, 10, 10));
+        setLayout(new GridLayout(3, 2, 10, 10));
 
         // Input Dialog
         JButton inputButton = new JButton("Customer Name");
@@ -31,9 +37,10 @@ public class JavaSwingUI extends JFrame{
 
         // Option Dialog
         JButton iceCream = new JButton("IceCream");
+        MenuAbstractFactory menuFactory = new BasicMenuFactory();
         iceCream.addActionListener(e -> {
             // add factory ice cream
-            IceCream iceCream1 = MenuFactory.createItem("BaseIceCream");
+            IceCream iceCream1 = (IceCream) menuFactory.createIceCream();
             String[] options = {"Sprinkles", "Chocolate sauce", "plain"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a topping:", "Toppings",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
@@ -51,6 +58,7 @@ public class JavaSwingUI extends JFrame{
         // Option Dialog
         JButton Cookie = new JButton("Cookie");
         Cookie.addActionListener(e -> {
+            Cookie cookie = (Cookie) menuFactory.createCookie();
             Object[] options = {"Large", "Small"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a size:", "Options",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
@@ -70,9 +78,13 @@ public class JavaSwingUI extends JFrame{
         // Confirm Dialog
         JButton confirmButton = new JButton("Confirm Order");
         confirmButton.addActionListener(e -> {
-            int result = JOptionPane.showConfirmDialog(parent, "So you want to place your order?",
+            int result = JOptionPane.showConfirmDialog(parent, "Do you want to place your order?",
                     "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
             log("Confirm order: " + result);
+            if (result == JOptionPane.YES_OPTION) {
+                update("Order Confirmed");
+                simulateProgress();
+                }
         });
         add(confirmButton);
 
@@ -80,7 +92,8 @@ public class JavaSwingUI extends JFrame{
         //Output box
         outputArea = new JTextArea(5,50);
         outputArea.setEditable(false);
-        add(outputArea, BorderLayout.SOUTH);
+        JScrollPane scrollPane = new JScrollPane(outputArea);
+        add(scrollPane);
 
         //Menu
 
@@ -88,11 +101,26 @@ public class JavaSwingUI extends JFrame{
         //add(new JScrollPane(outputArea), BorderLayout.CENTER);
 
     }
+    private void simulateProgress() {
+        java.util.List<Integer> count = new ArrayList<>();
+        count.add(4000);
+        Timer timer = new Timer(50, null);
+
+        timer.addActionListener(e -> {
+            count.set(0,count.get(0)-50);
+            if (count.get(0)<=0) {
+                timer.stop();
+                log("Order ready for pick up!");
+            }
+        });
+        timer.start();
+    }
 
     public void log(String message) {
         outputArea.append(message + "\n");
         outputArea.setCaretPosition(outputArea.getDocument().getLength());
     }
+
 
 
 }

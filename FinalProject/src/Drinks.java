@@ -11,6 +11,6 @@ public class Drinks implements Menu{
 
     @Override
     public String getDescription (){
-        return "Item" + item() + getPrice();
+        return "Item " + item() +  " " + getPrice();
     }
 }

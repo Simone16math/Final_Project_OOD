@@ -28,21 +28,9 @@ public class Customer implements Subject {
         }
 
     }
-   /* public String name;
+    public void orderStatus(String Order) {
+        notifyObservers(Order);
 
-    public String getName() {
-        return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public void update() {
-        notification();
-    }
-    public void notification(){
-        System.out.println("You ordered: " );
-    }*/
 }
