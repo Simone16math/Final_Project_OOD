@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class TestUI extends JFrame implements Observer{
@@ -59,7 +61,7 @@ public class TestUI extends JFrame implements Observer{
             String text = textField.getText();
             log("Customer: " + text);
         });
-        //JTextField is String, JPasswordField is char[], JTextArea is String, JFormattedTextField for Date is Object
+
         //Add this button to the panel, and use these layout constraints (gbc) to decide where and how to place it.”
         add(submitButton, gbc);
 
@@ -72,13 +74,31 @@ public class TestUI extends JFrame implements Observer{
         JPanel iceCream = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JCheckBox sprinkles = new JCheckBox("Sprinkles + $0.25");
         JCheckBox chocolateSauce = new JCheckBox("Chocolate sauce + $0.50");
-        JCheckBox plain = new JCheckBox("Plain");
-        sprinkles.addActionListener(e -> log("Sprinkles added to ice cream" + sprinkles.isSelected()));
-        chocolateSauce.addActionListener(e -> log("Chocolate Sauce added to ice cream" + chocolateSauce.isSelected()));
-        plain.addActionListener(e -> log("Plain Ice Cream " + plain.isSelected()));
+        //sprinkles.addActionListener(e -> log("Sprinkles added to ice cream" + sprinkles.isSelected()));
+        sprinkles.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (sprinkles.isSelected()){
+                    log("Sprinkles added to ice cream");
+                } else{
+                    log("Sprinkles removed from ice cream");
+                }
+            }
+        });
+        //chocolateSauce.addActionListener(e -> log("Chocolate Sauce added to ice cream" + chocolateSauce.isSelected()));
+        chocolateSauce.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (chocolateSauce.isSelected()){
+                    log("Chocolate Sauce added to ice cream");
+                } else{
+                    log("Chocolate Sauce removed from ice cream");
+                }
+            }
+        });
+
         iceCream.add(sprinkles);
         iceCream.add(chocolateSauce);
-        iceCream.add(plain);
         JButton addIceCreamBtn = new JButton("Add Ice Cream" + "+ $" + basicIceCream.getPrice());
 
         addIceCreamBtn.addActionListener(e -> {
@@ -118,6 +138,8 @@ public class TestUI extends JFrame implements Observer{
         addIceCreamBtn.addActionListener(e -> {
             Menu iceCream1 = menuFactory.createIceCream();
             IceCream iceCream34 = new BasicIceCream();
+            boolean stateSprinkles = false;
+            boolean stateChocolateSauce = false;
 
             // Commands
             CommandInvoker commandInvoker = new CommandInvoker();
@@ -135,17 +157,25 @@ public class TestUI extends JFrame implements Observer{
                 orderedIceCream = new SprinklesDecoratorIceCream((IceCream) orderedIceCream);
                 commandInvoker.executeCommand(addSprinkles,iceCream34);
                 iceCream34 = (IceCream) commandInvoker.getMenuItem();
+                stateSprinkles = true;
+            } else{
+                if (stateSprinkles){
+                    commandInvoker.executeCommand(removeSprinkles,iceCream34);
+                    iceCream34 = (IceCream) commandInvoker.getMenuItem();
+                    stateSprinkles = false;
+                }
             }
             if (chocolateSauce.isSelected()) {
                 orderedIceCream = new ChocolateSauceDecoratorIceCream((IceCream) orderedIceCream);
-                commandInvoker.executeCommand(addSprinkles,iceCream34);
+                commandInvoker.executeCommand(addChocolateSauce,iceCream34);
                 iceCream34 = (IceCream) commandInvoker.getMenuItem();
-
-            }
-            if (plain.isSelected()) {
-                orderedIceCream = new BasicIceCream();
-                //iceCream34
-
+                stateChocolateSauce = true;
+            } else{
+                if (stateChocolateSauce){
+                    commandInvoker.executeCommand(removeChocolateSauce,iceCream34);
+                    iceCream34 = (IceCream) commandInvoker.getMenuItem();
+                    stateChocolateSauce = false;
+                }
             }
             //log(orderedIceCream.getDescription());
             log(iceCream34.getDescription());
@@ -209,11 +239,11 @@ public class TestUI extends JFrame implements Observer{
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
                 Menu pints = null;
-                if(options[choice].equals("Vanilla Ice Cream Pint $10")) {
+                if(options[choice].equals("Vanilla Ice Cream Pint $5")) {
                     pints = menuFactory.createVanillaIceCreamPint();
-                } else if(options[choice].equals("Chocolate Ice Cream Pint $10")) {
+                } else if(options[choice].equals("Chocolate Ice Cream Pint $5")) {
                     pints = menuFactory.createChocolateIceCreamPInt();
-                } else if(options[choice].equals("Cookies N' Cream Ice Cream Pint $11")) {
+                } else if(options[choice].equals("Cookies N' Cream Ice Cream Pint $6")) {
                     pints = menuFactory.createCookiesNCreamIceCreamPint();
                 }
                 log(pints.getDescription());
@@ -253,16 +283,18 @@ public class TestUI extends JFrame implements Observer{
         gbc.gridx = 0;
         JButton confirmButton = new JButton("Confirm Order");
         confirmButton.addActionListener(e -> {
+            //se
             int result = JOptionPane.showConfirmDialog(this, "Do you want to place your order?",
                     "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
             if (result == JOptionPane.YES_OPTION) {
-                order.orderStatus("Order Placed");
+                order.orderStatus("Order Placed for " + textField.getText());
                 simulateProgress();
                 double total= 0;
                 for (Menu orderedfood: orderList) {
                     total += orderedfood.getPrice();
                 }
-                log("Total price: " + total);
+
+                log("Total price: $" + total);
             }else if (result == JOptionPane.NO_OPTION){
                 order.orderStatus("Order Cancelled");
                 orderList.clear();
@@ -284,7 +316,32 @@ public class TestUI extends JFrame implements Observer{
         add(scrollPane,gbc);
 
 
+
     }
+
+    private void getReceipt(){
+        JFrame receipt = new JFrame();
+        receipt.setTitle("Receipt");
+        receipt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        receipt.setSize(800, 800);
+        receipt.setLocationRelativeTo(null);
+
+        receipt.setLayout(new GridBagLayout());
+        GridBagConstraints gbc1 = new GridBagConstraints();
+        gbc1.insets = new Insets(5, 5, 5, 5);
+        gbc1.anchor = GridBagConstraints.WEST;
+        gbc1.fill = GridBagConstraints.HORIZONTAL;
+
+
+
+        ImageIcon smoothie = new ImageIcon("testing.jpeg");
+        JLabel smothie = new JLabel(smoothie);
+        receipt.add(smothie);
+        receipt.setVisible(true);
+
+    }
+
+
     private void simulateProgress() {
         java.util.List<Integer> count = new ArrayList<>();
         count.add(4000);
