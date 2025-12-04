@@ -6,7 +6,7 @@ public class CookiesNCreamIceCreamPint implements Menu{
 
     @Override
     public double getPrice() {
-        return 11;
+        return 8;
     }
 
     @Override

@@ -11,14 +11,19 @@ public class ChocolateSauceDecoratorIceCream extends IceCreamToppingDecorator {
     }
 
     @Override
-    public String getIceCreamDescription(){
+    public String getDescription(){
         // returned the updated description of the ice cream
-        return super.getIceCreamDescription() + ", Chocolate Sauce";
+        return "Item: " + getItemName() + " $" + getPrice();
+    }
+
+    @Override
+    public String getItemName(){
+        return decoratedIceCream.getItemName() + ", Chocolate Sauce";
     }
 
     @Override
     public double getPrice(){
         // returns the updated price of the ice cream
-        return super.iceCream.getPrice() + 0.50;
+        return decoratedIceCream.getPrice() + 0.50;
     }
 }

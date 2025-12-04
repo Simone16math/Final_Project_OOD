@@ -13,8 +13,20 @@ public class AddChocolateSauceCommand implements Command{
     }
 
     @Override
-    public void execute(){
+    public void setMenuItem(Menu menuItem){
+        this.iceCream = (IceCream) menuItem;
+    }
 
+    @Override
+    public void execute(Menu menuItem){
+        setMenuItem(menuItem);
+        iceCream = new ChocolateSauceDecoratorIceCream(iceCream);
+        //System.out.println(iceCream.getDescription());
+        setMenuItem(iceCream);
+    }
+    @Override
+    public Menu getMenuItem(){
+        return iceCream;
     }
 
 }

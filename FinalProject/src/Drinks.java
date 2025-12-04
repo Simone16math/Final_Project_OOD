@@ -1,7 +1,7 @@
 public class Drinks implements Menu{
     @Override
     public String getItemName() {
-        return "Drinks";
+        return "Vanilla Shake";
     }
 
     @Override

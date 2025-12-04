@@ -5,5 +5,7 @@
 
 public interface Command {
     // all commands will call the execute method
-    void execute();
+    void setMenuItem(Menu menuItem);
+    void execute(Menu menuItem);
+    Menu getMenuItem();
 }
