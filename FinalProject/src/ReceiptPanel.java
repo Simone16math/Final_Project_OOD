@@ -3,6 +3,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.*;
+import java.util.List;
 
 public class ReceiptPanel extends JFrame{
 
@@ -19,7 +21,7 @@ public class ReceiptPanel extends JFrame{
 //    }
 
 
-    public ReceiptPanel(){
+    public ReceiptPanel(List<Menu> orderList){
         setTitle("Receipt");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 800);
@@ -108,7 +110,56 @@ public class ReceiptPanel extends JFrame{
         JLabel CookiesNCreamCup = new JLabel(CookiesNCreamCupI);
 
 
-
+        for (Menu item: orderList){
+            if (item.getDescription().contains("")){
+                add(LargeCookie);
+            }
+            if (item.getDescription().contains("")){
+                add(SmallCookie);
+            }
+            if (item.getDescription().contains("")){
+                add(RedVelvetCake);
+            }
+            if (item.getDescription().contains("")){
+                add(LavaCake);
+            }
+            if (item.getDescription().contains("")){
+                add(VanillaPint);
+            }
+            if (item.getDescription().contains("")){
+                add(ChocolatePint);
+            }
+            if (item.getDescription().contains("")){
+                add(CookiesNCreamPint);
+            }
+            if (item.getDescription().contains("")){
+                add(VanillaShake);
+            }
+            if (item.getDescription().contains("")){
+                add(StrawberryBananaShake);
+            }
+            if (item.getDescription().contains("")){
+                add(ChocolateShake);
+            }
+            if (item.getDescription().contains("")){
+                add(ChocolateCone);
+            }
+            if (item.getDescription().contains("")){
+                add(ChocolateCup);
+            }
+            if (item.getDescription().contains("")){
+                add(VanillaCone);
+            }
+            if (item.getDescription().contains("")){
+                add(VanillaCup);
+            }
+            if (item.getDescription().contains("")){
+                add(CookiesNCreamCone);
+            }
+            if (item.getDescription().contains("")){
+                add(CookiesNCreamCup);
+            }
+        }
 
 
 
@@ -124,18 +175,18 @@ public class ReceiptPanel extends JFrame{
 
 
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            ReceiptPanel test = new ReceiptPanel();
-            test.setVisible(true);
-            //JavaSwingUI cafe = new JavaSwingUI();
-            //cafe.setVisible(true);
-
-        });
-    }
+//    public static void main(String[] args) {
+//        SwingUtilities.invokeLater(() -> {
+//            try {
+//                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            ReceiptPanel test = new ReceiptPanel();
+//            test.setVisible(true);
+//            //JavaSwingUI cafe = new JavaSwingUI();
+//            //cafe.setVisible(true);
+//
+//        });
+//    }
 }
