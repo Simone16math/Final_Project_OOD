@@ -17,6 +17,10 @@ public class AddSprinklesCommand implements Command{
     public void execute(){
         // adds sprinkles to the iceCream
         iceCream = new SprinklesDecoratorIceCream(iceCream);
+
+        System.out.println(iceCream.getDescription());
+
+
     }
 
 }

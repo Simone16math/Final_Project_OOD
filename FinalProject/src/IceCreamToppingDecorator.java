@@ -6,16 +6,28 @@
 
 abstract class IceCreamToppingDecorator extends IceCream {
     // Attributes
-    protected IceCream iceCream;
+    protected IceCream decoratedIceCream;
 
     // Constructor
-    public IceCreamToppingDecorator(IceCream iceCream){
-      this.iceCream = iceCream;
+    public IceCreamToppingDecorator(IceCream decoratedIceCream){
+      this.decoratedIceCream = decoratedIceCream;
     }
 
     // return the description of the ice cream
-     String getIceCreamDescription(){
-        return iceCream.getDescription();
+    @Override
+    public String getDescription(){
+        return "Item: " + getItemName() + " $" + getPrice();
     }
+
+    @Override
+    public double getPrice(){
+        return decoratedIceCream.getPrice();
+    }
+
+    @Override
+    public String getItemName(){
+        return decoratedIceCream.getItemName();
+    }
+
 
 }

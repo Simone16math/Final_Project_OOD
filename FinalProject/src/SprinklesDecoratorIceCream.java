@@ -9,17 +9,21 @@ public class SprinklesDecoratorIceCream extends IceCreamToppingDecorator {
         super(iceCream);
     }
 
-
     @Override
-    public String getIceCreamDescription(){
+    public String getDescription(){
         // returns the updated description of the ice cream
-        return super.getDescription() + ", Sprinkles";
+        return "Item: " + getItemName() + " $" + getPrice();
     }
 
+    @Override
+    public String getItemName(){
+        // updates the description of the ice cream
+        return decoratedIceCream.getItemName() + ", Sprinkles";
+    }
 
     @Override
     public double getPrice(){
         // returns the updated price of the ice cream
-        return super.iceCream.getPrice() + 0.25;
+        return decoratedIceCream.getPrice() + 0.25;
     }
 }
