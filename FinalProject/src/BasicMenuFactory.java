@@ -5,6 +5,21 @@ public class BasicMenuFactory implements MenuAbstractFactory{
     }
 
     @Override
+    public VanillaIceCream createVanillaIceCream() {
+        return new VanillaIceCream();
+    }
+
+    @Override
+    public ChocolateIceCream createChocolateIceCream() {
+        return new ChocolateIceCream();
+    }
+
+    @Override
+    public CookiesNCreamIceCream createCookiesNCreamIceCream() {
+        return new CookiesNCreamIceCream();
+    }
+
+    @Override
     public Cookie createCookie() {
         return new Cookie();
     }

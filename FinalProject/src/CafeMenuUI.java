@@ -13,6 +13,7 @@ public class CafeMenuUI extends JFrame implements Observer {
     Cookie basicCookie = new Cookie();
     Drinks drinks = new Drinks();
     MenuAbstractFactory menuFactory = new BasicMenuFactory();
+    CookiesNCreamIceCream cookiesNCreamIceCream = new CookiesNCreamIceCream();
 
     @Override
     public void update(String Order) {
@@ -77,15 +78,34 @@ public class CafeMenuUI extends JFrame implements Observer {
         iceCream.add(chocolateSauce);
         iceCream.add(plain);
         JButton addIceCreamBtn = new JButton("Add Ice Cream" + "+ $" + basicIceCream.getPrice());
+
         addIceCreamBtn.addActionListener(e -> {
-            Object[] options = {"Scoop", "Cup"};
-            int choice = JOptionPane.showOptionDialog(parent, "Choose:", "Available options",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            Menu flavor = null;
+            Object[] flavors = {"Chocolate", "Vanilla", "Cookies N' Cream + $0.50" };
+            int choice = JOptionPane.showOptionDialog(parent, "Choose Flavor:", "Available flavors",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, flavors, flavors[0]);
             if (choice >= 0) {
-                if(options[choice].equals("Scoop")){
-                log("in a Scoop");
-            }   if(options[choice].equals("Cup")){
-                log("in a Cup");}
+                if(flavors[choice].equals("Vanilla")) {
+                    flavor = menuFactory.createVanillaIceCream();
+
+                } else if(flavors[choice].equals("Chocolate")) {
+                    flavor = menuFactory.createChocolateIceCream();
+
+                }else if(flavors[choice].equals("Cookies N' Cream + $0.50")) {
+                    flavor = menuFactory.createCookiesNCreamIceCream();
+
+                }
+            }
+            log(flavor.getDescription());
+            orderList.add(flavor);
+            Object[] options = {"Scoop", "Cup"};
+            int choice1 = JOptionPane.showOptionDialog(parent, "Choose:", "Available options",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            if (choice1 >= 0) {
+                if(options[choice1].equals("Scoop")){
+                    log("in a Scoop");
+            }   if(options[choice1].equals("Cup")){
+                    log("in a Cup");}
             }
         });
         add(addIceCreamBtn, gbc);

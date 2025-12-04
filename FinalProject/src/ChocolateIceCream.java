@@ -6,7 +6,7 @@ public class ChocolateIceCream implements Menu{
 
     @Override
     public double getPrice() {
-        return 2;
+        return 0;
     }
 
     @Override
