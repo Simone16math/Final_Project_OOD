@@ -1,4 +1,5 @@
 public interface MenuAbstractFactory {
+    // creating methods all the product variations to the factory
     IceCream createIceCream();
     VanillaIceCream createVanillaIceCream();
     ChocolateIceCream createChocolateIceCream();

@@ -1,4 +1,5 @@
 public class BasicMenuFactory implements MenuAbstractFactory{
+    // adding all the product variations to the basic menu factory
     @Override
     public IceCream createIceCream() {
         return new BasicIceCream();

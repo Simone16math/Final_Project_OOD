@@ -4,8 +4,8 @@ public class Order implements Subject {
     //List to register customer
     public ArrayList<Observer> observers = new ArrayList<Observer>();
 
+    // Name
     public String name;
-
     public String getName() {
         return name;
     }
