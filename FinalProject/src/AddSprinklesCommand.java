@@ -5,8 +5,10 @@
 
 
 public class AddSprinklesCommand implements Command{
+    // Attribute
     private IceCream iceCream;
 
+    // Constructor
     public AddSprinklesCommand(IceCream iceCream){
         this.iceCream = iceCream;
     }

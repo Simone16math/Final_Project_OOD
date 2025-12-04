@@ -4,9 +4,10 @@
  */
 
 public class RemoveChocolateSauceCommand implements Command{
-
+    // Attribute
     private IceCream iceCream;
 
+    // Constructor
     public RemoveChocolateSauceCommand(IceCream iceCream){
         this.iceCream = iceCream;
     }

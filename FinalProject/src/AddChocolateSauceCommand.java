@@ -4,8 +4,10 @@
  */
 
 public class AddChocolateSauceCommand implements Command{
+    // Attribute
     private IceCream iceCream;
 
+    // Constructor
     public AddChocolateSauceCommand(IceCream iceCream){
         this.iceCream = iceCream;
     }

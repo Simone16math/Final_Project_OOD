@@ -4,8 +4,10 @@
  */
 
 public class RemoveSprinklesCommand implements Command{
+    // Attribute
     private IceCream iceCream;
 
+    // Constructor
     public RemoveSprinklesCommand(IceCream iceCream){
         this.iceCream = iceCream;
     }

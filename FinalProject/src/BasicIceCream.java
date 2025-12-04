@@ -1,6 +1,6 @@
 /*
     Author: Simone Charles
-    Purpose: Describes the basic behavior of ice cream objects being wrapped
+    Purpose: Describes the basic behavior of the ice cream objects being wrapped
  */
 
 public class BasicIceCream extends IceCream{
@@ -14,13 +14,14 @@ public class BasicIceCream extends IceCream{
 
     @Override
     public double getPrice() {
-        // returns t
+        // returns the price of the menu item
         double price = 2.0;
         return price;
     }
 
     @Override
     public String getDescription() {
+        // returns the description of the menu item
         return "Item: " + this.getItemName() + " $" + getPrice();
     }
 }
