@@ -1,4 +1,4 @@
-public class BasicIceCream extends IceCream implements Menu{
+public class BasicIceCream extends IceCream{
     @Override
     public String item() {
         String name = "IceCream";
@@ -9,5 +9,10 @@ public class BasicIceCream extends IceCream implements Menu{
     public double getPrice() {
         double price = 2.0;
         return price;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Item: " + item() + " $" + getPrice();
     }
 }
