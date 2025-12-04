@@ -1,6 +1,6 @@
 public class VanillaIceCreamPint implements Menu{
     @Override
-    public String itemName() {
+    public String getItemName() {
         return "Vanilla Ice Cream Pint";
     }
 
@@ -11,6 +11,6 @@ public class VanillaIceCreamPint implements Menu{
 
     @Override
     public String getDescription() {
-        return "Item: " + itemName() +  " $" + getPrice();
+        return "Item: " + getItemName() +  " $" + getPrice();
     }
 }

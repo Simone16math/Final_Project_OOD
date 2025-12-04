@@ -1,6 +1,6 @@
 public class LavaCake implements Menu{
     @Override
-    public String itemName() {
+    public String getItemName() {
         return "Lava Cake";
     }
 
@@ -11,6 +11,6 @@ public class LavaCake implements Menu{
 
     @Override
     public String getDescription() {
-        return "Item: " + itemName() +  " $" + getPrice();
+        return "Item: " + getItemName() +  " $" + getPrice();
     }
 }

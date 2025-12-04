@@ -1,6 +1,6 @@
 public class CookiesNCreamIceCream implements Menu{
     @Override
-    public String itemName() {
+    public String getItemName() {
         return "Cookies N' Cream Ice Cream";
     }
 
@@ -11,6 +11,6 @@ public class CookiesNCreamIceCream implements Menu{
 
     @Override
     public String getDescription() {
-        return "Item: " + itemName() +  " $" + getPrice();
+        return "Item: " + getItemName() +  " $" + getPrice();
     }
 }
