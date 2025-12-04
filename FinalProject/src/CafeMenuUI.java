@@ -27,8 +27,8 @@ public class CafeMenuUI extends JFrame implements Observer {
         setSize(800, 800);
         setLocationRelativeTo(null);
 
-        Customer order = new Customer();
-        order.registerObserver(this); //register user as customer
+
+        this.order.registerObserver(this); //register user as customer
 
 
         setLayout(new GridBagLayout());
@@ -204,6 +204,7 @@ public class CafeMenuUI extends JFrame implements Observer {
                     orderList.remove(orderedfood);
 
                 }
+                order.removeObserver(this);
                 log("Please type in your Name again.");
             }
         });
