@@ -136,17 +136,17 @@ public class TestUI extends JFrame implements Observer{
         gbc.gridy = 1;
         gbc.gridx = 1;
         addIceCreamBtn.addActionListener(e -> {
-            Menu iceCream1 = menuFactory.createIceCream();
-            IceCream iceCream34 = new BasicIceCream();
+            //Menu iceCream1 = menuFactory.createIceCream();
+            IceCream iceCream1 = menuFactory.createIceCream();
             boolean stateSprinkles = false;
             boolean stateChocolateSauce = false;
 
             // Commands
             CommandInvoker commandInvoker = new CommandInvoker();
-            Command addSprinkles = new AddSprinklesCommand(iceCream34);
-            Command removeSprinkles = new RemoveSprinklesCommand(iceCream34);
-            Command addChocolateSauce = new AddChocolateSauceCommand(iceCream34);
-            Command removeChocolateSauce = new RemoveChocolateSauceCommand(iceCream34);
+            Command addSprinkles = new AddSprinklesCommand(iceCream1);
+            Command removeSprinkles = new RemoveSprinklesCommand(iceCream1);
+            Command addChocolateSauce = new AddChocolateSauceCommand(iceCream1);
+            Command removeChocolateSauce = new RemoveChocolateSauceCommand(iceCream1);
             commandInvoker.addCommand(addSprinkles);
             commandInvoker.addCommand(removeSprinkles);
             commandInvoker.addCommand(addChocolateSauce);
@@ -155,32 +155,32 @@ public class TestUI extends JFrame implements Observer{
             Menu orderedIceCream = iceCream1;
             if (sprinkles.isSelected()) {
                 orderedIceCream = new SprinklesDecoratorIceCream((IceCream) orderedIceCream);
-                commandInvoker.executeCommand(addSprinkles,iceCream34);
-                iceCream34 = (IceCream) commandInvoker.getMenuItem();
+                commandInvoker.executeCommand(addSprinkles,iceCream1);
+                iceCream1 = (IceCream) commandInvoker.getMenuItem();
                 stateSprinkles = true;
             } else{
                 if (stateSprinkles){
-                    commandInvoker.executeCommand(removeSprinkles,iceCream34);
-                    iceCream34 = (IceCream) commandInvoker.getMenuItem();
+                    commandInvoker.executeCommand(removeSprinkles,iceCream1);
+                    iceCream1 = (IceCream) commandInvoker.getMenuItem();
                     stateSprinkles = false;
                 }
             }
             if (chocolateSauce.isSelected()) {
                 orderedIceCream = new ChocolateSauceDecoratorIceCream((IceCream) orderedIceCream);
-                commandInvoker.executeCommand(addChocolateSauce,iceCream34);
-                iceCream34 = (IceCream) commandInvoker.getMenuItem();
+                commandInvoker.executeCommand(addChocolateSauce,iceCream1);
+                iceCream1 = (IceCream) commandInvoker.getMenuItem();
                 stateChocolateSauce = true;
             } else{
                 if (stateChocolateSauce){
-                    commandInvoker.executeCommand(removeChocolateSauce,iceCream34);
-                    iceCream34 = (IceCream) commandInvoker.getMenuItem();
+                    commandInvoker.executeCommand(removeChocolateSauce,iceCream1);
+                    iceCream1 = (IceCream) commandInvoker.getMenuItem();
                     stateChocolateSauce = false;
                 }
             }
             //log(orderedIceCream.getDescription());
-            log(iceCream34.getDescription());
+            log(iceCream1.getDescription());
             //orderList.add(orderedIceCream);
-            orderList.add(iceCream34);
+            orderList.add(iceCream1);
 
         });
         add(iceCream,gbc);
