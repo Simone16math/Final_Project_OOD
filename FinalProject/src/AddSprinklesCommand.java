@@ -22,7 +22,7 @@ public class AddSprinklesCommand implements Command{
     public void execute(Menu menuItem){
         setMenuItem(menuItem);
         iceCream = new SprinklesDecoratorIceCream(iceCream);
-        System.out.println(iceCream.getDescription());
+        //System.out.println(iceCream.getDescription());
         setMenuItem(iceCream);
     }
 

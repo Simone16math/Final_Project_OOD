@@ -28,7 +28,7 @@ public class RemoveSprinklesCommand implements Command{
         newIceCream.setItemName(newItemName);
 
         iceCream = newIceCream;
-        System.out.println(iceCream.getDescription());
+        //System.out.println(iceCream.getDescription());
         setMenuItem(iceCream);
     }
 

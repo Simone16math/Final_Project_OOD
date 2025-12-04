@@ -21,7 +21,7 @@ public class AddChocolateSauceCommand implements Command{
     public void execute(Menu menuItem){
         setMenuItem(menuItem);
         iceCream = new ChocolateSauceDecoratorIceCream(iceCream);
-        System.out.println(iceCream.getDescription());
+        //System.out.println(iceCream.getDescription());
         setMenuItem(iceCream);
     }
     @Override
