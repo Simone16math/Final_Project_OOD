@@ -1,20 +1,31 @@
+/*
+    Author: Simone Charles
+    Purpose: The CommandInvoker is responsible for initiating requests from the commands possible.
+ */
+
 import java.util.*;
 
 public class CommandInvoker {
+    //Attributes
     private ArrayList<Command> commands;
 
+    // Constructor
     public CommandInvoker(){
+        // create a new list of commands
         commands = new ArrayList<>();
     }
 
+    // Methods
     public void addCommand(Command command){
+        // adds a command to the list of commands
         commands.add(command);
     }
 
-    public void triggerCommand(Command command){
-        for (Command c: commands){
-            if (c == command){
-                c.execute();
+    public void executeCommand(Command command){
+        // calls a command in the list of commands
+        for (Command c: commands){ // for each command in the list
+            if (c == command){     // if it matches the desired command
+                c.execute();       // execute the command
             }
         }
     }
