@@ -161,7 +161,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         gbc.gridy = 4;
         gbc.gridx = 0;
         JButton Cake = new JButton("Cake ");
-        Cookie.addActionListener(e -> {
+        Cake.addActionListener(e -> {
             Object[] options = {"Lava Cake $6", "Red Velvet Cake $7"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a flavor:", "Available Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
@@ -183,7 +183,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         gbc.gridy = 5;
         gbc.gridx = 0;
         JButton pint = new JButton("Ice Cream Pints ");
-        Cookie.addActionListener(e -> {
+        pint.addActionListener(e -> {
             Object[] options = {"Vanilla Ice Cream Pint $10", "Chocolate Ice Cream Pint $10", "Cookies N' Cream Ice Cream Pint $11"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a flavor:", "Available Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
@@ -254,7 +254,6 @@ public class CafeMenuUI extends JFrame implements Observer {
             }
         });
         add(confirmButton,gbc);
-
 
         //Output box
         gbc.gridy = 8;
