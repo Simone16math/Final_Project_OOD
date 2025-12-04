@@ -43,4 +43,29 @@ public class BasicMenuFactory implements MenuAbstractFactory{
     public ChocolateShake createChocolateShake() {
         return new ChocolateShake();
     }
+
+    @Override
+    public RedVelvetCake createRedVelvetCake() {
+        return new RedVelvetCake();
+    }
+
+    @Override
+    public LavaCake createLavaCake() {
+        return new LavaCake();
+    }
+
+    @Override
+    public VanillaIceCreamPint createVanillaIceCreamPint() {
+        return new VanillaIceCreamPint();
+    }
+
+    @Override
+    public ChocolateIceCreamPint createChocolateIceCreamPInt() {
+        return new ChocolateIceCreamPint();
+    }
+
+    @Override
+    public CookiesNCreamIceCreamPint createCookiesNCreamIceCreamPint() {
+        return new CookiesNCreamIceCreamPint();
+    }
 }

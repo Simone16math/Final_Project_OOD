@@ -8,4 +8,9 @@ public interface MenuAbstractFactory {
     Drinks createDrink();
     StrawberryBananaShake createStrawberryBananaShake();
     ChocolateShake createChocolateShake();
+    RedVelvetCake createRedVelvetCake();
+    LavaCake createLavaCake();
+    VanillaIceCreamPint createVanillaIceCreamPint();
+    ChocolateIceCreamPint createChocolateIceCreamPInt();
+    CookiesNCreamIceCreamPint createCookiesNCreamIceCreamPint();
 }

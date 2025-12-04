@@ -156,8 +156,54 @@ public class CafeMenuUI extends JFrame implements Observer {
             }
         });
         add(Cookie,gbc);
+
         // Option Dialog
         gbc.gridy = 4;
+        gbc.gridx = 0;
+        JButton Cake = new JButton("Cake ");
+        Cookie.addActionListener(e -> {
+            Object[] options = {"Lava Cake $6", "Red Velvet Cake $7"};
+            int choice = JOptionPane.showOptionDialog(parent, "Choose a flavor:", "Available Flavors",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            if (choice >= 0) {
+                Menu cake = null;
+                if(options[choice].equals("Lava Cake $6")) {
+                    cake = menuFactory.createLavaCake();
+
+                } else if(options[choice].equals("Red Velvet Cake $7")) {
+                    cake = menuFactory.createRedVelvetCake();
+                }
+                log(cake.getDescription());
+                orderList.add(cake);
+            }
+        });
+        add(Cake,gbc);
+
+        // Option Dialog
+        gbc.gridy = 5;
+        gbc.gridx = 0;
+        JButton pint = new JButton("Ice Cream Pints ");
+        Cookie.addActionListener(e -> {
+            Object[] options = {"Vanilla Ice Cream Pint $10", "Chocolate Ice Cream Pint $10", "Cookies N' Cream Ice Cream Pint $11"};
+            int choice = JOptionPane.showOptionDialog(parent, "Choose a flavor:", "Available Flavors",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            if (choice >= 0) {
+                Menu pints = null;
+                if(options[choice].equals("Vanilla Ice Cream Pint $10")) {
+                    pints = menuFactory.createVanillaIceCreamPint();
+                } else if(options[choice].equals("Chocolate Ice Cream Pint $10")) {
+                    pints = menuFactory.createChocolateIceCreamPInt();
+                } else if(options[choice].equals("Cookies N' Cream Ice Cream Pint $11")) {
+                    pints = menuFactory.createCookiesNCreamIceCreamPint();
+                }
+                log(pints.getDescription());
+                orderList.add(pints);
+            }
+        });
+        add(pint,gbc);
+
+        // Option Dialog
+        gbc.gridy = 6;
         gbc.gridx = 0;
         JButton Drinks = new JButton("Drinks Dialog " + "$" +   drinks.getPrice());
         Drinks.addActionListener(e -> {
@@ -183,7 +229,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         add(Drinks,gbc);
 
         // Confirm Dialog
-        gbc.gridy = 5;
+        gbc.gridy = 7;
         gbc.gridx = 0;
         JButton confirmButton = new JButton("Confirm Order");
         confirmButton.addActionListener(e -> {
@@ -212,7 +258,7 @@ public class CafeMenuUI extends JFrame implements Observer {
 
 
         //Output box
-        gbc.gridy = 6;
+        gbc.gridy = 8;
         gbc.gridx = 0;
         gbc.gridwidth = 3;             // output spans full row
         gbc.weightx = 1;
