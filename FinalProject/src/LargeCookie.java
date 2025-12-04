@@ -1,6 +1,6 @@
 public class LargeCookie implements Menu{
     @Override
-    public String item() {
+    public String itemName() {
         return "Large Cookie";
     }
 
@@ -11,6 +11,6 @@ public class LargeCookie implements Menu{
 
     @Override
     public String getDescription() {
-        return "Item: " + item() +  " $" + getPrice();
+        return "Item: " + itemName() +  " $" + getPrice();
     }
 }

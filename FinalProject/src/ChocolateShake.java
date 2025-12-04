@@ -1,7 +1,7 @@
 public class ChocolateShake implements Menu{
 
     @Override
-    public String item() {
+    public String itemName() {
         return "Chocolate Shake";
     }
 
@@ -12,6 +12,6 @@ public class ChocolateShake implements Menu{
 
     @Override
     public String getDescription() {
-        return "Item: " + item() +  " $" + getPrice();
+        return "Item: " + itemName() +  " $" + getPrice();
     }
 }
