@@ -109,21 +109,19 @@ public class CafeMenuUI extends JFrame implements Observer {
         gbc.gridx = 0;
         JButton Cookie = new JButton("Cookie " + "$" +  basicCookie.getPrice());
         Cookie.addActionListener(e -> {
-            Menu cookie = menuFactory.createCookie();
             Object[] options = {"Large", "Small"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a size:", "Available Sizes",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
-                Menu orderedCookie = cookie;
+                Menu cookie = null;
                 if(options[choice].equals("Large")) {
-                    orderedCookie = new Cookie();
-                    log(orderedCookie.getDescription());
+                    cookie = menuFactory.createLargeCookie();
+
                 } else if(options[choice].equals("Small")) {
-                    orderedCookie = new Cookie();
-                    log(orderedCookie.getDescription());
+                    cookie = menuFactory.createCookie();
                 }
-                log("Size selected: " + options[choice]);
-                orderList.add(orderedCookie);
+                log(cookie.getDescription());
+                orderList.add(cookie);
             }
 
         });
@@ -133,23 +131,22 @@ public class CafeMenuUI extends JFrame implements Observer {
         gbc.gridx = 0;
         JButton Drinks = new JButton("Drinks Dialog " + "$" +   drinks.getPrice());
         Drinks.addActionListener(e -> {
-            Menu drinks = menuFactory.createDrink();
-            Object[] options = {"Vanilla Shake", "Strawberry-Banana Smoothie", "Chocolate Shake"};
+            Object[] options = {"Vanilla Shake", "Strawberry-Banana", "Chocolate Shake"};
             int choice = JOptionPane.showOptionDialog(parent, "Choose a flavor:", "Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0){
-                Menu orderedDrinks = drinks;
+                Menu orderedDrinks = null;
                 if(options[choice].equals("Vanilla Shake")) {
-                    orderedDrinks = new Drinks();
-                    log(orderedDrinks.getDescription());
+                    orderedDrinks = menuFactory.createDrink();
+
                 }else if(options[choice].equals("Strawberry-Banana")) {
-                    orderedDrinks = new Drinks();
-                    log(orderedDrinks.getDescription());
+                    orderedDrinks = menuFactory.createStrawberryBananaShake();
+
                 }else if(options[choice].equals("Chocolate Shake")) {
-                    orderedDrinks = new Drinks();
-                    log(orderedDrinks.getDescription());
+                    orderedDrinks = menuFactory.createChocolateShake();
+
                 }
-                log("Flavor selected: " + options[choice]);
+                log(orderedDrinks.getDescription());
                 orderList.add(orderedDrinks);
             }
         });

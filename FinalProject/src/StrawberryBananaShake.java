@@ -1,16 +1,16 @@
-public class Cookie implements Menu{
+public class StrawberryBananaShake implements Menu{
     @Override
     public String item() {
-        return "Small Cookie";
+        return "Strawberry Banana Shake";
     }
 
     @Override
     public double getPrice() {
-        return 2.0;
+        return 5;
     }
 
     @Override
-    public String getDescription(){
+    public String getDescription() {
         return "Item: " + item() +  " $" + getPrice();
     }
 }
