@@ -77,6 +77,17 @@ public class CafeMenuUI extends JFrame implements Observer {
         iceCream.add(chocolateSauce);
         iceCream.add(plain);
         JButton addIceCreamBtn = new JButton("Add Ice Cream" + "+ $" + basicIceCream.getPrice());
+        addIceCreamBtn.addActionListener(e -> {
+            Object[] options = {"Scoop", "Cup"};
+            int choice = JOptionPane.showOptionDialog(parent, "Choose:", "Available options",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            if (choice >= 0) {
+                if(options[choice].equals("Scoop")){
+                log("in a Scoop");
+            }   if(options[choice].equals("Cup")){
+                log("in a Cup");}
+            }
+        });
         add(addIceCreamBtn, gbc);
 
         // Action listener for adding ice cream to cart
@@ -123,7 +134,6 @@ public class CafeMenuUI extends JFrame implements Observer {
                 log(cookie.getDescription());
                 orderList.add(cookie);
             }
-
         });
         add(Cookie,gbc);
         // Option Dialog
