@@ -1,6 +1,7 @@
 /*
     Author: Simone Charles
-    Purpose:
+    Purpose: This file represents the base decorator class for the ice cream in which it serves as a baseline for all
+            decorators to follow
  */
 
 abstract class IceCreamToppingDecorator extends IceCream {
