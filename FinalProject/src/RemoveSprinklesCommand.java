@@ -14,6 +14,10 @@ public class RemoveSprinklesCommand implements Command{
 
     @Override
     public void execute(){
+        String previousDescription = iceCream.getDescription();
+
+        String newDescription = previousDescription.replace("Sprinkles", "");
+
 
     }
 

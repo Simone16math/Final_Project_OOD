@@ -15,7 +15,8 @@ public class AddSprinklesCommand implements Command{
 
     @Override
     public void execute(){
-
+        // adds sprinkles to the iceCream
+        iceCream = new SprinklesDecoratorIceCream(iceCream);
     }
 
 }
