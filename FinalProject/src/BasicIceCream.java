@@ -4,24 +4,38 @@
  */
 
 public class BasicIceCream extends IceCream{
+    private String description;
+    private String item = "Ice Cream";
+    private double price = 2.0;
 
     @Override
     public String getItemName() {
         // returns the menu item's name
-        String name = "IceCream";
-        return name;
+        //String name = "IceCream";
+        return item;
     }
 
     @Override
     public double getPrice() {
         // returns the price of the menu item
-        double price = 2.0;
+        //double price = 2.0;
         return price;
     }
 
     @Override
     public String getDescription() {
         // returns the description of the menu item
-        return "Item: " + this.getItemName() + " $" + getPrice();
+        description = "Item: " + this.getItemName() + " $" + getPrice();
+        return description;
+    }
+
+    @Override
+    public void setItemName(String item){
+        this.item = item;
+    }
+
+    @Override
+    public void setPrice(double price){
+        this.price = price;
     }
 }

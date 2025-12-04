@@ -1,16 +1,29 @@
 public abstract class IceCream implements Menu{
+   private String description;
+   private String item = "Ice Cream";
+   private double price = 2.0;
+
     @Override
     public String getItemName() {;
-        return "Ice Cream";
+        return item;
     }
 
     @Override
     public double getPrice() {
-        return 2.0;
+        return price;
     }
 
     @Override
     public String getDescription() {
-        return "Item: " + getItemName() + " $" + getPrice();
+        description = "Item: " + getItemName() + " $" + getPrice();
+        return description;
+    }
+
+    public void setItemName(String item){
+        this.item = item;
+    }
+
+    public void setPrice(double price){
+        this.price = price;
     }
 }
