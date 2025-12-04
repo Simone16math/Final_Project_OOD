@@ -22,10 +22,13 @@ public class RemoveSprinklesCommand implements Command{
         setMenuItem(menuItem);
         String previousItemName = iceCream.getItemName();
         String newItemName = previousItemName.replace(", Sprinkles", "");
-        iceCream.setPrice(iceCream.getPrice()-0.25);
-        iceCream.setItemName(newItemName);
 
-        System.out.println("system"+iceCream.getDescription());
+        IceCream newIceCream = new BasicIceCream();
+        newIceCream.setPrice(iceCream.getPrice()-0.25);
+        newIceCream.setItemName(newItemName);
+
+        iceCream = newIceCream;
+        System.out.println(iceCream.getDescription());
         setMenuItem(iceCream);
     }
 

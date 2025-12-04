@@ -11,7 +11,7 @@ public class TestingCommands {
         commandInvoker.addCommand(addSprinkles);
         commandInvoker.addCommand(removeSprinkles);
         commandInvoker.addCommand(addChocolateSauce);
-        commandInvoker.addCommand(removeSprinkles);
+        commandInvoker.addCommand(removeChocolateSauce);
 
 
 
@@ -19,9 +19,11 @@ public class TestingCommands {
         testIceCream = (IceCream) commandInvoker.getMenuItem();
         commandInvoker.executeCommand(addChocolateSauce, testIceCream);
         testIceCream = (IceCream) commandInvoker.getMenuItem();
-        System.out.println(testIceCream.getDescription());
+        //System.out.println(testIceCream.getDescription());
 
         commandInvoker.executeCommand(removeSprinkles,testIceCream);
+        testIceCream = (IceCream) commandInvoker.getMenuItem();
+        commandInvoker.executeCommand(removeChocolateSauce,testIceCream);
         testIceCream = (IceCream) commandInvoker.getMenuItem();
         //System.out.println(testIceCream.getDescription());
 
