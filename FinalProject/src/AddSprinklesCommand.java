@@ -18,8 +18,25 @@ public class AddSprinklesCommand implements Command{
         // adds sprinkles to the iceCream
         iceCream = new SprinklesDecoratorIceCream(iceCream);
         System.out.println(iceCream.getDescription());
-
-
     }
+
+    @Override
+    public void setMenuItem(Menu menuItem){
+        this.iceCream = (IceCream) menuItem;
+    }
+
+    @Override
+    public void executeup(Menu menuItem){
+        setMenuItem(menuItem);
+        iceCream = new SprinklesDecoratorIceCream(iceCream);
+        System.out.println(iceCream.getDescription());
+        setMenuItem(iceCream);
+    }
+
+    @Override
+    public Menu getMenuItem(){
+        return iceCream;
+    }
+
 
 }

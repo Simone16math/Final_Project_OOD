@@ -16,4 +16,19 @@ public class RemoveChocolateSauceCommand implements Command{
     public void execute(){
 
     }
+
+    @Override
+    public void setMenuItem(Menu menuItem){
+        this.iceCream = (IceCream) menuItem;
+    }
+
+    @Override
+    public void executeup(Menu menuItem){
+
+    }
+
+    @Override
+    public Menu getMenuItem(){
+        return iceCream;
+    }
 }

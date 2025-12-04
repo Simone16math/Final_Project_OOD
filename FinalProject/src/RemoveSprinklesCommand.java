@@ -21,4 +21,23 @@ public class RemoveSprinklesCommand implements Command{
 
     }
 
+    @Override
+    public void setMenuItem(Menu menuItem){
+        this.iceCream = (IceCream) menuItem;
+    }
+
+    @Override
+    public void executeup(Menu menuItem){
+        setMenuItem(menuItem);
+        String previousDescription = iceCream.getDescription();
+        String newDescription = previousDescription.replace(", Sprinkles", "");
+        System.out.println(newDescription);
+
+    }
+
+    @Override
+    public Menu getMenuItem(){
+        return iceCream;
+    }
+
 }

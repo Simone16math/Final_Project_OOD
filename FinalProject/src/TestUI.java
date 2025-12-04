@@ -28,6 +28,8 @@ public class TestUI extends JFrame implements Observer{
 
 
 
+
+
         order.registerObserver(this); //register user as customer
 
 
@@ -114,23 +116,41 @@ public class TestUI extends JFrame implements Observer{
         gbc.gridy = 1;
         gbc.gridx = 1;
         addIceCreamBtn.addActionListener(e -> {
-
             Menu iceCream1 = menuFactory.createIceCream();
+            IceCream iceCream34 = new BasicIceCream();
+
+            // Commands
+            CommandInvoker commandInvoker = new CommandInvoker();
+            Command addSprinkles = new AddSprinklesCommand(iceCream34);
+            Command removeSprinkles = new RemoveSprinklesCommand(iceCream34);
+            Command addChocolateSauce = new AddChocolateSauceCommand(iceCream34);
+            Command removeChocolateSauce = new RemoveChocolateSauceCommand(iceCream34);
+            commandInvoker.addCommand(addSprinkles);
+            commandInvoker.addCommand(removeSprinkles);
+            commandInvoker.addCommand(addChocolateSauce);
+            commandInvoker.addCommand(removeChocolateSauce);
+
             Menu orderedIceCream = iceCream1;
             if (sprinkles.isSelected()) {
                 orderedIceCream = new SprinklesDecoratorIceCream((IceCream) orderedIceCream);
-
+                commandInvoker.executeCommand(addSprinkles,iceCream34);
+                iceCream34 = (IceCream) commandInvoker.getMenuItem();
             }
             if (chocolateSauce.isSelected()) {
                 orderedIceCream = new ChocolateSauceDecoratorIceCream((IceCream) orderedIceCream);
+                commandInvoker.executeCommand(addSprinkles,iceCream34);
+                iceCream34 = (IceCream) commandInvoker.getMenuItem();
 
             }
             if (plain.isSelected()) {
                 orderedIceCream = new BasicIceCream();
+                //iceCream34
 
             }
-            log(orderedIceCream.getDescription());
-            orderList.add(orderedIceCream);
+            //log(orderedIceCream.getDescription());
+            log(iceCream34.getDescription());
+            //orderList.add(orderedIceCream);
+            orderList.add(iceCream34);
 
         });
         add(iceCream,gbc);
