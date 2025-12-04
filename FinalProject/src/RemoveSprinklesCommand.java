@@ -13,26 +13,20 @@ public class RemoveSprinklesCommand implements Command{
     }
 
     @Override
-    public void execute(){
-        String previousDescription = iceCream.getDescription();
-
-        String newDescription = previousDescription.replace("Sprinkles", "");
-
-
-    }
-
-    @Override
     public void setMenuItem(Menu menuItem){
         this.iceCream = (IceCream) menuItem;
     }
 
     @Override
-    public void executeup(Menu menuItem){
+    public void execute(Menu menuItem){
         setMenuItem(menuItem);
-        String previousDescription = iceCream.getDescription();
-        String newDescription = previousDescription.replace(", Sprinkles", "");
-        System.out.println(newDescription);
+        String previousItemName = iceCream.getItemName();
+        String newItemName = previousItemName.replace(", Sprinkles", "");
+        iceCream.setPrice(iceCream.getPrice()-0.25);
+        iceCream.setItemName(newItemName);
 
+        System.out.println("system"+iceCream.getDescription());
+        setMenuItem(iceCream);
     }
 
     @Override

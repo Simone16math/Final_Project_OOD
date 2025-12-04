@@ -26,7 +26,7 @@ public class CommandInvoker {
         // calls a command in the list of commands
         for (Command c: commands){ // for each command in the list
             if (c == command){     // if it matches the desired command
-                c.executeup(menuItem);// execute the command
+                c.execute(menuItem);// execute the command
                 this.menuItem = c.getMenuItem();
 
             }

@@ -14,12 +14,18 @@ public class TestingCommands {
         commandInvoker.addCommand(removeSprinkles);
 
 
-        System.out.println("ahh");
+
         commandInvoker.executeCommand(addSprinkles,testIceCream);
         testIceCream = (IceCream) commandInvoker.getMenuItem();
         commandInvoker.executeCommand(addChocolateSauce, testIceCream);
         testIceCream = (IceCream) commandInvoker.getMenuItem();
         System.out.println(testIceCream.getDescription());
+
+        commandInvoker.executeCommand(removeSprinkles,testIceCream);
+        testIceCream = (IceCream) commandInvoker.getMenuItem();
+        //System.out.println(testIceCream.getDescription());
+
+
 
 
     }
