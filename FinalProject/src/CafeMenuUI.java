@@ -6,14 +6,12 @@ import java.util.ArrayList;
 public class CafeMenuUI extends JFrame implements Observer {
     private JTextArea outputArea;
     private JPanel parent;
-    private int startTime = -1;
-    Customer order = new Customer();
+    Order order = new Order();
     private java.util.List<Menu> orderList = new ArrayList();
     BasicIceCream basicIceCream = new BasicIceCream();
     Cookie basicCookie = new Cookie();
     Drinks drinks = new Drinks();
     MenuAbstractFactory menuFactory = new BasicMenuFactory();
-    CookiesNCreamIceCream cookiesNCreamIceCream = new CookiesNCreamIceCream();
 
     @Override
     public void update(String Order) {
@@ -28,7 +26,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         setLocationRelativeTo(null);
 
 
-        this.order.registerObserver(this); //register user as customer
+        order.registerObserver(this); //register user as customer
 
 
         setLayout(new GridBagLayout());
@@ -82,7 +80,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         addIceCreamBtn.addActionListener(e -> {
             Menu flavor = null;
             Object[] flavors = {"Chocolate", "Vanilla", "Cookies N' Cream + $0.50" };
-            int choice = JOptionPane.showOptionDialog(parent, "Choose Flavor:", "Available flavors",
+            int choice = JOptionPane.showOptionDialog(this, "Choose Flavor:", "Available flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, flavors, flavors[0]);
             if (choice >= 0) {
                 if(flavors[choice].equals("Vanilla")) {
@@ -98,12 +96,12 @@ public class CafeMenuUI extends JFrame implements Observer {
             }
             log(flavor.getDescription());
             orderList.add(flavor);
-            Object[] options = {"Scoop", "Cup"};
-            int choice1 = JOptionPane.showOptionDialog(parent, "Choose:", "Available options",
+            Object[] options = {"Cone", "Cup"};
+            int choice1 = JOptionPane.showOptionDialog(this, "Choose:", "Available options",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice1 >= 0) {
-                if(options[choice1].equals("Scoop")){
-                    log("in a Scoop");
+                if(options[choice1].equals("Cone")){
+                    log("in a Cone");
             }   if(options[choice1].equals("Cup")){
                     log("in a Cup");}
             }
@@ -141,7 +139,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         JButton Cookie = new JButton("Cookie " + "$" +  basicCookie.getPrice());
         Cookie.addActionListener(e -> {
             Object[] options = {"Large", "Small"};
-            int choice = JOptionPane.showOptionDialog(parent, "Choose a size:", "Available Sizes",
+            int choice = JOptionPane.showOptionDialog(this, "Choose a size:", "Available Sizes",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
                 Menu cookie = null;
@@ -163,7 +161,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         JButton Cake = new JButton("Cake ");
         Cake.addActionListener(e -> {
             Object[] options = {"Lava Cake $6", "Red Velvet Cake $7"};
-            int choice = JOptionPane.showOptionDialog(parent, "Choose a flavor:", "Available Flavors",
+            int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Available Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
                 Menu cake = null;
@@ -185,7 +183,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         JButton pint = new JButton("Ice Cream Pints ");
         pint.addActionListener(e -> {
             Object[] options = {"Vanilla Ice Cream Pint $10", "Chocolate Ice Cream Pint $10", "Cookies N' Cream Ice Cream Pint $11"};
-            int choice = JOptionPane.showOptionDialog(parent, "Choose a flavor:", "Available Flavors",
+            int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Available Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
                 Menu pints = null;
@@ -208,7 +206,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         JButton Drinks = new JButton("Drinks Dialog " + "$" +   drinks.getPrice());
         Drinks.addActionListener(e -> {
             Object[] options = {"Vanilla Shake", "Strawberry-Banana", "Chocolate Shake"};
-            int choice = JOptionPane.showOptionDialog(parent, "Choose a flavor:", "Flavors",
+            int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0){
                 Menu orderedDrinks = null;
@@ -233,7 +231,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         gbc.gridx = 0;
         JButton confirmButton = new JButton("Confirm Order");
         confirmButton.addActionListener(e -> {
-            int result = JOptionPane.showConfirmDialog(parent, "Do you want to place your order?",
+            int result = JOptionPane.showConfirmDialog(this, "Do you want to place your order?",
                     "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
             if (result == JOptionPane.YES_OPTION) {
                 order.orderStatus("Order Placed");
@@ -245,11 +243,7 @@ public class CafeMenuUI extends JFrame implements Observer {
                 log("Total price: " + total);
             }else if (result == JOptionPane.NO_OPTION){
                 order.orderStatus("Order Cancelled");
-                for (Menu orderedfood: orderList) {
-                    orderList.remove(orderedfood);
-
-                }
-                order.removeObserver(this);
+                orderList.clear();
                 log("Please type in your Name again.");
             }
         });
