@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-import java.util.List;
 
-public class Customer implements Subject {
+public class Order implements Subject {
     //List to register customer
     public ArrayList<Observer> observers = new ArrayList<Observer>();
 
@@ -14,7 +13,7 @@ public class Customer implements Subject {
         this.name = name;
     }
 
-    public Customer() {
+    public Order() {
         //constructor
     }
     // Method to add an observer
