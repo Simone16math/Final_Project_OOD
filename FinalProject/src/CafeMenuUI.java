@@ -235,7 +235,6 @@ public class CafeMenuUI extends JFrame implements Observer {
         confirmButton.addActionListener(e -> {
             int result = JOptionPane.showConfirmDialog(parent, "Do you want to place your order?",
                     "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
-            log("Confirm order: " + result);
             if (result == JOptionPane.YES_OPTION) {
                 order.orderStatus("Order Placed");
                 simulateProgress();
