@@ -14,6 +14,7 @@ public class AddChocolateSauceCommand implements Command{
 
     @Override
     public void execute(){
+        iceCream = new ChocolateSauceDecoratorIceCream(iceCream);
 
     }
 
