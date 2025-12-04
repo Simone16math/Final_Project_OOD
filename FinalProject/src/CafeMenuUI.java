@@ -198,6 +198,13 @@ public class CafeMenuUI extends JFrame implements Observer {
                     total += orderedfood.getPrice();
                 }
                 log("Total price: " + total);
+            }else if (result == JOptionPane.NO_OPTION){
+                order.orderStatus("Order Cancelled");
+                for (Menu orderedfood: orderList) {
+                    orderList.remove(orderedfood);
+
+                }
+                log("Please type in your Name again.");
             }
         });
         add(confirmButton,gbc);
