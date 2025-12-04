@@ -1,6 +1,6 @@
 public class BasicIceCream extends IceCream{
     @Override
-    public String item() {
+    public String itemName() {
         String name = "IceCream";
         return name;
     }
@@ -13,6 +13,6 @@ public class BasicIceCream extends IceCream{
 
     @Override
     public String getDescription() {
-        return "Item: " + item() + " $" + getPrice();
+        return "Item: " + itemName() + " $" + getPrice();
     }
 }

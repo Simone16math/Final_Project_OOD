@@ -7,5 +7,16 @@ public class CommandInvoker {
         commands = new ArrayList<>();
     }
 
+    public void addCommand(Command command){
+        commands.add(command);
+    }
+
+    public void triggerCommand(Command command){
+        for (Command c: commands){
+            if (c == command){
+                c.execute();
+            }
+        }
+    }
 
 }

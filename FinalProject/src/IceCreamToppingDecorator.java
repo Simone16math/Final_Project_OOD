@@ -6,7 +6,7 @@ abstract class IceCreamToppingDecorator extends IceCream {
     }
 
     String getIceCreamDescription(){
-        return iceCream.item();
+        return iceCream.itemName();
     }
 
 }
