@@ -320,11 +320,13 @@ public class CafeMenuUI extends JFrame implements Observer {
         receipt.setSize(800, 800);
         receipt.setLocationRelativeTo(null);
 
-        receipt.setLayout(new GridBagLayout());
-        GridBagConstraints gbc1 = new GridBagConstraints();
-        gbc1.insets = new Insets(5, 5, 5, 5);
-        gbc1.anchor = GridBagConstraints.WEST;
-        gbc1.fill = GridBagConstraints.HORIZONTAL;
+//        receipt.setLayout(new GridBagLayout());
+//        GridBagConstraints gbc1 = new GridBagConstraints();
+//        gbc1.insets = new Insets(5, 5, 5, 5);
+//        gbc1.anchor = GridBagConstraints.WEST;
+//        gbc1.fill = GridBagConstraints.HORIZONTAL;
+
+        receipt.setLayout(new GridLayout(4, 2, 10, 10));
 
 
 //        ImageIcon smoothie = new ImageIcon("testing.jpeg");
@@ -458,7 +460,45 @@ public class CafeMenuUI extends JFrame implements Observer {
         receipt.pack();
         receipt.setVisible(true);
 
+        ArrayList<JLabel> labels = new ArrayList<JLabel>();
+        //labels.add(LargeCookie);
+        //labels.add(SmallCookie);
+        //labels.add(RedVelvetCake);
+        //labels.add(LavaCake);
+        //labels.add(VanillaPint);
+        //labels.add(ChocolatePint);
+        //labels.add(CookiesNCreamPint);
+        // labels.add(VanillaShake);
+        // labels.add(StrawberryBananaShake);
+        // labels.add(ChocolateShake);
+        //labels.add(ChocolateCone);
+        //labels.add(ChocolateCup);
+        //labels.add(VanillaCone);
+        // labels.add(VanillaCup);
+        // labels.add(CookiesNCreamCone);
+        // labels.add(CookiesNCreamCup);
+
+
+        // for (Jlabel label: labels){
+            //receipt.getContentPane().remove(label);
+
+        //}
+
+
+
+
+
+
+
+
+
+
+
     }
+
+//    private void resetImages(JFrame frame){
+//        frame.getContentPane().remove(Coo)
+//    }
 
 
     private void simulateProgress() {
