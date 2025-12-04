@@ -8,18 +8,6 @@ import java.util.List;
 
 public class ReceiptPanel extends JFrame{
 
-//    public enum MenuItemsList{
-//        LargeCookie, SmallCookie, RedVelvetCake, LavaCake, VanillaPint, ChocolatePint, CookiesNCreamPint,
-//        VanillaShake, StrawberryBananaShake, ChocolateShake, ChocolateCone, ChocolateCup, VanillaCone, VanillaCup,
-//        CookiesNCreamCone, CookiesNCreamCup
-//    }
-//
-//   private ArrayList<String> imagePaths = new ArrayList<String>();
-//
-//    public void loadPaths(){
-//
-//    }
-
 
     public ReceiptPanel(List<Menu> orderList){
         setTitle("Receipt");
@@ -32,27 +20,6 @@ public class ReceiptPanel extends JFrame{
         gbc1.insets = new Insets(5, 5, 5, 5);
         gbc1.anchor = GridBagConstraints.WEST;
         gbc1.fill = GridBagConstraints.HORIZONTAL;
-
-
-        ArrayList<String> imagePaths = new ArrayList<String>();
-        imagePaths.add("FinalProject/src/imagesOfMenu/largeCookie.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/smallCookie.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/redvelvetcake.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/lavaCake.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/vanillaPint.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/chocolatePint.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/cookiesncreamPint.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/vanilla-milkshake.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/strawbanshake.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/chocolateshake.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/conechocolate.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/cupchocolate.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/conevanilla.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/cupvanilla.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/CookiesNCreamCone.jpg");
-        imagePaths.add("FinalProject/src/imagesOfMenu/cookiencreamcup.jpg");
-
-
 
         String[] imagePaths1 = new String[16];
         imagePaths1[0] = "FinalProject/src/imagesOfMenu/largeCookie.jpg";
@@ -111,59 +78,55 @@ public class ReceiptPanel extends JFrame{
 
 
         for (Menu item: orderList){
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Large Cookie")){
                 add(LargeCookie);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Small Cookie")){
                 add(SmallCookie);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Red Velvet Cake")){
                 add(RedVelvetCake);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Lava Cake")){
                 add(LavaCake);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Vanilla Ice Cream Pint")){
                 add(VanillaPint);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Chocolate Ice Cream Pint")){
                 add(ChocolatePint);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Cookies N Cream Ice Cream Pint")){
                 add(CookiesNCreamPint);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Vanilla Shake")){
                 add(VanillaShake);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Strawberry-Banana Smoothie")){
                 add(StrawberryBananaShake);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Chocolate Shake")){
                 add(ChocolateShake);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Chocolate Ice Cream")){
                 add(ChocolateCone);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Chocolate Ice Cream")){
                 add(ChocolateCup);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Vanilla Ice Cream")){
                 add(VanillaCone);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Vanilla Ice Cream")){
                 add(VanillaCup);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Cookies N' Cream Ice Cream")){
                 add(CookiesNCreamCone);
             }
-            if (item.getDescription().contains("")){
+            if (item.getDescription().contains("Cookies N' Cream Ice Cream")){
                 add(CookiesNCreamCup);
             }
         }
-
-
-
-
 
         setVisible(true);
 

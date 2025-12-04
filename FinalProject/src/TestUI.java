@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -235,16 +236,16 @@ public class TestUI extends JFrame implements Observer{
         gbc.gridx = 0;
         JButton pint = new JButton("Ice Cream Pints ");
         pint.addActionListener(e -> {
-            Object[] options = {"Vanilla Ice Cream Pint $10", "Chocolate Ice Cream Pint $10", "Cookies N' Cream Ice Cream Pint $11"};
+            Object[] options = {"Vanilla Ice Cream Pint $7", "Chocolate Ice Cream Pint $7", "Cookies N' Cream Ice Cream Pint $8"};
             int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Available Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
                 Menu pints = null;
-                if(options[choice].equals("Vanilla Ice Cream Pint $5")) {
+                if(options[choice].equals("Vanilla Ice Cream Pint $7")) {
                     pints = menuFactory.createVanillaIceCreamPint();
-                } else if(options[choice].equals("Chocolate Ice Cream Pint $5")) {
+                } else if(options[choice].equals("Chocolate Ice Cream Pint $7")) {
                     pints = menuFactory.createChocolateIceCreamPInt();
-                } else if(options[choice].equals("Cookies N' Cream Ice Cream Pint $6")) {
+                } else if(options[choice].equals("Cookies N' Cream Ice Cream Pint $8")) {
                     pints = menuFactory.createCookiesNCreamIceCreamPint();
                 }
                 log(pints.getDescription());
@@ -296,6 +297,7 @@ public class TestUI extends JFrame implements Observer{
                 }
 
                 log("Total price: $" + total);
+                getReceipt();
             }else if (result == JOptionPane.NO_OPTION){
                 order.orderStatus("Order Cancelled");
                 orderList.clear();
@@ -316,8 +318,6 @@ public class TestUI extends JFrame implements Observer{
         JScrollPane scrollPane = new JScrollPane(outputArea);
         add(scrollPane,gbc);
 
-
-
     }
 
     private void getReceipt(){
@@ -334,10 +334,135 @@ public class TestUI extends JFrame implements Observer{
         gbc1.fill = GridBagConstraints.HORIZONTAL;
 
 
+//        ImageIcon smoothie = new ImageIcon("testing.jpeg");
+//        JLabel smothie = new JLabel(smoothie);
+//        receipt.add(smothie);
+//        receipt.setVisible(true);
 
-        ImageIcon smoothie = new ImageIcon("testing.jpeg");
-        JLabel smothie = new JLabel(smoothie);
-        receipt.add(smothie);
+        String[] imagePaths1 = new String[16];
+        imagePaths1[0] = "FinalProject/src/imagesOfMenu/largeCookie.jpg";
+        imagePaths1[1] = "FinalProject/src/imagesOfMenu/smallCookie.jpg";
+        imagePaths1[2] = "FinalProject/src/imagesOfMenu/redvelvetcake.jpg";
+        imagePaths1[3] = "FinalProject/src/imagesOfMenu/lavaCake.jpg";
+        imagePaths1[4] = "FinalProject/src/imagesOfMenu/vanillaPint.jpg";
+        imagePaths1[5] = "FinalProject/src/imagesOfMenu/chocolatePint.jpg";
+        imagePaths1[6] = "FinalProject/src/imagesOfMenu/cookiesncreamPint.jpg";
+        imagePaths1[7] = "FinalProject/src/imagesOfMenu/vanilla-milkshake.jpg";
+        imagePaths1[8] = "FinalProject/src/imagesOfMenu/strawbanshake.jpg";
+        imagePaths1[9] = "FinalProject/src/imagesOfMenu/chocolateshake.jpg";
+        imagePaths1[10] = "FinalProject/src/imagesOfMenu/conechocolate.jpg";
+        imagePaths1[11] = "FinalProject/src/imagesOfMenu/cupchocolate.jpg";
+        imagePaths1[12] = "FinalProject/src/imagesOfMenu/conevanilla.jpg";
+        imagePaths1[13] = "FinalProject/src/imagesOfMenu/cupvanilla.jpg";
+        imagePaths1[14] = "FinalProject/src/imagesOfMenu/CookiesNCreamCone.jpg";
+        imagePaths1[15] = "FinalProject/src/imagesOfMenu/cookiencreamcup.jpg";
+
+//        ImageIcon smoothie = new ImageIcon("FinalProject/src/testing.jpeg");
+//        JLabel smothie = new JLabel(smoothie);
+//        add(smothie);
+
+        ImageIcon LargeCookieI  = new ImageIcon(imagePaths1[0]);
+        JLabel LargeCookie = new JLabel(LargeCookieI);
+        ImageIcon SmallCookieI  = new ImageIcon(imagePaths1[1]);
+        JLabel SmallCookie = new JLabel(SmallCookieI);
+        ImageIcon RedVelvetCakeI = new ImageIcon(imagePaths1[2]);
+        JLabel RedVelvetCake = new JLabel(RedVelvetCakeI);
+        ImageIcon LavaCakeI  = new ImageIcon(imagePaths1[3]);
+        JLabel LavaCake = new JLabel(LavaCakeI);
+        ImageIcon VanillaPintI  = new ImageIcon(imagePaths1[4]);
+        JLabel VanillaPint = new JLabel(VanillaPintI);
+        ImageIcon ChocolatePintI  = new ImageIcon(imagePaths1[5]);
+        JLabel ChocolatePint = new JLabel(ChocolatePintI);
+        ImageIcon CookiesNCreamPintI  = new ImageIcon(imagePaths1[6]);
+        JLabel CookiesNCreamPint = new JLabel(CookiesNCreamPintI);
+        ImageIcon VanillaShakeI  = new ImageIcon(imagePaths1[7]);
+        JLabel VanillaShake = new JLabel(VanillaShakeI);
+        ImageIcon StrawberryBananaShakeI  = new ImageIcon(imagePaths1[8]);
+        JLabel StrawberryBananaShake = new JLabel(StrawberryBananaShakeI);
+        ImageIcon ChocolateShakeI  = new ImageIcon(imagePaths1[9]);
+        JLabel ChocolateShake = new JLabel(ChocolateShakeI);
+        ImageIcon ChocolateConeI  = new ImageIcon(imagePaths1[10]);
+        JLabel ChocolateCone = new JLabel(ChocolateConeI);
+        ImageIcon ChocolateCupI  = new ImageIcon(imagePaths1[11]);
+        JLabel ChocolateCup = new JLabel(ChocolateCupI);
+        ImageIcon VanillaConeI  = new ImageIcon(imagePaths1[12]);
+        JLabel VanillaCone = new JLabel(VanillaConeI);
+        ImageIcon VanillaCupI  = new ImageIcon(imagePaths1[13]);
+        JLabel VanillaCup = new JLabel(VanillaCupI);
+        ImageIcon CookiesNCreamConeI  = new ImageIcon(imagePaths1[14]);
+        JLabel CookiesNCreamCone = new JLabel(CookiesNCreamConeI);
+        ImageIcon CookiesNCreamCupI  = new ImageIcon(imagePaths1[15]);
+        JLabel CookiesNCreamCup = new JLabel(CookiesNCreamCupI);
+
+
+        for (Menu item: orderList){
+            if (item.getDescription().contains("Large Cookie")){
+                receipt.add(LargeCookie);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Small Cookie")){
+                receipt.add(SmallCookie);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Red Velvet Cake")){
+                receipt.add(RedVelvetCake);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Lava Cake")){
+                receipt.add(LavaCake);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Vanilla Ice Cream Pint")){
+                receipt.add(VanillaPint);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Chocolate Ice Cream Pint")){
+                receipt.add(ChocolatePint);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Cookies N Cream Ice Cream Pint")){
+                receipt.add(CookiesNCreamPint);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Vanilla Shake")){
+                receipt.add(VanillaShake);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Strawberry-Banana Smoothie")){
+                receipt.add(StrawberryBananaShake);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Chocolate Shake")){
+                receipt.add(ChocolateShake);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Chocolate Ice Cream")){
+                receipt.add(ChocolateCone);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Chocolate Ice Cream")){
+                receipt.add(ChocolateCup);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Vanilla Ice Cream")){
+                receipt.add(VanillaCone);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Vanilla Ice Cream")){
+                receipt.add(VanillaCup);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Cookies N' Cream Ice Cream")){
+                receipt.add(CookiesNCreamCone);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Cookies N' Cream Ice Cream")){
+                receipt.add(CookiesNCreamCup);
+                receipt.pack();
+            }
+        }
+
+        receipt.pack();
         receipt.setVisible(true);
 
     }
