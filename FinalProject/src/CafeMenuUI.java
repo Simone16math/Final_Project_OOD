@@ -606,11 +606,6 @@ public class CafeMenuUI extends JFrame implements Observer {
         gbc1.fill = GridBagConstraints.HORIZONTAL;
 
 
-//        ImageIcon smoothie = new ImageIcon("testing.jpeg");
-//        JLabel smothie = new JLabel(smoothie);
-//        receipt.add(smothie);
-//        receipt.setVisible(true);
-
         String[] imagePaths1 = new String[16];
         imagePaths1[0] = "FinalProject/src/imagesOfMenu/largeCookie.jpg";
         imagePaths1[1] = "FinalProject/src/imagesOfMenu/smallCookie.jpg";
