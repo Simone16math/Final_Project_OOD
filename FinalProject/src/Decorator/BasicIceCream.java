@@ -46,8 +46,12 @@ public class BasicIceCream extends IceCream {
         this.price = price;
     }
 
-    public void cone(String cone){
+    public String cone(){
+        description = " In a Cone";
+        return description;
     }
-    private void cup(String cup){
+    public String cup(){
+        description = " In a Cup" ;
+        return description;
     }
 }
