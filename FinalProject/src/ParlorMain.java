@@ -1,5 +1,10 @@
 import javax.swing.*;
 
+import AbstractFactory.*;
+import Command.*;
+import Decorator.*;
+import Observer.*;
+
 public class ParlorMain {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {

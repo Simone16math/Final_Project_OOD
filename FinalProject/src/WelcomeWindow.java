@@ -2,6 +2,11 @@
 import javax.swing.*;
 import java.awt.*;
 
+import AbstractFactory.*;
+import Command.*;
+import Decorator.*;
+import Observer.*;
+
 public class WelcomeWindow extends JFrame {
     private String imagePath;
     private String imagePathFlower;

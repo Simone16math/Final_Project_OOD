@@ -1,16 +1,20 @@
+import AbstractFactory.*;
+import Command.*;
+import Decorator.*;
+import Observer.*;
+
 import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.*;
 
-public class TestUI extends JFrame implements Observer{
+public class TestUI extends JFrame implements Observer {
     private JTextArea outputArea;
     private JPanel parent;
     Order order = new Order();
-    private java.util.List<Menu> orderList = new ArrayList();
+    private java.util.List<AbstractFactory.Menu> orderList = new ArrayList();
     BasicIceCream basicIceCream = new BasicIceCream();
     Cookie basicCookie = new Cookie();
     Drinks drinks = new Drinks();
@@ -104,7 +108,7 @@ public class TestUI extends JFrame implements Observer{
         JButton addIceCreamBtn = new JButton("Add Ice Cream" + "+ $" + basicIceCream.getPrice());
 
         addIceCreamBtn.addActionListener(e -> {
-            Menu flavor = null;
+            AbstractFactory.Menu flavor = null;
             Object[] flavors = {"Chocolate", "Vanilla", "Cookies N' Cream + $0.50" };
             int choice = JOptionPane.showOptionDialog(this, "Choose Flavor:", "Available flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, flavors, flavors[0]);
@@ -154,7 +158,7 @@ public class TestUI extends JFrame implements Observer{
             commandInvoker.addCommand(addChocolateSauce);
             commandInvoker.addCommand(removeChocolateSauce);
 
-            Menu orderedIceCream = iceCream1;
+            AbstractFactory.Menu orderedIceCream = iceCream1;
             if (sprinkles.isSelected()) {
                 orderedIceCream = new SprinklesDecoratorIceCream((IceCream) orderedIceCream);
                 commandInvoker.executeCommand(addSprinkles,iceCream1);
@@ -196,7 +200,7 @@ public class TestUI extends JFrame implements Observer{
             int choice = JOptionPane.showOptionDialog(this, "Choose a size:", "Available Sizes",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
-                Menu cookie = null;
+                AbstractFactory.Menu cookie = null;
                 if(options[choice].equals("Large")) {
                     cookie = menuFactory.createLargeCookie();
 
@@ -218,7 +222,7 @@ public class TestUI extends JFrame implements Observer{
             int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Available Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
-                Menu cake = null;
+                AbstractFactory.Menu cake = null;
                 if(options[choice].equals("Lava Cake $6")) {
                     cake = menuFactory.createLavaCake();
 
@@ -240,7 +244,7 @@ public class TestUI extends JFrame implements Observer{
             int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Available Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0) {
-                Menu pints = null;
+                AbstractFactory.Menu pints = null;
                 if(options[choice].equals("Vanilla Ice Cream Pint $7")) {
                     pints = menuFactory.createVanillaIceCreamPint();
                 } else if(options[choice].equals("Chocolate Ice Cream Pint $7")) {
@@ -263,7 +267,7 @@ public class TestUI extends JFrame implements Observer{
             int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice >= 0){
-                Menu orderedDrinks = null;
+                AbstractFactory.Menu orderedDrinks = null;
                 if(options[choice].equals("Vanilla Shake")) {
                     orderedDrinks = menuFactory.createDrink();
 
@@ -292,7 +296,7 @@ public class TestUI extends JFrame implements Observer{
                 order.orderStatus("Order Placed for " + textField.getText());
                 simulateProgress();
                 double total= 0;
-                for (Menu orderedfood: orderList) {
+                for (AbstractFactory.Menu orderedfood: orderList) {
                     total += orderedfood.getPrice();
                 }
 
@@ -395,7 +399,7 @@ public class TestUI extends JFrame implements Observer{
         JLabel CookiesNCreamCup = new JLabel(CookiesNCreamCupI);
 
 
-        for (Menu item: orderList){
+        for (AbstractFactory.Menu item: orderList){
             if (item.getDescription().contains("Large Cookie")){
                 receipt.add(LargeCookie);
                 receipt.pack();

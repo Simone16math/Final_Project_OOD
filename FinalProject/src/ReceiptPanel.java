@@ -1,15 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.*;
 import java.util.List;
+
+import AbstractFactory.*;
+import Command.*;
+import Decorator.*;
+import Observer.*;
 
 public class ReceiptPanel extends JFrame{
 
 
-    public ReceiptPanel(List<Menu> orderList){
+    public ReceiptPanel(List<AbstractFactory.Menu> orderList){
         setTitle("Receipt");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 800);
@@ -77,7 +78,7 @@ public class ReceiptPanel extends JFrame{
         JLabel CookiesNCreamCup = new JLabel(CookiesNCreamCupI);
 
 
-        for (Menu item: orderList){
+        for (AbstractFactory.Menu item: orderList){
             if (item.getDescription().contains("Large Cookie")){
                 add(LargeCookie);
             }
