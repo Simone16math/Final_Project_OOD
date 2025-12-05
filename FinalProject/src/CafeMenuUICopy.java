@@ -281,7 +281,74 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         main.add(iceCreamLabel, gbc);
         gbc.gridy = 1;
         gbc.gridx = 1;
-        JPanel iceCreamPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        //JPanel iceCreamPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel iceCreamPanel = new JPanel(new GridLayout(3,3,3,3));
+
+        JRadioButton vanillaIceCreamCheckBox = new JRadioButton("Vanilla");
+        JRadioButton chocolateIceCreamCheckBox = new JRadioButton("Chocolate");
+        JRadioButton cookiesNCreamIceCreamCheckBox = new JRadioButton("Cookies N Cream");
+        ButtonGroup iceCreamFlavors = new ButtonGroup();
+        iceCreamFlavors.add(vanillaIceCreamCheckBox);
+        iceCreamFlavors.add(chocolateIceCreamCheckBox);
+        iceCreamFlavors.add(cookiesNCreamIceCreamCheckBox);
+
+        vanillaIceCreamCheckBox.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                   if (vanillaIceCreamCheckBox.isSelected()){
+                       log("Ice cream flavor is vanilla");
+
+                   }
+            }
+        });
+        chocolateIceCreamCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (chocolateIceCreamCheckBox.isSelected()){
+                    log("Ice cream flavor is chocolate");
+                }
+            }
+        });
+        cookiesNCreamIceCreamCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cookiesNCreamIceCreamCheckBox.isSelected()){
+                    log("Ice cream flavor is cookies n cream");
+                }
+            }
+        });
+        iceCreamPanel.add(vanillaIceCreamCheckBox);
+        iceCreamPanel.add(chocolateIceCreamCheckBox);
+        iceCreamPanel.add(cookiesNCreamIceCreamCheckBox);
+
+        JRadioButton iceCreamCone = new JRadioButton("Cone");
+        JRadioButton iceCreamCup = new JRadioButton("Cone");
+        ButtonGroup iCFlavors = new ButtonGroup();
+        iCFlavors.add(iceCreamCone);
+        iCFlavors.add(iceCreamCup);
+
+        iceCreamCup.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (iceCreamCup.isSelected()){
+                    log("Cup.");
+                }
+            }
+        });
+        iceCreamCone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (iceCreamCone.isSelected()){
+                    log("Cone");
+                }
+            }
+        });
+
+        iceCreamPanel.add(iceCreamCup);
+        iceCreamPanel.add(iceCreamCone);
+        iceCreamPanel.add(new JPanel());
+
+
         JCheckBox sprinkles = new JCheckBox("Sprinkles");
         JCheckBox chocolateSauce = new JCheckBox("Chocolate Sauce");
         //sprinkles.addActionListener(e -> log("Sprinkles added to ice cream" + sprinkles.isSelected()));
@@ -306,12 +373,17 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                 }
             }
         });
-
-
         iceCreamPanel.add(sprinkles);
         iceCreamPanel.add(chocolateSauce);
+        iceCreamPanel.add(new JPanel());
         main.add(iceCreamPanel, gbc);
 
+
+
+
+
+        gbc.gridy = 1;
+        gbc.gridx = 2;
         JButton addIceCreamBtn = new JButton("Add Ice Cream");
         addIceCreamBtn.setForeground(new Color(111, 78, 55));
         addIceCreamBtn.setFont(new Font("Broadway", Font.BOLD, 10));
@@ -322,8 +394,6 @@ public class CafeMenuUICopy extends JFrame implements Observer {
             }
         });
         //iceCreamPanel.add(addIceCreamBtn);
-        gbc.gridy = 1;
-        gbc.gridx = 2;
         main.add(addIceCreamBtn,gbc);
 
 
