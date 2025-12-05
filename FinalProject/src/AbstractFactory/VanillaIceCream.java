@@ -1,6 +1,6 @@
 package AbstractFactory;
 
-public class VanillaIceCream implements Menu {
+public class VanillaIceCream extends IceCream {
     @Override
     public String getItemName() {
         return "Vanilla Ice Cream";
@@ -14,5 +14,16 @@ public class VanillaIceCream implements Menu {
     @Override
     public String getDescription() {
         return " " + getItemName();
+    }
+
+    @Override
+    public String cone(){
+        String description = " In a Cone";
+        return description;
+    }
+    @Override
+    public String cup(){
+        String description = " In a Cup" ;
+        return description;
     }
 }
