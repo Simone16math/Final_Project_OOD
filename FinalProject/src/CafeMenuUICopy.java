@@ -390,7 +390,17 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         addIceCreamBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Menu iceCreamChosen = null;
+                if (vanillaIceCreamCheckBox.isSelected()){
+                    iceCreamChosen = menuFactory.createVanillaIceCream();
 
+                }
+                if (chocolateIceCreamCheckBox.isSelected()){
+                    iceCreamChosen = menuFactory.createChocolateIceCream();
+                }
+                if (cookiesNCreamIceCreamCheckBox.isSelected()){
+                    iceCreamChosen = menuFactory.createCookiesNCreamIceCream();
+                }
             }
         });
         //iceCreamPanel.add(addIceCreamBtn);

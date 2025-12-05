@@ -65,10 +65,10 @@ public class WelcomeWindow extends JFrame {
         button.setForeground(new Color(111, 78, 55));
         button.setFont(new Font("Broadway", Font.BOLD,18));
         button.addActionListener(e -> {
-//           CafeMenuUI cafeMenuUI = new CafeMenuUI();
-//           cafeMenuUI.setVisible(true);
-            CafeMenuUICopy cafeMenuUICopy = new CafeMenuUICopy();
-            cafeMenuUICopy.setVisible(true);
+           CafeMenuUI cafeMenuUI = new CafeMenuUI();
+           cafeMenuUI.setVisible(true);
+//            CafeMenuUICopy cafeMenuUICopy = new CafeMenuUICopy();
+//            cafeMenuUICopy.setVisible(true);
         });
 
 
