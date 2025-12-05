@@ -41,7 +41,7 @@ public class WelcomeWindow extends JFrame {
         gbc.gridx = 3;
         gbc.gridy = 2;
         JLabel design2 = new JLabel(new ImageIcon(imagePath));
-        design2.setPreferredSize(new Dimension(100,100));
+        design2.setPreferredSize(new Dimension(100,200));
 
         panel.add(design2,gbc);
 
