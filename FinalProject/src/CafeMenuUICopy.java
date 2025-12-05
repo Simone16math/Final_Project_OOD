@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class CafeMenuUI extends JFrame implements Observer {
+public class CafeMenuUICopy extends JFrame implements Observer {
     private final String message = null;
     private JTextArea outputArea;
     private JPanel parent;
@@ -44,7 +44,7 @@ public class CafeMenuUI extends JFrame implements Observer {
         log(Order);
     }
 
-    public CafeMenuUI() {
+    public CafeMenuUICopy() {
         setTitle("Café");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 1000);
@@ -310,96 +310,25 @@ public class CafeMenuUI extends JFrame implements Observer {
 
         iceCreamPanel.add(sprinkles);
         iceCreamPanel.add(chocolateSauce);
+        main.add(iceCreamPanel, gbc);
+
         JButton addIceCreamBtn = new JButton("Add Ice Cream");
         addIceCreamBtn.setForeground(new Color(111, 78, 55));
         addIceCreamBtn.setFont(new Font("Broadway", Font.BOLD, 10));
-        addIceCreamBtn.addActionListener(e -> {
-            Menu flavor = null;
-            Object[] flavors = {"Chocolate", "Vanilla", "Cookies N' Cream + $0.50"};
-            int choice = JOptionPane.showOptionDialog(this, "Choose Flavor:", "Available flavors",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, flavors, flavors[0]);
-            if (choice >= 0) {
-                if (flavors[choice].equals("Vanilla")) {
-                    flavor = menuFactory.createVanillaIceCream();
+        addIceCreamBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-                } else if (flavors[choice].equals("Chocolate")) {
-                    flavor = menuFactory.createChocolateIceCream();
-
-                } else if (flavors[choice].equals("Cookies N' Cream + $0.50")) {
-                    flavor = menuFactory.createCookiesNCreamIceCream();
-
-                }
             }
-            log(flavor.getDescription());
-            orderList.add(flavor);
-            Object[] options = {"Cone", "Cup"};
-            int choice1 = JOptionPane.showOptionDialog(this, "Choose:", "Available options",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-            if (choice1 >= 0) {
-                if (options[choice1].equals("Cone")) {
-                    icecream.cone();
-                }
-                if (options[choice1].equals("Cup")) {
-                    icecream.cup();
-                }
-            }
-            main.add(addIceCreamBtn, gbc);
+        });
+        //iceCreamPanel.add(addIceCreamBtn);
+        gbc.gridy = 1;
+        gbc.gridx = 2;
+        main.add(addIceCreamBtn,gbc);
 
-                // Action listener for adding ice cream to cart
-                gbc.gridy = 1;
-                gbc.gridx = 2;
-                addIceCreamBtn.addActionListener(er -> {
-                    //Menu iceCream1 = menuFactory.createIceCream();
-                    IceCream iceCream1 = menuFactory.createIceCream();
-                    boolean stateSprinkles = false;
-                    boolean stateChocolateSauce = false;
 
-                    // Commands
-                    CommandInvoker commandInvoker = new CommandInvoker();
-                    Command addSprinkles = new AddSprinklesCommand(iceCream1);
-                    Command removeSprinkles = new RemoveSprinklesCommand(iceCream1);
-                    Command addChocolateSauce = new AddChocolateSauceCommand(iceCream1);
-                    Command removeChocolateSauce = new RemoveChocolateSauceCommand(iceCream1);
-                    commandInvoker.addCommand(addSprinkles);
-                    commandInvoker.addCommand(removeSprinkles);
-                    commandInvoker.addCommand(addChocolateSauce);
-                    commandInvoker.addCommand(removeChocolateSauce);
 
-                    AbstractFactory.Menu orderedIceCream = iceCream1;
-                    if (sprinkles.isSelected()) {
-                        orderedIceCream = new SprinklesDecoratorIceCream((IceCream) orderedIceCream);
-                        //the command makes applies the order what is going on here?
-                        commandInvoker.executeCommand(addSprinkles, iceCream1);
-                        iceCream1 = (IceCream) commandInvoker.getMenuItem();
-                        stateSprinkles = true;
-                    } else {
-                        if (stateSprinkles) {
-                            commandInvoker.executeCommand(removeSprinkles, iceCream1);
-                            iceCream1 = (IceCream) commandInvoker.getMenuItem();
-                            stateSprinkles = false;
-                        }
-                    }
-                    if (chocolateSauce.isSelected()) {
-                        orderedIceCream = new ChocolateSauceDecoratorIceCream((IceCream) orderedIceCream);
-                        commandInvoker.executeCommand(addChocolateSauce, iceCream1);
-                        iceCream1 = (IceCream) commandInvoker.getMenuItem();
-                        stateChocolateSauce = true;
-                    } else {
-                        if (stateChocolateSauce) {
-                            commandInvoker.executeCommand(removeChocolateSauce, iceCream1);
-                            iceCream1 = (IceCream) commandInvoker.getMenuItem();
-                            stateChocolateSauce = false;
-                        }
-                    }
-                    //log(orderedIceCream.getDescription());
-                    log(iceCream1.getDescription());
-                    //orderList.add(orderedIceCream);
-                    orderList.add(iceCream1);
 
-                });
-
-            });
-        main.add(iceCreamPanel, gbc);
 
         // Option Dialog
         gbc.gridy = 3;
@@ -606,11 +535,6 @@ public class CafeMenuUI extends JFrame implements Observer {
         gbc1.anchor = GridBagConstraints.WEST;
         gbc1.fill = GridBagConstraints.HORIZONTAL;
 
-
-//        ImageIcon smoothie = new ImageIcon("testing.jpeg");
-//        JLabel smothie = new JLabel(smoothie);
-//        receipt.add(smothie);
-//        receipt.setVisible(true);
 
         String[] imagePaths1 = new String[16];
         imagePaths1[0] = "FinalProject/src/imagesOfMenu/largeCookie.jpg";
