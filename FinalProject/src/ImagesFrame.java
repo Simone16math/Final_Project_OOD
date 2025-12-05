@@ -24,22 +24,22 @@ public class ImagesFrame {
         gbc1.fill = GridBagConstraints.HORIZONTAL;
 
         String[] imagePaths1 = new String[16];
-        imagePaths1[0] = "FinalProject/src/ImagesOfMenu/largeCookie.jpg";
-        imagePaths1[1] = "FinalProject/src/ImagesOfMenu/smallCookie.jpg";
-        imagePaths1[2] = "FinalProject/src/ImagesOfMenu/redvelvetcake.jpg";
-        imagePaths1[3] = "FinalProject/src/ImagesOfMenu/lavaCake.jpg";
-        imagePaths1[4] = "FinalProject/src/ImagesOfMenu/vanillaPint.jpg";
-        imagePaths1[5] = "FinalProject/src/ImagesOfMenu/chocolatePint.jpg";
-        imagePaths1[6] = "FinalProject/src/ImagesOfMenu/cookiesncreamPint.jpg";
-        imagePaths1[7] = "FinalProject/src/ImagesOfMenu/vanilla-milkshake.jpg";
-        imagePaths1[8] = "FinalProject/src/ImagesOfMenu/strawbanshake.jpg";
-        imagePaths1[9] = "FinalProject/src/ImagesOfMenu/chocolateshake.jpg";
-        imagePaths1[10] = "FinalProject/src/ImagesOfMenu/conechocolate.jpg";
-        imagePaths1[11] = "FinalProject/src/ImagesOfMenu/cupchocolate.jpg";
-        imagePaths1[12] = "FinalProject/src/ImagesOfMenu/conevanilla.jpg";
-        imagePaths1[13] = "FinalProject/src/ImagesOfMenu/cupvanilla.jpg";
-        imagePaths1[14] = "FinalProject/src/ImagesOfMenu/CookiesNCreamCone.jpg";
-        imagePaths1[15] = "FinalProject/src/ImagesOfMenu/cookiencreamcup.jpg";
+        imagePaths1[0] = "FinalProject\\src\\ImagesOfMenu\\largeCookie.jpg";
+        imagePaths1[1] = "FinalProject\\src\\ImagesOfMenu\\smallCookie.jpg";
+        imagePaths1[2] = "FinalProject\\src\\ImagesOfMenu\\redvelvetcake.jpg";
+        imagePaths1[3] = "FinalProject\\src\\ImagesOfMenu\\lavaCake.jpg";
+        imagePaths1[4] = "FinalProject\\src\\ImagesOfMenu\\vanillaPint.jpg";
+        imagePaths1[5] = "FinalProject\\src\\ImagesOfMenu\\chocolatePint.jpg";
+        imagePaths1[6] = "FinalProject\\src\\ImagesOfMenu\\cookiesncreamPint.jpg";
+        imagePaths1[7] = "FinalProject\\src\\ImagesOfMenu\\vanilla-milkshake.jpg";
+        imagePaths1[8] = "FinalProject\\src\\ImagesOfMenu\\strawbanshake.jpg";
+        imagePaths1[9] = "FinalProject\\src\\ImagesOfMenu\\chocolateshake.jpg";
+        imagePaths1[10] = "FinalProject\\src\\ImagesOfMenu\\conechocolate.jpg";
+        imagePaths1[11] = "FinalProject\\src\\ImagesOfMenu\\cupchocolate.jpg";
+        imagePaths1[12] = "FinalProject\\src\\ImagesOfMenu\\conevanilla.jpg";
+        imagePaths1[13] = "FinalProject\\src\\ImagesOfMenu\\cupvanilla.jpg";
+        imagePaths1[14] = "FinalProject\\src\\ImagesOfMenu\\CookiesNCreamCone.jpg";
+        imagePaths1[15] = "FinalProject\\src\\ImagesOfMenu\\cookiencreamcup.jpg";
 
         // the image for the large cookie
         ImageIcon LargeCookieI = new ImageIcon(imagePaths1[0]);
