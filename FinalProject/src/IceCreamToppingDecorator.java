@@ -16,7 +16,7 @@ abstract class IceCreamToppingDecorator extends IceCream {
     // return the description of the ice cream
     @Override
     public String getDescription(){
-        return "Item: " + getItemName() + " $" + getPrice();
+        return " " + getItemName() + " $" + getPrice();
     }
 
     @Override

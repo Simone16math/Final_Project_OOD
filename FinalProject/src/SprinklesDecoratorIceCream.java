@@ -12,7 +12,7 @@ public class SprinklesDecoratorIceCream extends IceCreamToppingDecorator {
     @Override
     public String getDescription(){
         // returns the updated description of the ice cream
-        return "Item: " + getItemName() + " $" + getPrice();
+        return " " + getItemName() + " $" + getPrice();
     }
 
     @Override

@@ -15,7 +15,7 @@ public abstract class IceCream implements Menu{
 
     @Override
     public String getDescription() {
-        description = "Item: " + getItemName() + " $" + getPrice();
+        description = " " + getItemName() + " $" + getPrice();
         return description;
     }
 
