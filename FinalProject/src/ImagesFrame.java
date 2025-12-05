@@ -140,89 +140,89 @@ public class ImagesFrame {
         for (AbstractFactory.Menu item : orderList) {
             if (item.getDescription().contains("Large Cookie")) {
                 receipt.add(LargeCookie);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Small Cookie")) {
                 receipt.add(SmallCookie);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Red Velvet Cake")) {
                 receipt.add(RedVelvetCake);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Lava Cake")) {
                 receipt.add(LavaCake);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Vanilla Ice Cream Pint")) {
                 receipt.add(VanillaPint);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Chocolate Ice Cream Pint")) {
                 receipt.add(ChocolatePint);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Cookies N Cream Ice Cream Pint")) {
                 receipt.add(CookiesNCreamPint);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Vanilla Shake")) {
                 receipt.add(VanillaShake);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Strawberry-Banana Smoothie")) {
                 receipt.add(StrawberryBananaShake);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Chocolate Shake")) {
                 receipt.add(ChocolateShake);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Chocolate Ice Cream")) {
                 if (item.getDescription().contains("Cone")) {
                     receipt.add(ChocolateCone);
                 }
                 //receipt.add(ChocolateCone);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Chocolate Ice Cream")) {
                 if (item.getDescription().contains("Cup")) {
                     receipt.add(ChocolateCup);
                 }
                 //receipt.add(ChocolateCup);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Vanilla Ice Cream")) {
                 if (item.getDescription().contains("Cone")) {
                     receipt.add(VanillaCone);
                 }
                 //receipt.add(VanillaCone);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Vanilla Ice Cream")) {
                 if (item.getDescription().contains("Cup")) {
                     receipt.add(VanillaCup);
                 }
                 //receipt.add(VanillaCup);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Cookies N' Cream Ice Cream")) {
                 if (item.getDescription().contains("Cone")) {
                     receipt.add(CookiesNCreamCone);
                 }
                 //receipt.add(CookiesNCreamCone);
-                receipt.pack();
+
             }
             if (item.getDescription().contains("Cookies N' Cream Ice Cream")) {
                 if (item.getDescription().contains("Cup")) {
                     receipt.add(CookiesNCreamCup);
                 }
                 //receipt.add(CookiesNCreamCup);
-                receipt.pack();
+
             }
         }
 
-        receipt.pack();
+        //receipt.pack();
         receipt.setVisible(true);
     }
 
