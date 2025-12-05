@@ -33,7 +33,7 @@ public class CafeMenuUI extends JFrame implements Observer {
     BasicIceCream basicIceCream = new BasicIceCream();
     Cookie basicCookie = new Cookie();
     Drinks drinks = new Drinks();
-    MenuAbstractFactory menuFactory = new BasicMenuFactory();
+    MenuAbstractFactory menuFactory = new DessertsFactory();
     private String path;
     private String imagePath;
 

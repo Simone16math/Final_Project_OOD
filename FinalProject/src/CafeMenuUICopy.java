@@ -1,7 +1,6 @@
 
 import AbstractFactory.*;
 import AbstractFactory.Menu;
-import Command.*;
 import Decorator.*;
 import Observer.*;
 import Observer.Observer;
@@ -9,7 +8,6 @@ import Observer.Observer;
 import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.*;
-import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -34,7 +32,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
     BasicIceCream basicIceCream = new BasicIceCream();
     Cookie basicCookie = new Cookie();
     Drinks drinks = new Drinks();
-    MenuAbstractFactory menuFactory = new BasicMenuFactory();
+    MenuAbstractFactory menuFactory = new DessertsFactory();
     private String path;
     private String imagePath;
 

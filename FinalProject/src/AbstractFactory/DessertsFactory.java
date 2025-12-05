@@ -1,10 +1,8 @@
 package AbstractFactory;
 
-import Command.*;
 import Decorator.*;
-import Observer.*;
 
-public class BasicMenuFactory implements MenuAbstractFactory {
+public class DessertsFactory implements MenuAbstractFactory {
     // adding all the product variations to the basic menu factory
     @Override
     public IceCream createIceCream() {
