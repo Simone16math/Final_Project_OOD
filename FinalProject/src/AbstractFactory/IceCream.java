@@ -28,4 +28,13 @@ public abstract class IceCream implements Menu {
     public void setPrice(double price){
         this.price = price;
     }
+
+    public String cone(){
+        description = " In a Cone";
+        return description;
+    }
+    public String cup(){
+        description = " In a Cup" ;
+        return description;
+    }
 }

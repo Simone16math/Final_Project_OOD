@@ -18,6 +18,17 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
     private JPanel parent;
     Order order = new Order();
     private java.util.List<AbstractFactory.Menu> orderList = new ArrayList();
+    IceCream icecream = new IceCream() {
+        @Override
+        public String cup() {
+            return super.cup();
+        }
+
+        @Override
+        public String cone() {
+            return super.cone();
+        }
+    }
     BasicIceCream basicIceCream = new BasicIceCream();
     Cookie basicCookie = new Cookie();
     Drinks drinks = new Drinks();
@@ -325,10 +336,10 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice1 >= 0) {
                 if (options[choice1].equals("Cone")) {
-                    basicIceCream.cone();
+                    icecream.cone();
                 }
                 if (options[choice1].equals("Cup")) {
-                    basicIceCream.cup();
+                    icecream.cup();
                 }
                 ;
                 main.add(addIceCreamBtn, gbc);
