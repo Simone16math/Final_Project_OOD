@@ -1,12 +1,10 @@
 package Command;
 
 import AbstractFactory.*;
-import Command.*;
 import Decorator.*;
-import Observer.*;
 
 
-public class TestingCommands {
+public class TO_REMOVE_TestingCommands {
 
     public static void main(String[] args){
         IceCream testIceCream = new BasicIceCream();

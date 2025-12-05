@@ -1,8 +1,7 @@
 package Command;
+
 import AbstractFactory.*;
-import Command.*;
 import Decorator.*;
-import Observer.*;
 /*
     Author: Simone Charles
     Purpose: The AddSprinklesCommand is a command that adds chocolate sauce to the ice cream in the order
@@ -18,23 +17,30 @@ public class AddSprinklesCommand implements Command {
         this.iceCream = iceCream;
     }
 
+
+
+    @Override
+    public Menu getMenuItem(){
+        // return the ice cream
+        return iceCream;
+    }
     @Override
     public void setMenuItem(Menu menuItem){
+        // set the ice cream
         this.iceCream = (IceCream) menuItem;
     }
 
     @Override
     public void execute(Menu menuItem){
+        // set the ice cream to the instance
         setMenuItem(menuItem);
+        // apply the sprinkles decorator to the ice cream
         iceCream = new SprinklesDecoratorIceCream(iceCream);
-        //System.out.println(iceCream.getDescription());
+        // update the ice cream again (just in case)
         setMenuItem(iceCream);
     }
 
-    @Override
-    public Menu getMenuItem(){
-        return iceCream;
-    }
+
 
 
 }

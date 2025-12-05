@@ -1,6 +1,5 @@
 package AbstractFactory;
 
-import AbstractFactory.*;
 import Command.*;
 import Decorator.*;
 import Observer.*;

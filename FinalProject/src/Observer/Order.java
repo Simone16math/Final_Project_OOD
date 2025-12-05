@@ -3,7 +3,6 @@ package Observer;
 import AbstractFactory.*;
 import Command.*;
 import Decorator.*;
-import Observer.*;
 
 import java.util.ArrayList;
 
