@@ -9,7 +9,6 @@ import Observer.Observer;
 import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.*;
-import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -369,24 +368,24 @@ public class CafeMenuUI extends JFrame implements Observer {
                     if (sprinkles.isSelected()) {
                         orderedIceCream = new SprinklesDecoratorIceCream((IceCream) orderedIceCream);
                         //the command makes applies the order what is going on here?
-                        commandInvoker.executeCommand(addSprinkles, iceCream1);
+                        commandInvoker.executeDecoratorCommand(addSprinkles, iceCream1);
                         iceCream1 = (IceCream) commandInvoker.getMenuItem();
                         stateSprinkles = true;
                     } else {
                         if (stateSprinkles) {
-                            commandInvoker.executeCommand(removeSprinkles, iceCream1);
+                            commandInvoker.executeDecoratorCommand(removeSprinkles, iceCream1);
                             iceCream1 = (IceCream) commandInvoker.getMenuItem();
                             stateSprinkles = false;
                         }
                     }
                     if (chocolateSauce.isSelected()) {
                         orderedIceCream = new ChocolateSauceDecoratorIceCream((IceCream) orderedIceCream);
-                        commandInvoker.executeCommand(addChocolateSauce, iceCream1);
+                        commandInvoker.executeDecoratorCommand(addChocolateSauce, iceCream1);
                         iceCream1 = (IceCream) commandInvoker.getMenuItem();
                         stateChocolateSauce = true;
                     } else {
                         if (stateChocolateSauce) {
-                            commandInvoker.executeCommand(removeChocolateSauce, iceCream1);
+                            commandInvoker.executeDecoratorCommand(removeChocolateSauce, iceCream1);
                             iceCream1 = (IceCream) commandInvoker.getMenuItem();
                             stateChocolateSauce = false;
                         }

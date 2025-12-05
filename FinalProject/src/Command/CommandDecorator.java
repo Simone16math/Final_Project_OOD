@@ -1,0 +1,4 @@
+package Command;
+
+interface CommandDecorator {
+}
