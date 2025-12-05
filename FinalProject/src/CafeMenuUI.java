@@ -1,8 +1,10 @@
 
 import AbstractFactory.*;
+import AbstractFactory.Menu;
 import Command.*;
 import Decorator.*;
 import Observer.*;
+import Observer.Observer;
 
 import javax.swing.*;
 import javax.swing.Timer;
@@ -12,8 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class CafeMenuUI extends JFrame implements Observer.Observer {
-    private final String message;
+public class CafeMenuUI extends JFrame implements Observer {
+    private final String message = null;
     private JTextArea outputArea;
     private JPanel parent;
     Order order = new Order();
@@ -28,7 +30,7 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
         public String cone() {
             return super.cone();
         }
-    }
+    };
     BasicIceCream basicIceCream = new BasicIceCream();
     Cookie basicCookie = new Cookie();
     Drinks drinks = new Drinks();
@@ -60,21 +62,21 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
 
         JPanel main = new JPanel(new GridBagLayout());
         main.setBackground(new Color(111, 78, 55));
-        add(main,BorderLayout.CENTER);
+        add(main, BorderLayout.CENTER);
 
-        JPanel SidePanel = new JPanel(new GridLayout(0,1));
+        JPanel SidePanel = new JPanel(new GridLayout(0, 1));
         SidePanel.setBackground(new Color(196, 164, 132));
-        SidePanel.setPreferredSize(new Dimension(300,800));
-        add(SidePanel,BorderLayout.WEST);
+        SidePanel.setPreferredSize(new Dimension(300, 800));
+        add(SidePanel, BorderLayout.WEST);
 
         JLabel menu = new JLabel("Menu");
         menu.setFont(new Font("Broadway", Font.BOLD, 35));
         menu.setForeground(new Color(111, 78, 55));
         SidePanel.add(menu);
 
-        path="src/imagesOfMenu/underline.png";
+        path = "src/imagesOfMenu/underline.png";
         JLabel image = new JLabel(new ImageIcon(path));
-        image.setPreferredSize(new Dimension(200,100));
+        image.setPreferredSize(new Dimension(200, 100));
         SidePanel.add(image);
 
         JLabel plank = new JLabel(" ");
@@ -240,15 +242,14 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
 
-
         gbc.gridx = 0;
         gbc.gridy = 0;
-        JLabel customer =new JLabel("Customer:");
+        JLabel customer = new JLabel("Customer:");
         customer.setFont(new Font("Broadway", Font.BOLD, 25));
         customer.setForeground(new Color(255, 182, 193));
         main.add(customer, gbc);
         JTextField textField = new JTextField(20);
-        textField.setFont(new Font("Broadway", Font.BOLD,10));
+        textField.setFont(new Font("Broadway", Font.BOLD, 10));
         // Add action listener to log text field input when Enter is pressed
         textField.addActionListener(e -> {
             log("Customer: " + textField.getText());
@@ -261,7 +262,7 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
         gbc.gridx = 2;
         JButton submitButton = new JButton("Submit");
         submitButton.setForeground(new Color(111, 78, 55));
-        submitButton.setFont(new Font("Broadway", Font.BOLD,10));
+        submitButton.setFont(new Font("Broadway", Font.BOLD, 10));
         // Action listener to log all input values when the button is clicked
         submitButton.addActionListener(e -> {
             String text = textField.getText();
@@ -275,7 +276,7 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
         // Option Dialog
         gbc.gridy = 1;
         gbc.gridx = 0;
-        JLabel iceCreamLabel =new JLabel("Ice Cream:");
+        JLabel iceCreamLabel = new JLabel("Ice Cream:");
         iceCreamLabel.setFont(new Font("Broadway", Font.BOLD, 15));
         iceCreamLabel.setForeground(new Color(255, 182, 193));
         main.add(iceCreamLabel, gbc);
@@ -288,9 +289,9 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
         sprinkles.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (sprinkles.isSelected()){
+                if (sprinkles.isSelected()) {
                     log("Sprinkles added to ice cream");
-                } else{
+                } else {
                     log("Sprinkles removed from ice cream");
                 }
             }
@@ -299,9 +300,9 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
         chocolateSauce.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (chocolateSauce.isSelected()){
+                if (chocolateSauce.isSelected()) {
                     log("Chocolate Sauce added to ice cream");
-                } else{
+                } else {
                     log("Chocolate Sauce removed from ice cream");
                 }
             }
@@ -311,9 +312,9 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
         iceCream.add(chocolateSauce);
         JButton addIceCreamBtn = new JButton("Add Ice Cream");
         addIceCreamBtn.setForeground(new Color(111, 78, 55));
-        addIceCreamBtn.setFont(new Font("Broadway", Font.BOLD,10));
+        addIceCreamBtn.setFont(new Font("Broadway", Font.BOLD, 10));
         addIceCreamBtn.addActionListener(e -> {
-            AbstractFactory.Menu flavor = null;
+            Menu flavor = null;
             Object[] flavors = {"Chocolate", "Vanilla", "Cookies N' Cream + $0.50"};
             int choice = JOptionPane.showOptionDialog(this, "Choose Flavor:", "Available flavors",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, flavors, flavors[0]);
@@ -333,7 +334,7 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
             orderList.add(flavor);
             Object[] options = {"Cone", "Cup"};
             int choice1 = JOptionPane.showOptionDialog(this, "Choose:", "Available options",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                            JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (choice1 >= 0) {
                 if (options[choice1].equals("Cone")) {
                     icecream.cone();
@@ -341,13 +342,12 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
                 if (options[choice1].equals("Cup")) {
                     icecream.cup();
                 }
-                ;
                 main.add(addIceCreamBtn, gbc);
 
                 // Action listener for adding ice cream to cart
                 gbc.gridy = 1;
                 gbc.gridx = 2;
-                addIceCreamBtn.addActionListener(e -> {
+                addIceCreamBtn.addActionListener(er -> {
                     //Menu iceCream1 = menuFactory.createIceCream();
                     IceCream iceCream1 = menuFactory.createIceCream();
                     boolean stateSprinkles = false;
@@ -367,6 +367,7 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
                     AbstractFactory.Menu orderedIceCream = iceCream1;
                     if (sprinkles.isSelected()) {
                         orderedIceCream = new SprinklesDecoratorIceCream((IceCream) orderedIceCream);
+                        //the command makes applies the order what is going on here?
                         commandInvoker.executeCommand(addSprinkles, iceCream1);
                         iceCream1 = (IceCream) commandInvoker.getMenuItem();
                         stateSprinkles = true;
@@ -396,211 +397,214 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
 
                 });
                 main.add(iceCream, gbc);
+            };
+
+                });
 
                 // Option Dialog
                 gbc.gridy = 3;
-                gbc.gridx = 0;
-                JLabel cookieLabel = new JLabel("Cookie :");
-                cookieLabel.setFont(new Font("Broadway", Font.BOLD, 15));
-                cookieLabel.setForeground(new Color(255, 182, 193));
-                main.add(cookieLabel, gbc);
-                gbc.gridy = 3;
-                gbc.gridx = 1;
-                JButton Cookie = new JButton("Cookie ");
-                Cookie.setForeground(new Color(111, 78, 55));
-                Cookie.setFont(new Font("Broadway", Font.BOLD, 10));
-                Cookie.addActionListener(e -> {
-                    Object[] options = {"Large", "Small"};
-                    int choice = JOptionPane.showOptionDialog(this, "Choose a size:", "Available Sizes",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-                    if (choice >= 0) {
-                        AbstractFactory.Menu cookie = null;
-                        if (options[choice].equals("Large")) {
-                            cookie = menuFactory.createLargeCookie();
+        gbc.gridx = 0;
+        JLabel cookieLabel = new JLabel("Cookie :");
+        cookieLabel.setFont(new Font("Broadway", Font.BOLD, 15));
+        cookieLabel.setForeground(new Color(255, 182, 193));
+        main.add(cookieLabel, gbc);
+        gbc.gridy = 3;
+        gbc.gridx = 1;
+        JButton Cookie = new JButton("Cookie ");
+        Cookie.setForeground(new Color(111, 78, 55));
+        Cookie.setFont(new Font("Broadway", Font.BOLD, 10));
+        Cookie.addActionListener(e -> {
+            Object[] options = {"Large", "Small"};
+            int choice = JOptionPane.showOptionDialog(this, "Choose a size:", "Available Sizes",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            if (choice >= 0) {
+                AbstractFactory.Menu cookie = null;
+                if (options[choice].equals("Large")) {
+                    cookie = menuFactory.createLargeCookie();
 
-                        } else if (options[choice].equals("Small")) {
-                            cookie = menuFactory.createCookie();
-                        }
-                        log(cookie.getDescription());
-                        orderList.add(cookie);
-                    }
-                });
-                main.add(Cookie, gbc);
-
-                // Option Dialog
-                gbc.gridy = 4;
-                gbc.gridx = 0;
-                JLabel CakeLabel = new JLabel("Cake :");
-                CakeLabel.setFont(new Font("Broadway", Font.BOLD, 15));
-                CakeLabel.setForeground(new Color(255, 182, 193));
-                main.add(CakeLabel, gbc);
-                gbc.gridx = 1;
-                gbc.gridy = 4;
-                JButton Cake = new JButton("Cake ");
-                Cake.setForeground(new Color(111, 78, 55));
-                Cake.setFont(new Font("Broadway", Font.BOLD, 10));
-                Cake.addActionListener(e -> {
-                    Object[] options = {"Lava Cake $6", "Red Velvet Cake $7"};
-                    int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Available Flavors",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-                    if (choice >= 0) {
-                        AbstractFactory.Menu cake = null;
-                        if (options[choice].equals("Lava Cake $6")) {
-                            cake = menuFactory.createLavaCake();
-
-                        } else if (options[choice].equals("Red Velvet Cake $7")) {
-                            cake = menuFactory.createRedVelvetCake();
-                        }
-                        log(cake.getDescription());
-                        orderList.add(cake);
-                    }
-                });
-                main.add(Cake, gbc);
-
-                // Option Dialog
-                gbc.gridy = 5;
-                gbc.gridx = 0;
-                JLabel IceCreamPintLabel = new JLabel("Ice Cream Pints :");
-                IceCreamPintLabel.setFont(new Font("Broadway", Font.BOLD, 15));
-                IceCreamPintLabel.setForeground(new Color(255, 182, 193));
-                main.add(IceCreamPintLabel, gbc);
-                gbc.gridx = 1;
-                gbc.gridy = 5;
-                JButton pint = new JButton("Ice Cream Pints ");
-                pint.setForeground(new Color(111, 78, 55));
-                pint.setFont(new Font("Broadway", Font.BOLD, 10));
-                pint.addActionListener(e -> {
-                    Object[] options = {"Vanilla Ice Cream Pint $7", "Chocolate Ice Cream Pint $7", "Cookies N' Cream Ice Cream Pint $8"};
-                    int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Available Flavors",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-                    if (choice >= 0) {
-                        AbstractFactory.Menu pints = null;
-                        if (options[choice].equals("Vanilla Ice Cream Pint $7")) {
-                            pints = menuFactory.createVanillaIceCreamPint();
-                        } else if (options[choice].equals("Chocolate Ice Cream Pint $7")) {
-                            pints = menuFactory.createChocolateIceCreamPInt();
-                        } else if (options[choice].equals("Cookies N' Cream Ice Cream Pint $8")) {
-                            pints = menuFactory.createCookiesNCreamIceCreamPint();
-                        }
-                        log(pints.getDescription());
-                        orderList.add(pints);
-                    }
-                });
-                main.add(pint, gbc);
-
-                // Option Dialog
-                gbc.gridy = 6;
-                gbc.gridx = 0;
-                JLabel DrinksLabel = new JLabel("Drinks :");
-                DrinksLabel.setFont(new Font("Broadway", Font.BOLD, 15));
-                DrinksLabel.setForeground(new Color(255, 182, 193));
-                main.add(DrinksLabel, gbc);
-                gbc.gridx = 1;
-                gbc.gridy = 6;
-                JButton Drinks = new JButton("Drinks Dialog ");
-                Drinks.setForeground(new Color(111, 78, 55));
-                Drinks.setFont(new Font("Broadway", Font.BOLD, 10));
-                Drinks.addActionListener(e -> {
-                    Object[] options = {"Vanilla Shake", "Strawberry-Banana", "Chocolate Shake"};
-                    int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Flavors",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-                    if (choice >= 0) {
-                        AbstractFactory.Menu orderedDrinks = null;
-                        if (options[choice].equals("Vanilla Shake")) {
-                            orderedDrinks = menuFactory.createDrink();
-
-                        } else if (options[choice].equals("Strawberry-Banana")) {
-                            orderedDrinks = menuFactory.createStrawberryBananaShake();
-
-                        } else if (options[choice].equals("Chocolate Shake")) {
-                            orderedDrinks = menuFactory.createChocolateShake();
-
-                        }
-                        log(orderedDrinks.getDescription());
-                        orderList.add(orderedDrinks);
-                    }
-                });
-                main.add(Drinks, gbc);
-
-                // Confirm Dialog
-                gbc.gridy = 9;
-                gbc.gridx = 1;
-
-                JButton confirmButton = new JButton("Confirm Order");
-                confirmButton.setForeground(new Color(111, 78, 55));
-                confirmButton.setFont(new Font("Broadway", Font.BOLD, 18));
-                confirmButton.addActionListener(e -> {
-                    //se
-                    int result = JOptionPane.showConfirmDialog(this, "Do you want to place your order?",
-                            "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
-                    if (result == JOptionPane.YES_OPTION) {
-                        if (orderList.size() <= 0) {
-                            log("No Order found");
-                        } else {
-                            order.orderStatus("Order Placed for " + textField.getText());
-                            simulateProgress();
-                            double total = 0;
-                            for (AbstractFactory.Menu orderedfood : orderList) {
-                                total += orderedfood.getPrice();
-                            }
-
-                            log("Total price: $" + total);
-                            getReceipt();
-                        }
-                    } else if (result == JOptionPane.NO_OPTION) {
-                        if (orderList.size() <= 0) {
-                            log("No Order found");
-                        } else {
-                            order.orderStatus("Order Cancelled");
-                            orderList.clear();
-                            simulateProgress();
-                            this.dispose();
-                        }
-                    }
-                });
-                main.add(confirmButton, gbc);
-
-                gbc.gridy = 9;
-                gbc.gridx = 2;
-
-                JButton backToMenuButton = new JButton("Back to Homepage");
-                backToMenuButton.setForeground(new Color(111, 78, 55));
-                backToMenuButton.setFont(new Font("Broadway", Font.BOLD, 18));
-                backToMenuButton.addActionListener(e -> {
-                    this.dispose();
-                });
-                main.add(backToMenuButton, gbc);
-
-                //Output box
-                gbc.gridy = 8;
-                gbc.gridx = 0;
-                gbc.gridwidth = 3;
-                gbc.gridheight = 1;// output spans full row
-                gbc.weightx = 1;
-                gbc.weighty = 1;
-                gbc.fill = GridBagConstraints.BOTH;
-                outputArea = new JTextArea(5, 50);
-                outputArea.setEditable(false);
-                JScrollPane scrollPane = new JScrollPane(outputArea);
-                outputArea.setFont(new Font("Broadway", Font.BOLD, 15));
-                outputArea.setForeground(new Color(111, 78, 55));
-                outputArea.setBackground(new Color(255, 182, 193));
-                main.add(scrollPane, gbc);
-
+                } else if (options[choice].equals("Small")) {
+                    cookie = menuFactory.createCookie();
+                }
+                log(cookie.getDescription());
+                orderList.add(cookie);
             }
+        });
+        main.add(Cookie, gbc);
 
-            public void getReceipt () {
-                JFrame receipt = new JFrame();
-                receipt.setTitle("Receipt");
-                receipt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                receipt.setSize(800, 800);
-                receipt.setLocationRelativeTo(null);
+        // Option Dialog
+        gbc.gridy = 4;
+        gbc.gridx = 0;
+        JLabel CakeLabel = new JLabel("Cake :");
+        CakeLabel.setFont(new Font("Broadway", Font.BOLD, 15));
+        CakeLabel.setForeground(new Color(255, 182, 193));
+        main.add(CakeLabel, gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        JButton Cake = new JButton("Cake ");
+        Cake.setForeground(new Color(111, 78, 55));
+        Cake.setFont(new Font("Broadway", Font.BOLD, 10));
+        Cake.addActionListener(e -> {
+            Object[] options = {"Lava Cake $6", "Red Velvet Cake $7"};
+            int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Available Flavors",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            if (choice >= 0) {
+                AbstractFactory.Menu cake = null;
+                if (options[choice].equals("Lava Cake $6")) {
+                    cake = menuFactory.createLavaCake();
 
-                receipt.setLayout(new GridBagLayout());
-                GridBagConstraints gbc1 = new GridBagConstraints();
-                gbc1.insets = new Insets(5, 5, 5, 5);
-                gbc1.anchor = GridBagConstraints.WEST;
-                gbc1.fill = GridBagConstraints.HORIZONTAL;
+                } else if (options[choice].equals("Red Velvet Cake $7")) {
+                    cake = menuFactory.createRedVelvetCake();
+                }
+                log(cake.getDescription());
+                orderList.add(cake);
+            }
+        });
+        main.add(Cake, gbc);
+
+        // Option Dialog
+        gbc.gridy = 5;
+        gbc.gridx = 0;
+        JLabel IceCreamPintLabel = new JLabel("Ice Cream Pints :");
+        IceCreamPintLabel.setFont(new Font("Broadway", Font.BOLD, 15));
+        IceCreamPintLabel.setForeground(new Color(255, 182, 193));
+        main.add(IceCreamPintLabel, gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 5;
+        JButton pint = new JButton("Ice Cream Pints ");
+        pint.setForeground(new Color(111, 78, 55));
+        pint.setFont(new Font("Broadway", Font.BOLD, 10));
+        pint.addActionListener(e -> {
+            Object[] options = {"Vanilla Ice Cream Pint $7", "Chocolate Ice Cream Pint $7", "Cookies N' Cream Ice Cream Pint $8"};
+            int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Available Flavors",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            if (choice >= 0) {
+                AbstractFactory.Menu pints = null;
+                if (options[choice].equals("Vanilla Ice Cream Pint $7")) {
+                    pints = menuFactory.createVanillaIceCreamPint();
+                } else if (options[choice].equals("Chocolate Ice Cream Pint $7")) {
+                    pints = menuFactory.createChocolateIceCreamPInt();
+                } else if (options[choice].equals("Cookies N' Cream Ice Cream Pint $8")) {
+                    pints = menuFactory.createCookiesNCreamIceCreamPint();
+                }
+                log(pints.getDescription());
+                orderList.add(pints);
+            }
+        });
+        main.add(pint, gbc);
+
+        // Option Dialog
+        gbc.gridy = 6;
+        gbc.gridx = 0;
+        JLabel DrinksLabel = new JLabel("Drinks :");
+        DrinksLabel.setFont(new Font("Broadway", Font.BOLD, 15));
+        DrinksLabel.setForeground(new Color(255, 182, 193));
+        main.add(DrinksLabel, gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 6;
+        JButton Drinks = new JButton("Drinks Dialog ");
+        Drinks.setForeground(new Color(111, 78, 55));
+        Drinks.setFont(new Font("Broadway", Font.BOLD, 10));
+        Drinks.addActionListener(e -> {
+            Object[] options = {"Vanilla Shake", "Strawberry-Banana", "Chocolate Shake"};
+            int choice = JOptionPane.showOptionDialog(this, "Choose a flavor:", "Flavors",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            if (choice >= 0) {
+                AbstractFactory.Menu orderedDrinks = null;
+                if (options[choice].equals("Vanilla Shake")) {
+                    orderedDrinks = menuFactory.createDrink();
+
+                } else if (options[choice].equals("Strawberry-Banana")) {
+                    orderedDrinks = menuFactory.createStrawberryBananaShake();
+
+                } else if (options[choice].equals("Chocolate Shake")) {
+                    orderedDrinks = menuFactory.createChocolateShake();
+
+                }
+                log(orderedDrinks.getDescription());
+                orderList.add(orderedDrinks);
+            }
+        });
+        main.add(Drinks, gbc);
+
+        // Confirm Dialog
+        gbc.gridy = 9;
+        gbc.gridx = 1;
+
+        JButton confirmButton = new JButton("Confirm Order");
+        confirmButton.setForeground(new Color(111, 78, 55));
+        confirmButton.setFont(new Font("Broadway", Font.BOLD, 18));
+        confirmButton.addActionListener(e -> {
+            //se
+            int result = JOptionPane.showConfirmDialog(this, "Do you want to place your order?",
+                    "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
+            if (result == JOptionPane.YES_OPTION) {
+                if (orderList.size() <= 0) {
+                    log("No Order found");
+                } else {
+                    order.orderStatus("Order Placed for " + textField.getText());
+                    simulateProgress();
+                    double total = 0;
+                    for (AbstractFactory.Menu orderedfood : orderList) {
+                        total += orderedfood.getPrice();
+                    }
+
+                    log("Total price: $" + total);
+                    getReceipt();
+                }
+            } else if (result == JOptionPane.NO_OPTION) {
+                if (orderList.size() <= 0) {
+                    log("No Order found");
+                } else {
+                    order.orderStatus("Order Cancelled");
+                    orderList.clear();
+                    simulateProgress();
+                    this.dispose();
+                }
+            }
+        });
+        main.add(confirmButton, gbc);
+
+        gbc.gridy = 9;
+        gbc.gridx = 2;
+
+        JButton backToMenuButton = new JButton("Back to Homepage");
+        backToMenuButton.setForeground(new Color(111, 78, 55));
+        backToMenuButton.setFont(new Font("Broadway", Font.BOLD, 18));
+        backToMenuButton.addActionListener(e -> {
+            this.dispose();
+        });
+        main.add(backToMenuButton, gbc);
+
+        //Output box
+        gbc.gridy = 8;
+        gbc.gridx = 0;
+        gbc.gridwidth = 3;
+        gbc.gridheight = 1;// output spans full row
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        outputArea = new JTextArea(5, 50);
+        outputArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(outputArea);
+        outputArea.setFont(new Font("Broadway", Font.BOLD, 15));
+        outputArea.setForeground(new Color(111, 78, 55));
+        outputArea.setBackground(new Color(255, 182, 193));
+        main.add(scrollPane, gbc);
+
+    }
+
+    public void getReceipt() {
+        JFrame receipt = new JFrame();
+        receipt.setTitle("Receipt");
+        receipt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        receipt.setSize(800, 800);
+        receipt.setLocationRelativeTo(null);
+
+        receipt.setLayout(new GridBagLayout());
+        GridBagConstraints gbc1 = new GridBagConstraints();
+        gbc1.insets = new Insets(5, 5, 5, 5);
+        gbc1.anchor = GridBagConstraints.WEST;
+        gbc1.fill = GridBagConstraints.HORIZONTAL;
 
 
 //        ImageIcon smoothie = new ImageIcon("testing.jpeg");
@@ -608,153 +612,153 @@ public class CafeMenuUI extends JFrame implements Observer.Observer {
 //        receipt.add(smothie);
 //        receipt.setVisible(true);
 
-                String[] imagePaths1 = new String[16];
-                imagePaths1[0] = "FinalProject/src/imagesOfMenu/largeCookie.jpg";
-                imagePaths1[1] = "FinalProject/src/imagesOfMenu/smallCookie.jpg";
-                imagePaths1[2] = "FinalProject/src/imagesOfMenu/redvelvetcake.jpg";
-                imagePaths1[3] = "FinalProject/src/imagesOfMenu/lavaCake.jpg";
-                imagePaths1[4] = "FinalProject/src/imagesOfMenu/vanillaPint.jpg";
-                imagePaths1[5] = "FinalProject/src/imagesOfMenu/chocolatePint.jpg";
-                imagePaths1[6] = "FinalProject/src/imagesOfMenu/cookiesncreamPint.jpg";
-                imagePaths1[7] = "FinalProject/src/imagesOfMenu/vanilla-milkshake.jpg";
-                imagePaths1[8] = "FinalProject/src/imagesOfMenu/strawbanshake.jpg";
-                imagePaths1[9] = "FinalProject/src/imagesOfMenu/chocolateshake.jpg";
-                imagePaths1[10] = "FinalProject/src/imagesOfMenu/conechocolate.jpg";
-                imagePaths1[11] = "FinalProject/src/imagesOfMenu/cupchocolate.jpg";
-                imagePaths1[12] = "FinalProject/src/imagesOfMenu/conevanilla.jpg";
-                imagePaths1[13] = "FinalProject/src/imagesOfMenu/cupvanilla.jpg";
-                imagePaths1[14] = "FinalProject/src/imagesOfMenu/CookiesNCreamCone.jpg";
-                imagePaths1[15] = "FinalProject/src/imagesOfMenu/cookiencreamcup.jpg";
+        String[] imagePaths1 = new String[16];
+        imagePaths1[0] = "FinalProject/src/imagesOfMenu/largeCookie.jpg";
+        imagePaths1[1] = "FinalProject/src/imagesOfMenu/smallCookie.jpg";
+        imagePaths1[2] = "FinalProject/src/imagesOfMenu/redvelvetcake.jpg";
+        imagePaths1[3] = "FinalProject/src/imagesOfMenu/lavaCake.jpg";
+        imagePaths1[4] = "FinalProject/src/imagesOfMenu/vanillaPint.jpg";
+        imagePaths1[5] = "FinalProject/src/imagesOfMenu/chocolatePint.jpg";
+        imagePaths1[6] = "FinalProject/src/imagesOfMenu/cookiesncreamPint.jpg";
+        imagePaths1[7] = "FinalProject/src/imagesOfMenu/vanilla-milkshake.jpg";
+        imagePaths1[8] = "FinalProject/src/imagesOfMenu/strawbanshake.jpg";
+        imagePaths1[9] = "FinalProject/src/imagesOfMenu/chocolateshake.jpg";
+        imagePaths1[10] = "FinalProject/src/imagesOfMenu/conechocolate.jpg";
+        imagePaths1[11] = "FinalProject/src/imagesOfMenu/cupchocolate.jpg";
+        imagePaths1[12] = "FinalProject/src/imagesOfMenu/conevanilla.jpg";
+        imagePaths1[13] = "FinalProject/src/imagesOfMenu/cupvanilla.jpg";
+        imagePaths1[14] = "FinalProject/src/imagesOfMenu/CookiesNCreamCone.jpg";
+        imagePaths1[15] = "FinalProject/src/imagesOfMenu/cookiencreamcup.jpg";
 
 //        ImageIcon smoothie = new ImageIcon("FinalProject/src/testing.jpeg");
 //        JLabel smothie = new JLabel(smoothie);
 //        add(smothie);
 
-                ImageIcon LargeCookieI = new ImageIcon(imagePaths1[0]);
-                JLabel LargeCookie = new JLabel(LargeCookieI);
-                ImageIcon SmallCookieI = new ImageIcon(imagePaths1[1]);
-                JLabel SmallCookie = new JLabel(SmallCookieI);
-                ImageIcon RedVelvetCakeI = new ImageIcon(imagePaths1[2]);
-                JLabel RedVelvetCake = new JLabel(RedVelvetCakeI);
-                ImageIcon LavaCakeI = new ImageIcon(imagePaths1[3]);
-                JLabel LavaCake = new JLabel(LavaCakeI);
-                ImageIcon VanillaPintI = new ImageIcon(imagePaths1[4]);
-                JLabel VanillaPint = new JLabel(VanillaPintI);
-                ImageIcon ChocolatePintI = new ImageIcon(imagePaths1[5]);
-                JLabel ChocolatePint = new JLabel(ChocolatePintI);
-                ImageIcon CookiesNCreamPintI = new ImageIcon(imagePaths1[6]);
-                JLabel CookiesNCreamPint = new JLabel(CookiesNCreamPintI);
-                ImageIcon VanillaShakeI = new ImageIcon(imagePaths1[7]);
-                JLabel VanillaShake = new JLabel(VanillaShakeI);
-                ImageIcon StrawberryBananaShakeI = new ImageIcon(imagePaths1[8]);
-                JLabel StrawberryBananaShake = new JLabel(StrawberryBananaShakeI);
-                ImageIcon ChocolateShakeI = new ImageIcon(imagePaths1[9]);
-                JLabel ChocolateShake = new JLabel(ChocolateShakeI);
-                ImageIcon ChocolateConeI = new ImageIcon(imagePaths1[10]);
-                JLabel ChocolateCone = new JLabel(ChocolateConeI);
-                ImageIcon ChocolateCupI = new ImageIcon(imagePaths1[11]);
-                JLabel ChocolateCup = new JLabel(ChocolateCupI);
-                ImageIcon VanillaConeI = new ImageIcon(imagePaths1[12]);
-                JLabel VanillaCone = new JLabel(VanillaConeI);
-                ImageIcon VanillaCupI = new ImageIcon(imagePaths1[13]);
-                JLabel VanillaCup = new JLabel(VanillaCupI);
-                ImageIcon CookiesNCreamConeI = new ImageIcon(imagePaths1[14]);
-                JLabel CookiesNCreamCone = new JLabel(CookiesNCreamConeI);
-                ImageIcon CookiesNCreamCupI = new ImageIcon(imagePaths1[15]);
-                JLabel CookiesNCreamCup = new JLabel(CookiesNCreamCupI);
+        ImageIcon LargeCookieI = new ImageIcon(imagePaths1[0]);
+        JLabel LargeCookie = new JLabel(LargeCookieI);
+        ImageIcon SmallCookieI = new ImageIcon(imagePaths1[1]);
+        JLabel SmallCookie = new JLabel(SmallCookieI);
+        ImageIcon RedVelvetCakeI = new ImageIcon(imagePaths1[2]);
+        JLabel RedVelvetCake = new JLabel(RedVelvetCakeI);
+        ImageIcon LavaCakeI = new ImageIcon(imagePaths1[3]);
+        JLabel LavaCake = new JLabel(LavaCakeI);
+        ImageIcon VanillaPintI = new ImageIcon(imagePaths1[4]);
+        JLabel VanillaPint = new JLabel(VanillaPintI);
+        ImageIcon ChocolatePintI = new ImageIcon(imagePaths1[5]);
+        JLabel ChocolatePint = new JLabel(ChocolatePintI);
+        ImageIcon CookiesNCreamPintI = new ImageIcon(imagePaths1[6]);
+        JLabel CookiesNCreamPint = new JLabel(CookiesNCreamPintI);
+        ImageIcon VanillaShakeI = new ImageIcon(imagePaths1[7]);
+        JLabel VanillaShake = new JLabel(VanillaShakeI);
+        ImageIcon StrawberryBananaShakeI = new ImageIcon(imagePaths1[8]);
+        JLabel StrawberryBananaShake = new JLabel(StrawberryBananaShakeI);
+        ImageIcon ChocolateShakeI = new ImageIcon(imagePaths1[9]);
+        JLabel ChocolateShake = new JLabel(ChocolateShakeI);
+        ImageIcon ChocolateConeI = new ImageIcon(imagePaths1[10]);
+        JLabel ChocolateCone = new JLabel(ChocolateConeI);
+        ImageIcon ChocolateCupI = new ImageIcon(imagePaths1[11]);
+        JLabel ChocolateCup = new JLabel(ChocolateCupI);
+        ImageIcon VanillaConeI = new ImageIcon(imagePaths1[12]);
+        JLabel VanillaCone = new JLabel(VanillaConeI);
+        ImageIcon VanillaCupI = new ImageIcon(imagePaths1[13]);
+        JLabel VanillaCup = new JLabel(VanillaCupI);
+        ImageIcon CookiesNCreamConeI = new ImageIcon(imagePaths1[14]);
+        JLabel CookiesNCreamCone = new JLabel(CookiesNCreamConeI);
+        ImageIcon CookiesNCreamCupI = new ImageIcon(imagePaths1[15]);
+        JLabel CookiesNCreamCup = new JLabel(CookiesNCreamCupI);
 
 
-                for (AbstractFactory.Menu item : orderList) {
-                    if (item.getDescription().contains("Large Cookie")) {
-                        receipt.add(LargeCookie);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Small Cookie")) {
-                        receipt.add(SmallCookie);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Red Velvet Cake")) {
-                        receipt.add(RedVelvetCake);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Lava Cake")) {
-                        receipt.add(LavaCake);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Vanilla Ice Cream Pint")) {
-                        receipt.add(VanillaPint);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Chocolate Ice Cream Pint")) {
-                        receipt.add(ChocolatePint);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Cookies N Cream Ice Cream Pint")) {
-                        receipt.add(CookiesNCreamPint);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Vanilla Shake")) {
-                        receipt.add(VanillaShake);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Strawberry-Banana Smoothie")) {
-                        receipt.add(StrawberryBananaShake);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Chocolate Shake")) {
-                        receipt.add(ChocolateShake);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Chocolate Ice Cream")) {
-                        receipt.add(ChocolateCone);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Chocolate Ice Cream")) {
-                        receipt.add(ChocolateCup);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Vanilla Ice Cream")) {
-                        receipt.add(VanillaCone);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Vanilla Ice Cream")) {
-                        receipt.add(VanillaCup);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Cookies N' Cream Ice Cream")) {
-                        receipt.add(CookiesNCreamCone);
-                        receipt.pack();
-                    }
-                    if (item.getDescription().contains("Cookies N' Cream Ice Cream")) {
-                        receipt.add(CookiesNCreamCup);
-                        receipt.pack();
-                    }
-                }
-
+        for (AbstractFactory.Menu item : orderList) {
+            if (item.getDescription().contains("Large Cookie")) {
+                receipt.add(LargeCookie);
                 receipt.pack();
-                receipt.setVisible(true);
+            }
+            if (item.getDescription().contains("Small Cookie")) {
+                receipt.add(SmallCookie);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Red Velvet Cake")) {
+                receipt.add(RedVelvetCake);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Lava Cake")) {
+                receipt.add(LavaCake);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Vanilla Ice Cream Pint")) {
+                receipt.add(VanillaPint);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Chocolate Ice Cream Pint")) {
+                receipt.add(ChocolatePint);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Cookies N Cream Ice Cream Pint")) {
+                receipt.add(CookiesNCreamPint);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Vanilla Shake")) {
+                receipt.add(VanillaShake);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Strawberry-Banana Smoothie")) {
+                receipt.add(StrawberryBananaShake);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Chocolate Shake")) {
+                receipt.add(ChocolateShake);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Chocolate Ice Cream")) {
+                receipt.add(ChocolateCone);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Chocolate Ice Cream")) {
+                receipt.add(ChocolateCup);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Vanilla Ice Cream")) {
+                receipt.add(VanillaCone);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Vanilla Ice Cream")) {
+                receipt.add(VanillaCup);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Cookies N' Cream Ice Cream")) {
+                receipt.add(CookiesNCreamCone);
+                receipt.pack();
+            }
+            if (item.getDescription().contains("Cookies N' Cream Ice Cream")) {
+                receipt.add(CookiesNCreamCup);
+                receipt.pack();
+            }
+        }
 
+        receipt.pack();
+        receipt.setVisible(true);
+
+    }
+
+
+    void simulateProgress() {
+        java.util.List<Integer> count = new ArrayList<>();
+        count.add(4000);
+        Timer timer = new Timer(50, null);
+
+        timer.addActionListener(e -> {
+            count.set(0, count.get(0) - 50);
+            if (count.get(0) <= 0) {
+                timer.stop();
+                order.orderStatus("Order ready for Pickup!");
             }
 
+        });
+        timer.start();
+    }
 
-            void simulateProgress() {
-                java.util.List<Integer> count = new ArrayList<>();
-                count.add(4000);
-                Timer timer = new Timer(50, null);
-
-                timer.addActionListener(e -> {
-                    count.set(0, count.get(0) - 50);
-                    if (count.get(0) <= 0) {
-                        timer.stop();
-                        order.orderStatus("Order ready for Pickup!");
-                    }
-
-                });
-                timer.start();
-            }
-
-            void log(String message){
-                outputArea.append(message + "\n");
-                outputArea.setCaretPosition(outputArea.getDocument().getLength());
-            }
-        });}}
+    void log(String message) {
+        outputArea.append(message + "\n");
+        outputArea.setCaretPosition(outputArea.getDocument().getLength());
+    }
+}
