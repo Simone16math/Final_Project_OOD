@@ -42,7 +42,7 @@ public class WelcomeWindow extends JFrame {
         gbc.gridy = 2;
         JLabel design2 = new JLabel(new ImageIcon(imagePath));
         design2.setPreferredSize(new Dimension(100,100));
-        design2.setForeground(new Color(255, 182, 193));
+
         panel.add(design2,gbc);
 
         gbc.gridx = 3;
@@ -57,7 +57,7 @@ public class WelcomeWindow extends JFrame {
         gbc.gridx = 3;
         gbc.gridy = 4;
         JButton button = new JButton("Start Order");
-        button.setBackground(new Color(255, 182, 193));
+        button.setForeground(new Color(111, 78, 55));
         button.setFont(new Font("Broadway", Font.BOLD,18));
         button.addActionListener(e -> {
            CafeMenuUI cafeMenuUI = new CafeMenuUI();
@@ -70,7 +70,7 @@ public class WelcomeWindow extends JFrame {
         gbc.gridx = 3;
         gbc.gridy = 5;
         JButton cancel = new JButton("Cancel");
-        cancel.setBackground(new Color(255, 182, 193));
+        cancel.setForeground(new Color(111, 78, 55));
         cancel.setFont(new Font("Broadway", Font.BOLD,18));
         cancel.addActionListener(e -> {
             this.dispose();
