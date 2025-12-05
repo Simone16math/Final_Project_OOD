@@ -1,6 +1,12 @@
 # Café Menu System
 
-Cafe Menu System that represents a Order System of a Cafe/IceCream Parler. 
+Cafe Menu System that represents an Order System of a Cafe/IceCream Parler. 
+
+## Authors
+
+Simone Charles\
+Annika Maringer
+
 
 ## Description
 
@@ -18,12 +24,16 @@ The Abstract Factory is responsible for different Variations of Menu Items and c
 The Observer is responsible for the Order Status being sent to the Customer on the Output Box.
 
 ## 3. Command
+
+The Command is responsible for parameterizing objects with operations in which requests are formulated as objects which contain the information desired.
+
 ## 4. Decorator
+The Decorator is responsible for wrapping the ice cream objects so that it can dynamically add features at runtime. 
 
 ## Requirements
 
 - Java Development Kit (JDK) 8 or higher
-- imports java.util.ArrayList, java.util.List and java.swing.*;
+- Imports java.util.ArrayList, java.util.List and java.swing.*;
 
 ## Installation
 
@@ -53,6 +63,9 @@ java FinalProject
 Link: 
 
 ## Class Structure
+Simone comment:
+Why don't we just list the purpose of each file by design pattern instead?? This might be bad practice so I am going to leave
+it as it currently is now.
 
 ### Interfaces
 - **Menu**: 
@@ -65,24 +78,31 @@ Link:
 - **IceCream**: Base Class for all tasks to predict hurricane.
 - **IceCreamToppingDecorator**:
 
-## Concrete Classes
-- **StatisticalPrediction**: implements Abstract class and all it's methods
-- **MaschineLearningPrediction**: implements Abstract class and all it's methods
+### Concrete Classes
 
-## Design Pattern Classes
+
+### Command Design Pattern Classes
 - **Command**: Interface class that executes specific tasks
-- **AddChocolateSauceCommand**: Command concrete class that executes and calls fetchData()
-- **AddSprinklesCommand**: Command concrete class that executes and calls applyPredictionModel()
-- **RemoveChocolateSauceCommand**: Command concrete class that executes and calls saveResults()
-- **RemoveSprinklesCommand**: Command concrete class that executes and calls saveResults()
+- **AddChocolateSauceCommand**: Command concrete class that executes and calls the 
+- **AddSprinklesCommand**: Command concrete class that executes and calls 
+- **RemoveChocolateSauceCommand**: Command concrete class that executes and calls 
+- **RemoveSprinklesCommand**: Command concrete class that executes and calls 
 
-## Invoker Class
+We need a good way of organizing this, but it is really confusing at the moment.
+- **IceCreamToppingDecorator**:
+- **SprinklesDecoratorIceCream**:
+- **ChocolateSauceDecoratorIceCream**:
+
+
+
+### Invoker Class
 - **CommandInvoker**: adds commands to list and lets them execute
 
-## Author
 
-Simone 
-Annika Maringer
+
+
+
+
 
 ## Resources used
 
@@ -97,5 +117,6 @@ Annika Maringer
 - https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
 - https://www.geeksforgeeks.org/java/fonts-available-in-java-awt/
 - https://stackoverflow.com/questions/4219919/how-to-change-the-background-color-on-a-java-panel
+- need to remember to add JavaSwing files
 
 
