@@ -58,6 +58,8 @@ The Command is responsible for parameterizing objects with operations in which r
 - **RemoveChocolateSauceCommand**: Command concrete class that executes and calls
 - **RemoveSprinklesCommand**: Command concrete class that executes and calls
 
+### Invoker Class
+- **CommandInvoker**: adds commands to list and lets them execute
 
 ## 4. Decorator
 The Decorator is responsible for wrapping the ice cream objects so that it can dynamically add features at runtime. 
@@ -95,42 +97,7 @@ java FinalProject
 ```
 ## Usage
 
-Link: 
-
-## Class Structure
-Simone comment:
-Why don't we just list the purpose of each file by design pattern instead?? This might be bad practice so I am going to leave
-it as it currently is now. --> good idea let's do it
-
-### Interfaces
-- **Command**:
-
-### Abstract Classes
-- **IceCream**: Base Class for all Ice cream classes.
-- **IceCreamToppingDecorator**:
-
-### Concrete Classes
-
-
-### Command Design Pattern Classes
-- **Command**: Interface class that executes specific tasks
-- **AddChocolateSauceCommand**: Command concrete class that executes and calls the 
-- **AddSprinklesCommand**: Command concrete class that executes and calls 
-- **RemoveChocolateSauceCommand**: Command concrete class that executes and calls 
-- **RemoveSprinklesCommand**: Command concrete class that executes and calls 
-
-We need a good way of organizing this, but it is really confusing at the moment.
-- **IceCreamToppingDecorator**:
-- **SprinklesDecoratorIceCream**:
-- **ChocolateSauceDecoratorIceCream**:
-
-
-
-### Invoker Class
-- **CommandInvoker**: adds commands to list and lets them execute
-
-
-
+Link:
 
 ## Resources used
 
