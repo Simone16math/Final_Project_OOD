@@ -55,18 +55,18 @@ The Command is responsible for parameterizing objects with operations in which r
 ### Concrete Classes
 - **AddChocolateSauceCommand**: Command concrete class that executes and calls the
 - **AddSprinklesCommand**: Command concrete class that executes and calls
-- **AddMenuItemCommand**:
+- **AddMenuItemCommand**: Command concrete class that adds an item to the menu
 - **RemoveChocolateSauceCommand**: Command concrete class that executes and calls
 - **RemoveSprinklesCommand**: Command concrete class that executes and calls
-- **RemoveMenuItemCommand**: 
+- **RemoveMenuItemCommand**: Command concrete class the removes an item from the menu
 ### Invoker Class
 - **CommandInvoker**: adds commands to list and lets them execute
 
 ## 4. Decorator
 The Decorator is responsible for wrapping the ice cream objects so that it can dynamically add features at runtime. 
-- **IceCreamToppingDecorator**:
-- **SprinklesDecoratorIceCream**:
-- **ChocolateSauceDecoratorIceCream**:
+- **IceCreamToppingDecorator**: The base decorator for the ice cream
+- **SprinklesDecoratorIceCream**: Wraps the ice cream so that it has sprinkles
+- **ChocolateSauceDecoratorIceCream**: Wraps the ice cream so that it has chocolate sauce
 
 ## Requirements
 
@@ -96,7 +96,7 @@ Execute the compiled program:
 ```bash
 java FinalProject
 ```
-## Usage
+## Usage/Demo
 
 Link:
 

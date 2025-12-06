@@ -479,9 +479,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                         log(icecream.cup());
                     }
                     commandInvoker.executeOrderUpdate(addMenuItem, fullOrder, orderList);
-                    System.out.println(fullOrder.getDescription());
                     orderList = commandInvoker.getOrderList();
-                    System.out.println(orderList.size());
                     //orderList.add(fullOrder);
                 }
 
