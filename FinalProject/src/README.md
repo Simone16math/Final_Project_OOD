@@ -55,9 +55,10 @@ The Command is responsible for parameterizing objects with operations in which r
 ### Concrete Classes
 - **AddChocolateSauceCommand**: Command concrete class that executes and calls the
 - **AddSprinklesCommand**: Command concrete class that executes and calls
+- **AddMenuItemCommand**:
 - **RemoveChocolateSauceCommand**: Command concrete class that executes and calls
 - **RemoveSprinklesCommand**: Command concrete class that executes and calls
-
+- **RemoveMenuItemCommand**: 
 ### Invoker Class
 - **CommandInvoker**: adds commands to list and lets them execute
 
