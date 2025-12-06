@@ -237,6 +237,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         main.add(customer, gbc);
         JTextField textField = new JTextField(20);
         textField.setFont(new Font("Broadway", Font.BOLD, 10));
+        textField.setForeground(new Color(111, 78, 55));
         // Add action listener to log text field input when Enter is pressed
         textField.addActionListener(e -> {
             log("Customer: " + textField.getText());
@@ -271,10 +272,20 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         gbc.gridx = 1;
         //JPanel iceCreamPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JPanel iceCreamPanel = new JPanel(new GridLayout(3,3,3,3));
+        iceCreamPanel.setBackground(new Color(111, 78, 55));
 
         JRadioButton vanillaIceCreamCheckBox = new JRadioButton("Vanilla");
+        vanillaIceCreamCheckBox.setFont(new Font("Broadway", Font.BOLD, 10));
+        vanillaIceCreamCheckBox.setForeground(new Color(255, 182, 193));
+        vanillaIceCreamCheckBox.setBackground(new Color(111, 78, 55));
         JRadioButton chocolateIceCreamCheckBox = new JRadioButton("Chocolate");
+        chocolateIceCreamCheckBox.setFont(new Font("Broadway", Font.BOLD, 10));
+        chocolateIceCreamCheckBox.setForeground(new Color(255, 182, 193));
+        chocolateIceCreamCheckBox.setBackground(new Color(111, 78, 55));
         JRadioButton cookiesNCreamIceCreamCheckBox = new JRadioButton("Cookies N Cream");
+        cookiesNCreamIceCreamCheckBox.setFont(new Font("Broadway", Font.BOLD, 10));
+        cookiesNCreamIceCreamCheckBox.setForeground(new Color(255, 182, 193));
+        cookiesNCreamIceCreamCheckBox.setBackground(new Color(111, 78, 55));
         ButtonGroup iceCreamFlavors = new ButtonGroup();
         iceCreamFlavors.add(vanillaIceCreamCheckBox);
         iceCreamFlavors.add(chocolateIceCreamCheckBox);
@@ -311,7 +322,13 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         iceCreamPanel.add(cookiesNCreamIceCreamCheckBox);
 
         JRadioButton iceCreamCone = new JRadioButton("Cone");
+        iceCreamCone.setFont(new Font("Broadway", Font.BOLD, 10));
+        iceCreamCone.setForeground(new Color(255, 182, 193));
+        iceCreamCone.setBackground(new Color(111, 78, 55));
         JRadioButton iceCreamCup = new JRadioButton("Cup");
+        iceCreamCup.setFont(new Font("Broadway", Font.BOLD, 10));
+        iceCreamCup.setForeground(new Color(255, 182, 193));
+        iceCreamCup.setBackground(new Color(111, 78, 55));
         ButtonGroup iCFlavors = new ButtonGroup();
         iCFlavors.add(iceCreamCone);
         iCFlavors.add(iceCreamCup);
@@ -339,7 +356,13 @@ public class CafeMenuUICopy extends JFrame implements Observer {
 
 
         JCheckBox sprinkles = new JCheckBox("Sprinkles");
+        sprinkles.setFont(new Font("Broadway", Font.BOLD, 10));
+        sprinkles.setBackground(new Color(111, 78, 55));
+        sprinkles.setForeground(new Color(255, 182, 193));
         JCheckBox chocolateSauce = new JCheckBox("Chocolate Sauce");
+        chocolateSauce.setBackground(new Color(111, 78, 55));
+        chocolateSauce.setForeground(new Color(255, 182, 193));
+        chocolateSauce.setFont(new Font("Broadway", Font.BOLD, 10));
         //sprinkles.addActionListener(e -> log("Sprinkles added to ice cream" + sprinkles.isSelected()));
 
         /*sprinkles.addActionListener(new ActionListener() {
