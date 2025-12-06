@@ -566,7 +566,6 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         confirmButton.setForeground(new Color(111, 78, 55));
         confirmButton.setFont(new Font("Broadway", Font.BOLD, 18));
         confirmButton.addActionListener(e -> {
-            //se
             int result = JOptionPane.showConfirmDialog(this, "Do you want to place your order?",
                     "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
             if (result == JOptionPane.YES_OPTION) {
