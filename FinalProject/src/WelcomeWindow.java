@@ -29,10 +29,7 @@ public class WelcomeWindow extends JFrame {
         this.setResizable(false);
         this.setSize(800,800);
         this.setVisible(true);
-        //imagePath = "C:\\Users\\annik\\OneDrive\\Documents\\College\\NCF\\Java\\finalProject\\Final_Project_OOD\\FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg";
-        imagePath = "FinalProject\\src\\ImagesOfMenu\\CafeLogo.jpg";
-
-        //imagePath = "FinalProject/src/ImagesOfMenu/CafeLogo.jpg";
+        imagePath = "FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg";
         //image3 ="C:\Users\annik\OneDrive\Documents\College\NCF\Java\finalProject\Final_Project_OOD\FinalProject\src\background.jpg";
         this.setIconImage(new ImageIcon(imagePath).getImage());
         //getContentPane().add(new WelcomeWindow(this.image3));

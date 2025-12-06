@@ -14,7 +14,7 @@ public class ParlorMain {
                 e.printStackTrace();
             }
 
-            WelcomeWindow window = new WelcomeWindow("C:\\Users\\annik\\OneDrive\\Documents\\College\\NCF\\Java\\finalProject\\Final_Project_OOD\\FinalProject\\src\\background.jpg");
+            WelcomeWindow window = new WelcomeWindow("FinalProject/src/imagesOfMenu/CafeLogo.jpg");
             window.setVisible(true);
             //CafeMenuUI cafeMenuUI = new CafeMenuUI();
             //cafeMenuUI.setVisible(true);
