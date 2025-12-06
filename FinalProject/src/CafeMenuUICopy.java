@@ -445,7 +445,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                 if(iceCreamChosen == null){
                     log("please choose a flavor");
                 } else{
-                    log(iceCreamChosen.getDescription() + " " + iceCreamChosen.getPrice());
+                    log(iceCreamChosen.getDescription());
                     Menu fullOrder= iceCreamChosen;
                     if(sprinkles.isSelected()){
                         log("Sprinkles added to ice cream.");

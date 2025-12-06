@@ -30,10 +30,10 @@ public class ImagesFrame {
         receipt.setIconImage(new ImageIcon(imagePath).getImage());
 
 
-        gbc1.gridx = 3;
-        gbc1.gridy = 3;
-        receipt.setBackground(new Color(111, 78, 55)); // set background color
 
+        receipt.setBackground(new Color(111, 78, 55)); // set background color
+        gbc1.gridx = 3;
+        gbc1.gridy = 1;
         // add receipt label
         JLabel ReceiptLabel = new JLabel("Your Receipt! Enjoy!");
         ReceiptLabel.setForeground(new Color(255, 182, 193));

@@ -14,7 +14,7 @@ public class VanillaIceCream extends IceCream {
     // add description
     @Override
     public String getDescription() {
-        return " " + getItemName();
+        return " " + getItemName() + " $" + getPrice();
     }
     // cone or cup descriptions
     @Override
