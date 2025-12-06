@@ -1,21 +1,22 @@
 package AbstractFactory;
 
 public class CookiesNCreamIceCream extends IceCream {
+    // add item Name
     @Override
     public String getItemName() {
         return "Cookies N' Cream Ice Cream";
     }
-
+    // add price
     @Override
     public double getPrice() {
         return 0.50;
     }
-
+    // add description
     @Override
     public String getDescription() {
         return " " + getItemName() +  " $" + getPrice();
     }
-
+    // cone or cup descriptions
     @Override
     public String cone(){
         String description = " In a Cone";

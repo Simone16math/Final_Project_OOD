@@ -3,7 +3,7 @@ package AbstractFactory;
 import Decorator.*;
 
 public class DessertsFactory implements MenuAbstractFactory {
-    // adding all the product variations to the basic menu factory
+    // adding all the product variations to the dessert factory
     @Override
     public IceCream createIceCream() {
         return new BasicIceCream();

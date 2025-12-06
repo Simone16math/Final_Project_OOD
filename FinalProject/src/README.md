@@ -19,15 +19,15 @@ It uses different Design Patterns, like Abstract Factory, Observer, Command and 
 
 The Abstract Factory is responsible for different Variations of Menu Items and creating those.
 
-## 2. Observer
+### 2. Observer
 
 The Observer is responsible for the Order Status being sent to the Customer on the Output Box.
 
-## 3. Command
+### 3. Command
 
 The Command is responsible for parameterizing objects with operations in which requests are formulated as objects which contain the information desired.
 
-## 4. Decorator
+### 4. Decorator
 The Decorator is responsible for wrapping the ice cream objects so that it can dynamically add features at runtime. 
 
 ## Requirements
@@ -68,14 +68,14 @@ Why don't we just list the purpose of each file by design pattern instead?? This
 it as it currently is now.
 
 ### Interfaces
-- **Menu**: 
-- **MenuAbstractFactory**:
-- **Observer**:
-- **Subject**:
+- **Menu**: a set of methods that the product classes need to implement
+- **MenuAbstractFactory**: methods to create each Item
+- **Observer**: update method to update the Customer
+- **Subject**: set of methods that add,remove and notifys the customer about the order status
 - **Command**:
 
 ### Abstract Classes
-- **IceCream**: Base Class for all tasks to predict hurricane.
+- **IceCream**: Base Class for all Ice cream classes.
 - **IceCreamToppingDecorator**:
 
 ### Concrete Classes
@@ -97,9 +97,6 @@ We need a good way of organizing this, but it is really confusing at the moment.
 
 ### Invoker Class
 - **CommandInvoker**: adds commands to list and lets them execute
-
-
-
 
 
 

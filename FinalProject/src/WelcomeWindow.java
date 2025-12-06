@@ -11,12 +11,10 @@ public class WelcomeWindow extends JFrame {
     private String imagePath;
     private String imagePathFlower;
     private String image3;
-    private JPanel panel1;
-    private JPanel panel2;
 
     public WelcomeWindow(String image3) {
         //JFrame frame = new JFrame("Cafe Menu");
-
+        // new frame
         setLayout(new BorderLayout(5, 5));
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -29,36 +27,31 @@ public class WelcomeWindow extends JFrame {
         this.setResizable(false);
         this.setSize(800,800);
         this.setVisible(true);
-        imagePath = "FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg";
+        imagePath = "FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg"; //Logo picture in the welcome frame
         //image3 ="C:\Users\annik\OneDrive\Documents\College\NCF\Java\finalProject\Final_Project_OOD\FinalProject\src\background.jpg";
         this.setIconImage(new ImageIcon(imagePath).getImage());
-        //getContentPane().add(new WelcomeWindow(this.image3));
         panel.setBackground(new Color(111, 78, 55));
+        // set background color to coffee brown
 
         imagePathFlower = "C:\\Users\\annik\\OneDrive\\Documents\\College\\NCF\\Java\\finalProject\\Final_Project_OOD\\FinalProject\\src\\imagesOfMenu\\flower-watercolor-painting-watercolor-flowers-shading-3f019ca7729f8e6fdf71019d6d26fe53.png";
-        /*gbc.gridx = 2;
-        gbc.gridy = 3;
-        JLabel design =new JLabel(new ImageIcon(imagePath));
-        design.setPreferredSize(new Dimension(800,800));
-        design.setForeground(new Color(255, 182, 193));
-        panel.add(design,gbc);*/
-
+        // set logo
         gbc.gridx = 3;
         gbc.gridy = 2;
         JLabel design2 = new JLabel(new ImageIcon(imagePath));
         design2.setPreferredSize(new Dimension(100,200));
+        // adjust size of picture
 
         panel.add(design2,gbc);
-
+        // sets the welcome label
         gbc.gridx = 3;
         gbc.gridy = 3;
         JLabel welcomeLabel = new JLabel("Welcome to Bresso!");
         welcomeLabel.setForeground(new Color(255, 182, 193));
         welcomeLabel.setFont(new Font("Broadway", Font.BOLD, 25));
-        //welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
 
         panel.add(welcomeLabel,gbc);
-
+        // sets Start Order Button
         gbc.gridx = 3;
         gbc.gridy = 4;
         JButton button = new JButton("Start Order");
@@ -73,7 +66,7 @@ public class WelcomeWindow extends JFrame {
 
 
         panel.add(button,gbc);
-
+        // adding cancel button
         gbc.gridx = 3;
         gbc.gridy = 5;
         JButton cancel = new JButton("Cancel");
@@ -84,7 +77,6 @@ public class WelcomeWindow extends JFrame {
         });
 
         panel.add(cancel,gbc);
-
         add(panel, BorderLayout.CENTER);
 
 

@@ -4,17 +4,17 @@ public abstract class IceCream implements Menu {
    private String description;
    private String item = "Ice Cream";
    private double price = 2.0;
-
+    // add item Name
     @Override
     public String getItemName() {;
         return item;
     }
-
+    // add price
     @Override
     public double getPrice() {
         return price;
     }
-
+    // add description
     @Override
     public String getDescription() {
         description = " " + getItemName() + " $" + getPrice();
