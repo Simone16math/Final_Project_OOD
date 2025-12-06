@@ -33,7 +33,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
     MenuAbstractFactory menuFactory = new DessertsFactory();
     private String path;
     private String imagePath;
-
+    //override update
     @Override
     public void update(String Order) {
         log("---Order Update---");
@@ -55,26 +55,21 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         order.registerObserver(this); //register user as customer
 
         setLayout(new BorderLayout());
-
+        // main panel where order takes place
         JPanel main = new JPanel(new GridBagLayout());
         main.setBackground(new Color(111, 78, 55));
         add(main, BorderLayout.CENTER);
-
+        // sidepanel for menu display
         JPanel SidePanel = new JPanel(new GridLayout(0, 1));
         SidePanel.setBackground(new Color(196, 164, 132));
         SidePanel.setPreferredSize(new Dimension(300, 800));
         add(SidePanel, BorderLayout.WEST);
-
+        // add menu to sidepanel with all the items listed
         JLabel menu = new JLabel("Menu");
         menu.setFont(new Font("Broadway", Font.BOLD, 35));
         menu.setForeground(new Color(111, 78, 55));
         SidePanel.add(menu);
-
-        path = "src/imagesOfMenu/underline.png";
-        JLabel image = new JLabel(new ImageIcon(path));
-        image.setPreferredSize(new Dimension(200, 100));
-        SidePanel.add(image);
-
+        // to create space
         JLabel plank = new JLabel(" ");
         SidePanel.add(plank);
 
@@ -306,6 +301,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         JPanel iceCreamPanel = new JPanel(new GridLayout(3,3,3,3));
         iceCreamPanel.setBackground(new Color(111, 78, 55));
 
+        // add radiobuttons for the ice cream choices
         JRadioButton vanillaIceCreamCheckBox = new JRadioButton("Vanilla");
         vanillaIceCreamCheckBox.setFont(new Font("Broadway", Font.BOLD, 10));
         vanillaIceCreamCheckBox.setForeground(new Color(255, 182, 193));
@@ -323,36 +319,12 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         iceCreamFlavors.add(chocolateIceCreamCheckBox);
         iceCreamFlavors.add(cookiesNCreamIceCreamCheckBox);
 
-        /*vanillaIceCreamCheckBox.addActionListener( new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                   if (vanillaIceCreamCheckBox.isSelected()){
-                       log("Ice cream flavor is vanilla");
-
-                   }
-            }
-        });
-        chocolateIceCreamCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (chocolateIceCreamCheckBox.isSelected()){
-                    log("Ice cream flavor is chocolate");
-                }
-            }
-        });
-        cookiesNCreamIceCreamCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cookiesNCreamIceCreamCheckBox.isSelected()){
-                    log("Ice cream flavor is cookies n cream");
-                }
-
-            }
-        });*/
+        // add to panel
         iceCreamPanel.add(vanillaIceCreamCheckBox);
         iceCreamPanel.add(chocolateIceCreamCheckBox);
         iceCreamPanel.add(cookiesNCreamIceCreamCheckBox);
 
+        // create radiobuttons
         JRadioButton iceCreamCone = new JRadioButton("Cone");
         iceCreamCone.setFont(new Font("Broadway", Font.BOLD, 10));
         iceCreamCone.setForeground(new Color(255, 182, 193));
@@ -365,32 +337,16 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         iCFlavors.add(iceCreamCone);
         iCFlavors.add(iceCreamCup);
 
+        // blank panel for design
         JPanel blank =new JPanel();
         blank.setBackground(new Color(111, 78, 55));
 
-
-        /*iceCreamCup.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (iceCreamCup.isSelected()){
-                    icecream.cup();
-                }
-            }
-        });
-        iceCreamCone.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (iceCreamCone.isSelected()){
-                    icecream.cone();
-                }
-            }
-        });*/
-
+        // add to panel
         iceCreamPanel.add(iceCreamCup);
         iceCreamPanel.add(iceCreamCone);
         iceCreamPanel.add(blank);
 
-
+        // create checkboxes
         JCheckBox sprinkles = new JCheckBox("Sprinkles");
         sprinkles.setFont(new Font("Broadway", Font.BOLD, 10));
         sprinkles.setBackground(new Color(111, 78, 55));
@@ -399,32 +355,10 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         chocolateSauce.setBackground(new Color(111, 78, 55));
         chocolateSauce.setForeground(new Color(255, 182, 193));
         chocolateSauce.setFont(new Font("Broadway", Font.BOLD, 10));
-        //sprinkles.addActionListener(e -> log("Sprinkles added to ice cream" + sprinkles.isSelected()));
-
-        /*sprinkles.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (sprinkles.isSelected()) {
-                    log("Sprinkles added to ice cream.");
-                } else {
-                    log("Sprinkles removed from ice cream.");
-                }
-            }
-        });
-        //chocolateSauce.addActionListener(e -> log("Chocolate Sauce added to ice cream" + chocolateSauce.isSelected()));
-        chocolateSauce.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (chocolateSauce.isSelected()) {
-                    log("Chocolate Sauce added to ice cream.");
-                } else {
-                    log("Chocolate Sauce removed from ice cream.");
-                }
-            }
-        });*/
+        // add blank panel for design
         JPanel blank2 =new JPanel();
         blank2.setBackground(new Color(111, 78, 55));
-
+        // add to panel
         iceCreamPanel.add(sprinkles);
         iceCreamPanel.add(chocolateSauce);
         iceCreamPanel.add(blank2);
@@ -433,7 +367,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
 
 
 
-
+        // add add ice cream button with all its functionality
         gbc.gridy = 1;
         gbc.gridx = 2;
         JButton addIceCreamBtn = new JButton("Add Ice Cream");
@@ -454,7 +388,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                     iceCreamChosen = menuFactory.createCookiesNCreamIceCream();
                 }
 
-                if(iceCreamChosen == null){
+                if(iceCreamChosen == null){ // flavor cant be empty
                     log("please choose a flavor");
                 } else{
                     log(iceCreamChosen.getDescription());
@@ -471,29 +405,27 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                         commandInvoker.executeDecoratorCommand(addChocolateSauce, fullOrder);
                         fullOrder = commandInvoker.getMenuItem();
                     }
-
+                    if(iceCreamCone == null && iceCreamCup == null){ // customer needs to choose cup or cone
+                        log("please choose a cup or cone");}
                     if(iceCreamCone.isSelected()){
                         log(icecream.cone());
                     }
                     if(iceCreamCup.isSelected()){
                         log(icecream.cup());
                     }
-                    commandInvoker.executeOrderUpdate(addMenuItem, fullOrder, orderList);
+                    commandInvoker.executeOrderUpdate(addMenuItem, fullOrder, orderList); // invoke command
                     orderList = commandInvoker.getOrderList();
                     //orderList.add(fullOrder);
                 }
 
             }
         });
-        //iceCreamPanel.add(addIceCreamBtn);
+
         main.add(addIceCreamBtn,gbc);
 
 
 
-
-
-
-        // Option Dialog
+        // Option Dialog for cookie
         gbc.gridy = 3;
         gbc.gridx = 0;
         JLabel cookieLabel = new JLabel("Cookie :");
@@ -519,14 +451,14 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                 }
                 log(cookie.getDescription());
                 commandInvoker.executeOrderUpdate(addMenuItem,cookie,orderList);
-                orderList = commandInvoker.getOrderList();
-                //orderList.add(cookie);
+                orderList = commandInvoker.getOrderList(); //Invoke command
+
 
             }
         });
         main.add(Cookie, gbc);
 
-        // Option Dialog
+        // Option Dialog for cake variations
         gbc.gridy = 4;
         gbc.gridx = 0;
         JLabel CakeLabel = new JLabel("Cake :");
@@ -551,14 +483,14 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                     cake = menuFactory.createRedVelvetCake();
                 }
                 log(cake.getDescription());
-                //orderList.add(cake);
+
                 commandInvoker.executeOrderUpdate(addMenuItem, cake, orderList);
-                orderList = commandInvoker.getOrderList();
+                orderList = commandInvoker.getOrderList(); //invoke commands
             }
         });
         main.add(Cake, gbc);
 
-        // Option Dialog
+        // Option Dialog for ice cream pints
         gbc.gridy = 5;
         gbc.gridx = 0;
         JLabel IceCreamPintLabel = new JLabel("Ice Cream Pints :");
@@ -586,12 +518,12 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                 log(pints.getDescription());
                 //orderList.add(pints);
                 commandInvoker.executeOrderUpdate(addMenuItem, pints, orderList);
-                orderList = commandInvoker.getOrderList();
+                orderList = commandInvoker.getOrderList();  //invoke commands
             }
         });
         main.add(pint, gbc);
 
-        // Option Dialog
+        // Option Dialog for drinks
         gbc.gridy = 6;
         gbc.gridx = 0;
         JLabel DrinksLabel = new JLabel("Drinks :");
@@ -620,9 +552,9 @@ public class CafeMenuUICopy extends JFrame implements Observer {
 
                 }
                 log(orderedDrinks.getDescription());
-                //orderList.add(orderedDrinks);
+
                 commandInvoker.executeOrderUpdate(addMenuItem, orderedDrinks, orderList);
-                orderList = commandInvoker.getOrderList();
+                orderList = commandInvoker.getOrderList();  //invoke commands
             }
         });
         main.add(Drinks, gbc);
@@ -630,7 +562,6 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         // Confirm Dialog
         gbc.gridy = 9;
         gbc.gridx = 1;
-
         JButton confirmButton = new JButton("Confirm Order");
         confirmButton.setForeground(new Color(111, 78, 55));
         confirmButton.setFont(new Font("Broadway", Font.BOLD, 18));
@@ -640,13 +571,13 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                     "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
             if (result == JOptionPane.YES_OPTION) {
                 System.out.println(orderList.size());
-                if (orderList.size() <= 0) {
+                if (orderList.size() <= 0) { //order list cant be empty when submitting an order
 
                     log("No Order found");
                 } else {
                     order.orderStatus("Order Placed for " + textField.getText());
-                    simulateProgress();
-                    double total = 0;
+                    simulateProgress(); //timer
+                    double total = 0;// add up total
                     for (AbstractFactory.Menu orderedfood : orderList) {
                         total += orderedfood.getPrice();
                     }
@@ -654,26 +585,23 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                     log("Total price: $" + total);
                 }
             } else if (result == JOptionPane.NO_OPTION) {
-                if (orderList.size() <= 0) {
-                    log("No Order found");
-                } else {
                     order.orderStatus("Order Cancelled");
                     orderList.clear();
                     simulateProgress();
-                    this.dispose();
-                }
+                    this.dispose(); // close windows if no is pressed
+
             }
         });
         main.add(confirmButton, gbc);
 
         gbc.gridy = 9;
         gbc.gridx = 2;
-
+        // add back to homepage button
         JButton backToMenuButton = new JButton("Back to Homepage");
         backToMenuButton.setForeground(new Color(111, 78, 55));
         backToMenuButton.setFont(new Font("Broadway", Font.BOLD, 18));
         backToMenuButton.addActionListener(e -> {
-            this.dispose();
+            this.dispose(); // close this frame to return to homepage
         });
         main.add(backToMenuButton, gbc);
 
@@ -694,13 +622,13 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         main.add(scrollPane, gbc);
 
     }
-
+    // receipt frame
     public void getReceipt() {
         ImagesFrame getPictures = new ImagesFrame((ArrayList<Menu>) orderList);
 
     }
 
-
+    // timer method
     void simulateProgress() {
         java.util.List<Integer> count = new ArrayList<>();
         count.add(4000);
@@ -717,7 +645,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         });
         timer.start();
     }
-
+    // log method
     void log(String message) {
         outputArea.append(message + "\n");
         outputArea.setCaretPosition(outputArea.getDocument().getLength());
