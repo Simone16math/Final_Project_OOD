@@ -14,8 +14,9 @@ public class ImagesFrame {
         JFrame receipt = new JFrame();
         receipt.setTitle("Receipt");
         receipt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        receipt.setSize(800, 800);
+        receipt.setSize(400, 400);
         receipt.setLocationRelativeTo(null);
+        receipt.setLocation(900, 250);
 
         receipt.setLayout(new GridBagLayout());
         GridBagConstraints gbc1 = new GridBagConstraints();

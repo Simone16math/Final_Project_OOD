@@ -115,5 +115,6 @@ We need a good way of organizing this, but it is really confusing at the moment.
 - https://www.geeksforgeeks.org/java/fonts-available-in-java-awt/
 - https://stackoverflow.com/questions/4219919/how-to-change-the-background-color-on-a-java-panel
 - need to remember to add JavaSwing files
+- https://coderanch.com/t/330964/java/positioning-JFrames-Screen
 
 
