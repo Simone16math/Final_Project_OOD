@@ -48,9 +48,8 @@ public class WelcomeWindow extends JFrame {
         JLabel welcomeLabel = new JLabel("Welcome to Bresso!");
         welcomeLabel.setForeground(new Color(255, 182, 193));
         welcomeLabel.setFont(new Font("Broadway", Font.BOLD, 25));
-
-
         panel.add(welcomeLabel,gbc);
+
         // sets Start Order Button
         gbc.gridx = 3;
         gbc.gridy = 4;
@@ -73,9 +72,8 @@ public class WelcomeWindow extends JFrame {
         cancel.setForeground(new Color(111, 78, 55));
         cancel.setFont(new Font("Broadway", Font.BOLD,18));
         cancel.addActionListener(e -> {
-            this.dispose();
+            this.dispose(); // close window if clicked
         });
-
         panel.add(cancel,gbc);
         add(panel, BorderLayout.CENTER);
 

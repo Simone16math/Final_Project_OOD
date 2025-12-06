@@ -11,31 +11,36 @@ import Observer.*;
 public class ImagesFrame {
 
     public ImagesFrame(ArrayList<Menu> orderList){
+        //new frame
         JFrame receipt = new JFrame();
         receipt.setTitle("Receipt");
         receipt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         receipt.setSize(400, 400);
         receipt.setLocationRelativeTo(null);
         receipt.setLocation(900, 250);
-
+        // set layout
         receipt.setLayout(new GridBagLayout());
         GridBagConstraints gbc1 = new GridBagConstraints();
         gbc1.insets = new Insets(5, 5, 5, 5);
         gbc1.anchor = GridBagConstraints.WEST;
         gbc1.fill = GridBagConstraints.HORIZONTAL;
-
+        // image for frame icon
         String imagePath = "FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg"; //Logo picture in the welcome frame
         //image3 ="C:\Users\annik\OneDrive\Documents\College\NCF\Java\finalProject\Final_Project_OOD\FinalProject\src\background.jpg";
         receipt.setIconImage(new ImageIcon(imagePath).getImage());
 
+
         gbc1.gridx = 3;
         gbc1.gridy = 3;
-        receipt.setBackground(new Color(111, 78, 55));
+        receipt.setBackground(new Color(111, 78, 55)); // set background color
+
+        // add receipt label
         JLabel ReceiptLabel = new JLabel("Your Receipt! Enjoy!");
         ReceiptLabel.setForeground(new Color(255, 182, 193));
         ReceiptLabel.setFont(new Font("Broadway", Font.BOLD, 25));
         receipt.add(ReceiptLabel,gbc1);
 
+        //adding images to the list so they can be shown in the Receipt
         String[] imagePaths1 = new String[16];
         imagePaths1[0] = "FinalProject\\src\\ImagesOfMenu\\largeCookie.jpg";
         imagePaths1[1] = "FinalProject\\src\\ImagesOfMenu\\smallCookie.jpg";
@@ -66,7 +71,7 @@ public class ImagesFrame {
         SmallCookieI.setImage(smallCookieEdit);
         JLabel SmallCookie = new JLabel(SmallCookieI);
 
-        // the image for the redvelvet cake
+        // the image for the Red Velvet cake
         ImageIcon RedVelvetCakeI = new ImageIcon(imagePaths1[2]);
         Image redVelvetCakeEdit = RedVelvetCakeI.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH);
         RedVelvetCakeI.setImage(redVelvetCakeEdit);
@@ -150,6 +155,7 @@ public class ImagesFrame {
         CookiesNCreamCupI.setImage(cookiesNCreamCupEdit);
         JLabel CookiesNCreamCup = new JLabel(CookiesNCreamCupI);
 
+        // for every item in the orderList add picture to the receipt
         for (AbstractFactory.Menu item : orderList) {
             if (item.getDescription().contains("Large Cookie")) {
                 receipt.add(LargeCookie);
