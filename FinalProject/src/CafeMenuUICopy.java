@@ -45,7 +45,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
     public CafeMenuUICopy() {
         setTitle("Café");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000, 1000);
+        setSize(1200, 800);
         setLocationRelativeTo(null);
         getContentPane().setBackground(new Color(111, 78, 55));
 
