@@ -1,3 +1,9 @@
+/*Annika Maringer
+ *
+ * class that implements Menu
+ * */
+
+
 package AbstractFactory;
 
 public class CookiesNCreamIceCreamPint implements Menu {

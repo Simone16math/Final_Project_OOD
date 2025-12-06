@@ -1,3 +1,8 @@
+/* Annika Maringer
+
+implements methods to create each Item
+ */
+
 package AbstractFactory;
 
 import Decorator.*;

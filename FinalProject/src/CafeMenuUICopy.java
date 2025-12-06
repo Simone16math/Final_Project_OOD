@@ -1,4 +1,9 @@
+/* Annika Maringer
+Simone Charles
 
+implements Observer
+sets up the main gui frame
+ */
 import AbstractFactory.*;
 import AbstractFactory.Menu;
 import Command.*;

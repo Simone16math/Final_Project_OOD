@@ -1,3 +1,8 @@
+/*Annika Maringer
+ *
+ * implements Subject methods
+ * */
+
 package Observer;
 
 import AbstractFactory.*;

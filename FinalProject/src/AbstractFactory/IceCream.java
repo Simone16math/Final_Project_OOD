@@ -1,3 +1,8 @@
+/* Annika Maringer
+
+abstract class that implements Menu and has methods like cone and cup
+ */
+
 package AbstractFactory;
 
 public abstract class IceCream implements Menu {

@@ -1,3 +1,8 @@
+/*Annika Maringer
+ *
+ * class that implements Menu
+ * */
+
 package AbstractFactory;
 
 public class Drinks implements Menu {

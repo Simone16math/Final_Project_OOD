@@ -21,7 +21,7 @@ public class ImagesFrame {
         // set layout
         receipt.setLayout(new GridBagLayout());
         GridBagConstraints gbc1 = new GridBagConstraints();
-        gbc1.insets = new Insets(5, 5, 5, 5);
+        gbc1.insets = new Insets(5, 10, 5, 10);
         gbc1.anchor = GridBagConstraints.CENTER;
         gbc1.fill = GridBagConstraints.HORIZONTAL;
         // image for frame icon
@@ -41,6 +41,9 @@ public class ImagesFrame {
         ReceiptLabel.setFont(new Font("Broadway", Font.BOLD, 25));
         receipt.add(ReceiptLabel,gbc1);
 
+        gbc1.insets = new Insets(5, 5, 5, 5);
+        gbc1.anchor = GridBagConstraints.CENTER;
+        gbc1.fill = GridBagConstraints.HORIZONTAL;
         //adding images to the list so they can be shown in the Receipt
         String[] imagePaths1 = new String[16];
         imagePaths1[0] = "FinalProject\\src\\ImagesOfMenu\\largeCookie.jpg";

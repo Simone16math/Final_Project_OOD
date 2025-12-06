@@ -1,3 +1,9 @@
+/*Annika Maringer
+*
+* class that extends IceCream
+* */
+
+
 package AbstractFactory;
 
 public class ChocolateIceCream extends IceCream{

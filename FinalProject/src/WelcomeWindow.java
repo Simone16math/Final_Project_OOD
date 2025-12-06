@@ -1,4 +1,7 @@
+/* Annika Maringer
 
+sets up the welcome gui frame that pops up first
+ */
 import javax.swing.*;
 import java.awt.*;
 

@@ -1,3 +1,9 @@
+/*Annika Maringer
+ *
+ * set of methods that add,remove and notifies the customer about the order status
+ * */
+
+
 package Observer;
 
 public interface Subject {
