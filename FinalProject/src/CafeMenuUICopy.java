@@ -240,8 +240,12 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         textField.setForeground(new Color(111, 78, 55));
         // Add action listener to log text field input when Enter is pressed
         textField.addActionListener(e -> {
+            if(textField == null){
+                log("Please enter name for your order: ");//idk why not working
+            } else{
             log("Customer: " + textField.getText());
             log("---Receipt---");
+            }
         });
         gbc.gridx = 1;
         main.add(textField, gbc);
@@ -414,8 +418,10 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                 if (cookiesNCreamIceCreamCheckBox.isSelected()){
                     iceCreamChosen = menuFactory.createCookiesNCreamIceCream();
                 }
-                log(iceCreamChosen.getDescription() + " " + iceCreamChosen.getPrice() );
-
+                if(iceCreamChosen == null){
+                    log("please choose a flavor");
+                }
+                log(iceCreamChosen.getDescription() + " " + iceCreamChosen.getPrice());
                 Menu fullOrder= iceCreamChosen;
 
                 if(sprinkles.isSelected()){
