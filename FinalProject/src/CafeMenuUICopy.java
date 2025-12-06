@@ -365,6 +365,10 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         iCFlavors.add(iceCreamCone);
         iCFlavors.add(iceCreamCup);
 
+        JPanel blank =new JPanel();
+        blank.setBackground(new Color(111, 78, 55));
+
+
         /*iceCreamCup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -384,7 +388,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
 
         iceCreamPanel.add(iceCreamCup);
         iceCreamPanel.add(iceCreamCone);
-        iceCreamPanel.add(new JPanel());
+        iceCreamPanel.add(blank);
 
 
         JCheckBox sprinkles = new JCheckBox("Sprinkles");
@@ -418,9 +422,12 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                 }
             }
         });*/
+        JPanel blank2 =new JPanel();
+        blank2.setBackground(new Color(111, 78, 55));
+
         iceCreamPanel.add(sprinkles);
         iceCreamPanel.add(chocolateSauce);
-        iceCreamPanel.add(new JPanel());
+        iceCreamPanel.add(blank2);
         main.add(iceCreamPanel, gbc);
 
 
