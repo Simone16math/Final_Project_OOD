@@ -22,7 +22,7 @@ public class ImagesFrame {
         receipt.setLayout(new GridBagLayout());
         GridBagConstraints gbc1 = new GridBagConstraints();
         gbc1.insets = new Insets(5, 5, 5, 5);
-        gbc1.anchor = GridBagConstraints.WEST;
+        gbc1.anchor = GridBagConstraints.CENTER;
         gbc1.fill = GridBagConstraints.HORIZONTAL;
         // image for frame icon
         String imagePath = "FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg"; //Logo picture in the welcome frame
@@ -32,8 +32,9 @@ public class ImagesFrame {
 
 
         receipt.setBackground(new Color(111, 78, 55)); // set background color
-        gbc1.gridx = 3;
-        gbc1.gridy = 1;
+        gbc1.gridx = 2;
+        gbc1.gridy = 0;
+        gbc1.gridwidth = 3;
         // add receipt label
         JLabel ReceiptLabel = new JLabel("Your Receipt! Enjoy!");
         ReceiptLabel.setForeground(new Color(255, 182, 193));
@@ -155,6 +156,8 @@ public class ImagesFrame {
         CookiesNCreamCupI.setImage(cookiesNCreamCupEdit);
         JLabel CookiesNCreamCup = new JLabel(CookiesNCreamCupI);
 
+        gbc1.gridx = 0;
+        gbc1.gridy = 1;
         // for every item in the orderList add picture to the receipt
         for (AbstractFactory.Menu item : orderList) {
             if (item.getDescription().contains("Large Cookie")) {
