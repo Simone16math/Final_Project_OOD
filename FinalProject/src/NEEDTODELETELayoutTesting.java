@@ -1,9 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class LayoutTesting extends JFrame {
+public class NEEDTODELETELayoutTesting extends JFrame {
 
-    public LayoutTesting() {
+    public NEEDTODELETELayoutTesting() {
         setTitle("Grid Layout Buttons");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
@@ -25,6 +25,6 @@ public class LayoutTesting extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(LayoutTesting::new);
+        SwingUtilities.invokeLater(NEEDTODELETELayoutTesting::new);
     }
 }

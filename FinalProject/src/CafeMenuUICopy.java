@@ -1,6 +1,9 @@
 
 import AbstractFactory.*;
 import AbstractFactory.Menu;
+import Command.*;
+import Command.Command;
+import Command.CommandInvoker;
 import Decorator.*;
 import Observer.*;
 import Observer.Observer;
@@ -221,6 +224,26 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         stBSM.setForeground(new Color(111, 78, 55));
         SidePanel.add(stBSM);
 
+        //Commands
+        Menu iceCreamPlaceholder = menuFactory.createIceCream();
+        Menu menuItemPlaceholder = null;
+        CommandInvoker commandInvoker = new CommandInvoker();
+        Command addSprinkles = new AddSprinklesCommand((IceCream) iceCreamPlaceholder);
+        Command removeSprinkles = new RemoveSprinklesCommand((IceCream) iceCreamPlaceholder);
+        Command addChocolateSauce = new AddChocolateSauceCommand((IceCream) iceCreamPlaceholder);
+        Command removeChocolateSauce = new RemoveChocolateSauceCommand((IceCream) iceCreamPlaceholder);
+        Command addMenuItem = new AddMenuItemCommand();
+        Command removeMenuItem = new RemoveMenuItemCommand();
+        commandInvoker.addCommand(addSprinkles);
+        commandInvoker.addCommand(removeSprinkles);
+        commandInvoker.addCommand(addChocolateSauce);
+        commandInvoker.addCommand(removeChocolateSauce);
+        commandInvoker.addCommand(addMenuItem);
+        commandInvoker.addCommand(removeMenuItem);
+
+
+
+
         // Creates a GridBagConstraints object to define layout rules
         // (like position, spacing, alignment, and fill behavior) for components
         // in a GridBagLayout
@@ -418,28 +441,38 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                 if (cookiesNCreamIceCreamCheckBox.isSelected()){
                     iceCreamChosen = menuFactory.createCookiesNCreamIceCream();
                 }
+
                 if(iceCreamChosen == null){
                     log("please choose a flavor");
-                }
-                log(iceCreamChosen.getDescription() + " " + iceCreamChosen.getPrice());
-                Menu fullOrder= iceCreamChosen;
+                } else{
+                    log(iceCreamChosen.getDescription() + " " + iceCreamChosen.getPrice());
+                    Menu fullOrder= iceCreamChosen;
+                    if(sprinkles.isSelected()){
+                        log("Sprinkles added to ice cream.");
+                        //fullOrder = new SprinklesDecoratorIceCream((IceCream) fullOrder);
+                        commandInvoker.executeDecoratorCommand(addSprinkles, fullOrder);
+                        fullOrder = commandInvoker.getMenuItem();
+                    }
+                    if(chocolateSauce.isSelected()){
+                        log("Chocolate Sauce added to ice cream.");
+                        //fullOrder = new ChocolateSauceDecoratorIceCream((IceCream) fullOrder);
+                        commandInvoker.executeDecoratorCommand(addChocolateSauce, fullOrder);
+                        fullOrder = commandInvoker.getMenuItem();
+                    }
 
-                if(sprinkles.isSelected()){
-                    log("Sprinkles added to ice cream.");
-                    fullOrder = new SprinklesDecoratorIceCream((IceCream) fullOrder);
-                }
-                if(chocolateSauce.isSelected()){
-                    log("Chocolate Sauce added to ice cream.");
-                    fullOrder = new ChocolateSauceDecoratorIceCream((IceCream) fullOrder);
+                    if(iceCreamCone.isSelected()){
+                        log(icecream.cone());
+                    }
+                    if(iceCreamCup.isSelected()){
+                        log(icecream.cup());
+                    }
+                    commandInvoker.executeOrderUpdate(addMenuItem, fullOrder, orderList);
+                    System.out.println(fullOrder.getDescription());
+                    orderList = commandInvoker.getOrderList();
+                    System.out.println(orderList.size());
+                    //orderList.add(fullOrder);
                 }
 
-                if(iceCreamCone.isSelected()){
-                    log(icecream.cone());
-                }
-                if(iceCreamCup.isSelected()){
-                    log(icecream.cup());
-                }
-                orderList.add(fullOrder);
             }
         });
         //iceCreamPanel.add(addIceCreamBtn);
@@ -475,7 +508,10 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                     cookie = menuFactory.createCookie();
                 }
                 log(cookie.getDescription());
-                orderList.add(cookie);
+                commandInvoker.executeOrderUpdate(addMenuItem,cookie,orderList);
+                orderList = commandInvoker.getOrderList();
+                //orderList.add(cookie);
+
             }
         });
         main.add(Cookie, gbc);
@@ -505,7 +541,9 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                     cake = menuFactory.createRedVelvetCake();
                 }
                 log(cake.getDescription());
-                orderList.add(cake);
+                //orderList.add(cake);
+                commandInvoker.executeOrderUpdate(addMenuItem, cake, orderList);
+                orderList = commandInvoker.getOrderList();
             }
         });
         main.add(Cake, gbc);
@@ -536,7 +574,9 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                     pints = menuFactory.createCookiesNCreamIceCreamPint();
                 }
                 log(pints.getDescription());
-                orderList.add(pints);
+                //orderList.add(pints);
+                commandInvoker.executeOrderUpdate(addMenuItem, pints, orderList);
+                orderList = commandInvoker.getOrderList();
             }
         });
         main.add(pint, gbc);
@@ -570,7 +610,9 @@ public class CafeMenuUICopy extends JFrame implements Observer {
 
                 }
                 log(orderedDrinks.getDescription());
-                orderList.add(orderedDrinks);
+                //orderList.add(orderedDrinks);
+                commandInvoker.executeOrderUpdate(addMenuItem, orderedDrinks, orderList);
+                orderList = commandInvoker.getOrderList();
             }
         });
         main.add(Drinks, gbc);
@@ -587,7 +629,9 @@ public class CafeMenuUICopy extends JFrame implements Observer {
             int result = JOptionPane.showConfirmDialog(this, "Do you want to place your order?",
                     "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
             if (result == JOptionPane.YES_OPTION) {
+                System.out.println(orderList.size());
                 if (orderList.size() <= 0) {
+
                     log("No Order found");
                 } else {
                     order.orderStatus("Order Placed for " + textField.getText());

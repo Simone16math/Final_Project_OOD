@@ -48,6 +48,7 @@ public class CommandInvoker {
                 ((CommandOrder) c).setOrderList(orderList);
                 c.execute(menuItem); // execute the command
                 this.menuItem = c.getMenuItem();
+                this.orderList = orderList;
                 // return the menu item
             }
         }
