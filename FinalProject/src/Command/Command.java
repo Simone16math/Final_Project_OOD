@@ -11,7 +11,7 @@ import AbstractFactory.*;
 
 public interface Command {
     // all commands will call the execute method
-    void setMenuItem(Menu menuItem);
-    void execute(Menu menuItem);
-    Menu getMenuItem();
+    void setMenuItem(Menu menuItem); // set the menu item
+    void execute(Menu menuItem); // execute the command
+    Menu getMenuItem(); // get the menu item
 }

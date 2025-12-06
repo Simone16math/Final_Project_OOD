@@ -20,6 +20,7 @@ public class RemoveSprinklesCommand implements Command {
 
     @Override
     public void setMenuItem(Menu menuItem){
+        // set the menu item to ice cream
         this.iceCream = (IceCream) menuItem;
     }
 

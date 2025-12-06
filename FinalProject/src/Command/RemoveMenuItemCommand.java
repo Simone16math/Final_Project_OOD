@@ -20,26 +20,31 @@ public class RemoveMenuItemCommand implements Command,CommandOrder{
 
     @Override
     public Menu getMenuItem(){
+        // return the menu item
         return menuItem;
     }
 
     @Override
     public List<Menu> getOrderList(){
+        // return the order list
         return orderList;
     }
 
     @Override
     public void setOrderList(List<Menu> orderList){
+        // set the order list
         this.orderList = orderList;
     }
 
     @Override
     public void setMenuItem(Menu menuItem){
+        // set the menuItem
         this.menuItem = menuItem;
     }
 
     @Override
     public void execute(Menu menuItem){
+        // if the command is called, remove the item from the list
         orderList.remove(menuItem);
         System.out.println("Removed item");
     }

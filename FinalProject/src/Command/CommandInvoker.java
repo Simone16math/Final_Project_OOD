@@ -39,12 +39,16 @@ public class CommandInvoker {
     }
 
     public void executeOrderUpdate(Command command, Menu menuItem, List<Menu> orderList){
+        // for a
         for (Command c: commands){
+            // for a given command
             if (c == command){
+                // set the menu item and order list
                 c.setMenuItem(menuItem);
                 ((CommandOrder) c).setOrderList(orderList);
-                c.execute(menuItem);
+                c.execute(menuItem); // execute the command
                 this.menuItem = c.getMenuItem();
+                // return the menu item
             }
         }
     }

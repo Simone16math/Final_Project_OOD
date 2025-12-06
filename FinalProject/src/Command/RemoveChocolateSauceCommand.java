@@ -24,7 +24,9 @@ public class RemoveChocolateSauceCommand implements Command{
 
     @Override
     public void execute(Menu menuItem){
+        // set the menu item
         setMenuItem(menuItem);
+        // update the item's description and price so that it removes the chocolate sauce
         String previousItemName = iceCream.getItemName();
         String newItemName = previousItemName.replace(", Chocolate Sauce", "");
 
@@ -33,12 +35,13 @@ public class RemoveChocolateSauceCommand implements Command{
         newIceCream.setItemName(newItemName);
 
         iceCream = newIceCream;
-        //System.out.println(iceCream.getDescription());
+        // set the ice cream
         setMenuItem(iceCream);
     }
 
     @Override
     public Menu getMenuItem(){
+        // return the ice cream
         return iceCream;
     }
 }
