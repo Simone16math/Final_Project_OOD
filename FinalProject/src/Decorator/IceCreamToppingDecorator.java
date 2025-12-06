@@ -16,6 +16,7 @@ abstract class IceCreamToppingDecorator extends IceCream {
 
     // Constructor
     public IceCreamToppingDecorator(IceCream decoratedIceCream){
+        // sets the ice cream initially
       this.decoratedIceCream = decoratedIceCream;
     }
 
@@ -27,11 +28,13 @@ abstract class IceCreamToppingDecorator extends IceCream {
 
     @Override
     public double getPrice(){
+        // returns the price of the ice cream
         return decoratedIceCream.getPrice();
     }
 
     @Override
     public String getItemName(){
+        // returns the name of the ice cream
         return decoratedIceCream.getItemName();
     }
 

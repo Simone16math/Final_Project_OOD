@@ -6,7 +6,7 @@ import Observer.*;
 
 /*
     Author: Simone Charles
-    Purpose: Add chocolate sauce to the constructor
+    Purpose: Adds chocolate sauce to the ice cream
  */
 
 public class ChocolateSauceDecoratorIceCream extends IceCreamToppingDecorator {
@@ -24,6 +24,7 @@ public class ChocolateSauceDecoratorIceCream extends IceCreamToppingDecorator {
 
     @Override
     public String getItemName(){
+        // returns the items new name;
         return decoratedIceCream.getItemName() + ", Chocolate Sauce";
     }
 

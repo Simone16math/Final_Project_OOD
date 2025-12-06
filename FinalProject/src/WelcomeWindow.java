@@ -30,7 +30,7 @@ public class WelcomeWindow extends JFrame {
         this.setSize(800,800);
         this.setVisible(true);
         //imagePath = "C:\\Users\\annik\\OneDrive\\Documents\\College\\NCF\\Java\\finalProject\\Final_Project_OOD\\FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg";
-        imagePath = "FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg";
+        imagePath = "FinalProject\\src\\ImagesOfMenu\\CafeLogo.jpg";
 
         //imagePath = "FinalProject/src/ImagesOfMenu/CafeLogo.jpg";
         //image3 ="C:\Users\annik\OneDrive\Documents\College\NCF\Java\finalProject\Final_Project_OOD\FinalProject\src\background.jpg";

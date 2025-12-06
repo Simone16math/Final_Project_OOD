@@ -11,6 +11,7 @@ import Observer.*;
  */
 
 public class BasicIceCream extends IceCream {
+    // Attriubtes
     private String description;
     private String item = "Ice Cream";
     private double price = 2.0;
@@ -38,11 +39,13 @@ public class BasicIceCream extends IceCream {
 
     @Override
     public void setItemName(String item){
+        // sets the item's name
         this.item = item;
     }
 
     @Override
     public void setPrice(double price){
+        // sets the item's price
         this.price = price;
     }
 
