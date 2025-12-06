@@ -114,7 +114,12 @@ We need a good way of organizing this, but it is really confusing at the moment.
 - https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
 - https://www.geeksforgeeks.org/java/fonts-available-in-java-awt/
 - https://stackoverflow.com/questions/4219919/how-to-change-the-background-color-on-a-java-panel
-- need to remember to add JavaSwing files
+- https://docs.oracle.com/javase/tutorial/2d/images/loadimage.html
 - https://coderanch.com/t/330964/java/positioning-JFrames-Screen
+- https://docs.oracle.com/javase/8/docs/api/javax/swing/ImageIcon.html
+- https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
+- https://docs.oracle.com/javase/8/docs/api/java/awt/FlowLayout.html
+- https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
+- 
 
 
