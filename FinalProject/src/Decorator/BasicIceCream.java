@@ -48,5 +48,14 @@ public class BasicIceCream extends IceCream {
         // sets the item's price
         this.price = price;
     }
+    // cone or cup descriptions
+    @Override
+    public String cone(){
+        return " In a Cone";
+    }
+    @Override
+    public String cup(){
+        return " In a Cup";
+    }
 
 }

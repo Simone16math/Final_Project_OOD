@@ -18,17 +18,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
     private JPanel parent;
     Order order = new Order();
     private java.util.List<Menu> orderList = new ArrayList();
-    IceCream icecream = new IceCream() {
-        @Override
-        public String cup() {
-            return super.cup();
-        }
-
-        @Override
-        public String cone() {
-            return super.cone();
-        }
-    };
+    IceCream icecream = new BasicIceCream();
     BasicIceCream basicIceCream = new BasicIceCream();
     Cookie basicCookie = new Cookie();
     Drinks drinks = new Drinks();
@@ -49,7 +39,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         setLocationRelativeTo(null);
         getContentPane().setBackground(new Color(111, 78, 55));
 
-        imagePath = "C:\\Users\\annik\\OneDrive\\Documents\\College\\NCF\\Java\\finalProject\\Final_Project_OOD\\FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg";
+        imagePath =  "FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg";
         //image3 ="C:\Users\annik\OneDrive\Documents\College\NCF\Java\finalProject\Final_Project_OOD\FinalProject\src\background.jpg";
         this.setIconImage(new ImageIcon(imagePath).getImage());
 
@@ -290,7 +280,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         iceCreamFlavors.add(chocolateIceCreamCheckBox);
         iceCreamFlavors.add(cookiesNCreamIceCreamCheckBox);
 
-        vanillaIceCreamCheckBox.addActionListener( new ActionListener() {
+        /*vanillaIceCreamCheckBox.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                    if (vanillaIceCreamCheckBox.isSelected()){
@@ -313,23 +303,24 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                 if (cookiesNCreamIceCreamCheckBox.isSelected()){
                     log("Ice cream flavor is cookies n cream");
                 }
+
             }
-        });
+        });*/
         iceCreamPanel.add(vanillaIceCreamCheckBox);
         iceCreamPanel.add(chocolateIceCreamCheckBox);
         iceCreamPanel.add(cookiesNCreamIceCreamCheckBox);
 
         JRadioButton iceCreamCone = new JRadioButton("Cone");
-        JRadioButton iceCreamCup = new JRadioButton("Cone");
+        JRadioButton iceCreamCup = new JRadioButton("Cup");
         ButtonGroup iCFlavors = new ButtonGroup();
         iCFlavors.add(iceCreamCone);
         iCFlavors.add(iceCreamCup);
 
-        iceCreamCup.addActionListener(new ActionListener() {
+        /*iceCreamCup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (iceCreamCup.isSelected()){
-                    log("Cup.");
+                    icecream.cup();
                 }
             }
         });
@@ -337,10 +328,10 @@ public class CafeMenuUICopy extends JFrame implements Observer {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (iceCreamCone.isSelected()){
-                    log("Cone");
+                    icecream.cone();
                 }
             }
-        });
+        });*/
 
         iceCreamPanel.add(iceCreamCup);
         iceCreamPanel.add(iceCreamCone);
@@ -350,7 +341,8 @@ public class CafeMenuUICopy extends JFrame implements Observer {
         JCheckBox sprinkles = new JCheckBox("Sprinkles");
         JCheckBox chocolateSauce = new JCheckBox("Chocolate Sauce");
         //sprinkles.addActionListener(e -> log("Sprinkles added to ice cream" + sprinkles.isSelected()));
-        sprinkles.addActionListener(new ActionListener() {
+
+        /*sprinkles.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (sprinkles.isSelected()) {
@@ -370,7 +362,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                     log("Chocolate Sauce removed from ice cream.");
                 }
             }
-        });
+        });*/
         iceCreamPanel.add(sprinkles);
         iceCreamPanel.add(chocolateSauce);
         iceCreamPanel.add(new JPanel());
@@ -399,10 +391,31 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                 if (cookiesNCreamIceCreamCheckBox.isSelected()){
                     iceCreamChosen = menuFactory.createCookiesNCreamIceCream();
                 }
+                log(iceCreamChosen.getDescription() + " " + iceCreamChosen.getPrice() );
+
+                Menu fullOrder= iceCreamChosen;
+
+                if(sprinkles.isSelected()){
+                    log("Sprinkles added to ice cream.");
+                    fullOrder = new SprinklesDecoratorIceCream((IceCream) fullOrder);
+                }
+                if(chocolateSauce.isSelected()){
+                    log("Chocolate Sauce added to ice cream.");
+                    fullOrder = new ChocolateSauceDecoratorIceCream((IceCream) fullOrder);
+                }
+
+                if(iceCreamCone.isSelected()){
+                    log(icecream.cone());
+                }
+                if(iceCreamCup.isSelected()){
+                    log(icecream.cup());
+                }
+                orderList.add(fullOrder);
             }
         });
         //iceCreamPanel.add(addIceCreamBtn);
         main.add(addIceCreamBtn,gbc);
+
 
 
 
@@ -556,7 +569,6 @@ public class CafeMenuUICopy extends JFrame implements Observer {
                     }
 
                     log("Total price: $" + total);
-                    getReceipt();
                 }
             } else if (result == JOptionPane.NO_OPTION) {
                 if (orderList.size() <= 0) {
@@ -616,6 +628,7 @@ public class CafeMenuUICopy extends JFrame implements Observer {
             if (count.get(0) <= 0) {
                 timer.stop();
                 order.orderStatus("Order ready for Pickup!");
+                getReceipt();
             }
 
         });

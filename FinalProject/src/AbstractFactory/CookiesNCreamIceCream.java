@@ -9,7 +9,7 @@ public class CookiesNCreamIceCream extends IceCream {
     // add price
     @Override
     public double getPrice() {
-        return 0.50;
+        return 2.50;
     }
     // add description
     @Override

@@ -9,7 +9,7 @@ public class VanillaIceCream extends IceCream {
     // add price
     @Override
     public double getPrice() {
-        return 0;
+        return 2;
     }
     // add description
     @Override

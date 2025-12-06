@@ -331,6 +331,7 @@ public class CafeMenuUI extends JFrame implements Observer {
             }
             log(flavor.getDescription());
             orderList.add(flavor);
+
             Object[] options = {"Cone", "Cup"};
             int choice1 = JOptionPane.showOptionDialog(this, "Choose:", "Available options",
                             JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);

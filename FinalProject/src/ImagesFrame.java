@@ -23,6 +23,18 @@ public class ImagesFrame {
         gbc1.anchor = GridBagConstraints.WEST;
         gbc1.fill = GridBagConstraints.HORIZONTAL;
 
+        String imagePath = "FinalProject\\src\\imagesOfMenu\\CafeLogo.jpg"; //Logo picture in the welcome frame
+        //image3 ="C:\Users\annik\OneDrive\Documents\College\NCF\Java\finalProject\Final_Project_OOD\FinalProject\src\background.jpg";
+        receipt.setIconImage(new ImageIcon(imagePath).getImage());
+
+        gbc1.gridx = 3;
+        gbc1.gridy = 3;
+        receipt.setBackground(new Color(111, 78, 55));
+        JLabel ReceiptLabel = new JLabel("Your Receipt! Enjoy!");
+        ReceiptLabel.setForeground(new Color(255, 182, 193));
+        ReceiptLabel.setFont(new Font("Broadway", Font.BOLD, 25));
+        receipt.add(ReceiptLabel,gbc1);
+
         String[] imagePaths1 = new String[16];
         imagePaths1[0] = "FinalProject\\src\\ImagesOfMenu\\largeCookie.jpg";
         imagePaths1[1] = "FinalProject\\src\\ImagesOfMenu\\smallCookie.jpg";
